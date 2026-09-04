@@ -144,7 +144,6 @@
             display: block;
         }
 
-        /* Contenedor de sección con título y botón Ver más */
         .section-header {
             max-width: 1200px;
             margin: 40px auto 10px auto;
@@ -179,7 +178,7 @@
             text-decoration: underline;
         }
 
-        /* Contenedor de desplazamiento horizontal tipo carrusel con flechas/scroll */
+        /* Carrusel horizontal ancho */
         .slider-wrapper {
             position: relative;
             max-width: 1200px;
@@ -192,7 +191,7 @@
             gap: 20px;
             overflow-x: auto;
             scroll-behavior: smooth;
-            padding: 15px 0;
+            padding: 15px 5px;
             scrollbar-width: thin;
             scrollbar-color: var(--accent-color) #e5e0d8;
         }
@@ -206,25 +205,24 @@
             border-radius: 10px;
         }
 
-        /* Botones flechas deslizadoras */
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             border: 1px solid var(--border-color);
             color: #333;
-            font-size: 20px;
-            width: 40px;
-            height: 40px;
+            font-size: 22px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transition: background 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: background 0.2s, color 0.2s;
         }
 
         .slider-btn:hover {
@@ -232,8 +230,8 @@
             color: var(--accent-color);
         }
 
-        .slider-btn.prev { left: 5px; }
-        .slider-btn.next { right: 5px; }
+        .slider-btn.prev { left: -5px; }
+        .slider-btn.next { right: -5px; }
 
         .card {
             background-color: var(--card-bg);
@@ -242,20 +240,20 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            min-width: 240px;
-            max-width: 240px;
+            min-width: 230px;
+            max-width: 230px;
             flex-shrink: 0;
             transition: transform 0.2s;
         }
 
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .card img {
             width: 100%;
-            height: 260px;
+            height: 250px;
             object-fit: cover;
             background-color: #eee;
         }
@@ -336,7 +334,7 @@
                 background-color: #f4f1ea;
             }
             .slider-btn {
-                display: none; /* En celu se desliza directamente con el dedo */
+                display: none;
             }
         }
     </style>
@@ -383,7 +381,7 @@
         <a href="#packs-bombachas" class="btn-ver-mas">Ver más &rarr;</a>
     </div>
     <div class="slider-wrapper">
-        <button class="slider-btn prev" onclick="scrollSlider('slider-packs', -300)">&#10094;</button>
+        <button class="slider-btn prev" onclick="scrollSlider('slider-packs', -500)">&#10094;</button>
         <div id="slider-packs" class="catalog-slider">
             <div class="card">
                 <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc9a2767-8ea5-40be-8195-193df6a2bcc4-967e8470bd2176998617629692538191-480-0.webp" alt="Pack x3 Colaless regulable">
@@ -425,8 +423,18 @@
                     <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20vedetina" target="_blank" class="btn-consultar">Consultar</a>
                 </div>
             </div>
+            <div class="card">
+                <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/757ea949-7892-43ae-a698-930730f0699e-38166a15498f6fe0e117805924697359-480-0.webp" alt="Pack x3 colaless">
+                <div class="card-body">
+                    <div class="card-brand">BRIGITTE</div>
+                    <div class="card-title">Pack x3 colaless de algodón y lycra</div>
+                    <div class="card-price">$21,127.60</div>
+                    <div class="card-desc">SURTIDO - S/M</div>
+                    <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20colaless" target="_blank" class="btn-consultar">Consultar</a>
+                </div>
+            </div>
         </div>
-        <button class="slider-btn next" onclick="scrollSlider('slider-packs', 300)">&#10095;</button>
+        <button class="slider-btn next" onclick="scrollSlider('slider-packs', 500)">&#10095;</button>
     </div>
 
     <!-- ================= SECCIÓN: BODYS ================= -->
@@ -435,7 +443,7 @@
         <a href="#bodys" class="btn-ver-mas">Ver más &rarr;</a>
     </div>
     <div class="slider-wrapper">
-        <button class="slider-btn prev" onclick="scrollSlider('slider-bodys', -300)">&#10094;</button>
+        <button class="slider-btn prev" onclick="scrollSlider('slider-bodys', -500)">&#10094;</button>
         <div id="slider-bodys" class="catalog-slider">
             <div class="card">
                 <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0572a79a-d87b-4c45-af26-729948301478-75a9ad8d6e6fc8675b17786974868106-480-0.webp" alt="Body escote cruzado">
@@ -467,8 +475,18 @@
                     <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20modal%20gamuzado" target="_blank" class="btn-consultar">Consultar</a>
                 </div>
             </div>
+            <div class="card">
+                <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cbe1c79e-99a6-461f-bfd8-03420e5d9a01-52556163b5ac1f7aac17773943890593-480-0.webp" alt="Body microfibra">
+                <div class="card-body">
+                    <div class="card-brand">TRENDA</div>
+                    <div class="card-title">Body microfibra</div>
+                    <div class="card-price">$18,314.40</div>
+                    <div class="card-desc">BLANCO - 100</div>
+                    <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+                </div>
+            </div>
         </div>
-        <button class="slider-btn next" onclick="scrollSlider('slider-bodys', 300)">&#10095;</button>
+        <button class="slider-btn next" onclick="scrollSlider('slider-bodys', 500)">&#10095;</button>
     </div>
 
     <!-- ================= SECCIÓN: BOMBACHAS SUELTAS ================= -->
@@ -477,7 +495,7 @@
         <a href="#bombachas" class="btn-ver-mas">Ver más &rarr;</a>
     </div>
     <div class="slider-wrapper">
-        <button class="slider-btn prev" onclick="scrollSlider('slider-bombachas', -300)">&#10094;</button>
+        <button class="slider-btn prev" onclick="scrollSlider('slider-bombachas', -500)">&#10094;</button>
         <div id="slider-bombachas" class="catalog-slider">
             <div class="card">
                 <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ec50d1bb-feeb-4289-a17c-c15ee9c07374-930d0dcb3b3658163717806069869593-480-0.webp" alt="Colaless segunda piel">
@@ -509,11 +527,21 @@
                     <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20regulable" target="_blank" class="btn-consultar">Consultar</a>
                 </div>
             </div>
+            <div class="card">
+                <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/781bcd6b-57ce-40ea-bdb3-08ec4a1f1277-5ce9829b6d95c7c1d917806056242243-480-0.webp" alt="Bombacha vedetina">
+                <div class="card-body">
+                    <div class="card-brand">ANDRESSA</div>
+                    <div class="card-title">Bombacha vedetina de algodón y lycra</div>
+                    <div class="card-price">$9,334.00</div>
+                    <div class="card-desc">BLANCO - 1</div>
+                    <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20vedetina" target="_blank" class="btn-consultar">Consultar</a>
+                </div>
+            </div>
         </div>
-        <button class="slider-btn next" onclick="scrollSlider('slider-bombachas', 300)">&#10095;</button>
+        <button class="slider-btn next" onclick="scrollSlider('slider-bombachas', 500)">&#10095;</button>
     </div>
 
-    <!-- Script para mover los sliders con las flechitas -->
+    <!-- Script de desplazamiento horizontal -->
     <script>
         function scrollSlider(sliderId, distance) {
             const slider = document.getElementById(sliderId);
