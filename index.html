@@ -4,582 +4,364 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olympo Shop - Catálogo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #faf9f6;
+            --bg-color: #f9f8f6;
+            --header-bg: #f9f8f6;
+            --text-color: #2c2c2c;
+            --accent-color: #d4af37;
             --card-bg: #ffffff;
-            --text-main: #2c2c2c;
-            --text-muted: #777777;
+            --border-color: #e5e0d8;
         }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
+
         header {
-            text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #e5e0d8;
-            padding-bottom: 20px;
+            background-color: var(--header-bg);
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap;
         }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 36px;
-            color: #1a1a1a;
-            margin: 0 0 5px 0;
+
+        .social-top {
+            display: flex;
+            gap: 12px;
         }
-        .subtitle {
-            font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        .instagram-link {
-            display: inline-block;
-            font-size: 12px;
-            color: #e1306c;
+
+        .social-top a {
             text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            padding: 7px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-wsp { background-color: #25d366; }
+        .btn-ig { background-color: #e1306c; }
+        .social-top a:hover { opacity: 0.85; }
+
+        .logo-container {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 4px;
+            font-weight: 400;
+            color: #222;
+        }
+
+        /* Menú de navegación desplegable */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 14px;
             font-weight: 500;
             letter-spacing: 1px;
-            border: 1px solid #e1306c;
-            padding: 5px 12px;
-            border-radius: 15px;
-            transition: all 0.2s ease;
+            transition: background 0.3s, color 0.3s;
         }
-        .instagram-link:hover {
-            background-color: #e1306c;
-            color: #fff;
+
+        .nav-item > a:hover {
+            background-color: #f1ede6;
+            color: #000;
         }
-        
-        /* BOTONES DE SECCIONES (INTERACTIVO) */
-        .nav-categories {
+
+        /* Submenú desplegable */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            list-style: none;
+            min-width: 180px;
+            z-index: 100;
+            border: 1px solid var(--border-color);
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 13px;
+            border-bottom: 1px solid #f4f4f4;
+            transition: background 0.2s;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f9f8f6;
+            color: var(--accent-color);
+        }
+
+        /* Mostrar desplegable con hover en compu o toque en celu */
+        .nav-item:hover .dropdown,
+        .nav-item:focus-within .dropdown {
+            display: block;
+        }
+
+        /* Filtros de productos */
+        .filters {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 30px;
+            padding: 25px 20px;
             flex-wrap: wrap;
         }
-        .cat-btn {
-            background-color: #f0ece1;
+
+        .filter-btn {
+            background-color: #e5e0d8;
             border: none;
             padding: 10px 20px;
             border-radius: 20px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            color: #555;
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
+            font-size: 12px;
             letter-spacing: 1px;
-        }
-        .cat-btn:hover, .cat-btn.active {
-            background-color: #2c2c2c;
-            color: #ffffff;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
         }
 
-        .catalog-grid {
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-        .product-card {
+
+        .card {
             background-color: var(--card-bg);
-            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid #f0eee9;
             display: flex;
             flex-direction: column;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s;
         }
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .product-image {
+
+        .card img {
             width: 100%;
-            height: 240px;
+            height: 260px;
             object-fit: cover;
-            background-color: #f4f2ee;
+            background-color: #eee;
         }
-        .product-info {
+
+        .card-body {
             padding: 15px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             flex-grow: 1;
         }
-        .product-brand {
-            font-size: 10px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-        }
-        .product-name {
+
+        .card-title {
             font-size: 13px;
-            font-weight: 500;
-            color: #2c2c2c;
-            margin-bottom: 3px;
-        }
-        .product-color {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .product-footer {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            border-top: 1px solid #f7f5f0;
-            padding-top: 10px;
-        }
-        .tag {
-            font-size: 10px;
-            background-color: #25d366;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: 500;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            color: #444;
         }
 
-        /* MODAL / VENTANA DETALLE */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-        }
-        .modal-content {
-            background: #fff;
-            border-radius: 12px;
-            max-width: 700px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            position: relative;
-        }
-        .modal-image {
-            width: 50%;
-            height: 380px;
-            object-fit: cover;
-            background-color: #f4f2ee;
-        }
-        .modal-details {
-            width: 50%;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-            background: none;
-            border: none;
-        }
-        .modal-brand {
+        .card-desc {
             font-size: 11px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            color: #777;
+            margin: 0 0 15px 0;
+            flex-grow: 1;
         }
-        .modal-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 10px;
-        }
-        .modal-color, .modal-talle {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-        .buy-whatsapp {
+
+        .btn-consultar {
             background-color: #25d366;
             color: white;
             text-align: center;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 10px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            margin-top: 20px;
-        }
-        .buy-whatsapp:hover {
-            background-color: #20ba5a;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s;
         }
 
-        @media (max-width: 600px) {
-            .modal-content { flex-direction: column; max-height: 90vh; overflow-y: auto; }
-            .modal-image, .modal-details { width: 100%; }
-            .modal-image { height: 250px; }
+        .btn-consultar:hover {
+            background-color: #1ebe57;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .social-top {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                border: none;
+                background-color: #f4f1ea;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Olympo Shop</h1>
-        <div class="subtitle">Catálogo Exclusivo - Ropa Interior</div>
-        <a href="https://www.instagram.com/_.olymposhop._?igsi=dzQzNXV3aTR2eW42&utm_source=qr" class="instagram-link" target="_blank">Instagram: @_.olymposhop._</a>
+        <div class="social-top">
+            <a href="https://wa.me/5491168327127?text=Hola!%20Quiero%20consultar%20por%20un%20producto%20de%20Olympo%20Shop" target="_blank" class="btn-wsp">WhatsApp</a>
+            <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
+        </div>
+        <div class="logo-container">
+            <h1>OLYMPO SHOP</h1>
+        </div>
+        <div style="width: 150px;"></div>
     </header>
 
-    <!-- MENÚ DE NAVEGACIÓN INTERACTIVO -->
-    <div class="nav-categories">
-        <button class="cat-btn active" onclick="filtrar('todos', this)">Ver Todo</button>
-        <button class="cat-btn" onclick="filtrar('packs', this)">Packs de Bombachas</button>
-        <button class="cat-btn" onclick="filtrar('bodys', this)">Bodys</button>
-        <button class="cat-btn" onclick="filtrar('sueltas', this)">Bombachas Sueltas</button>
+    <!-- Menú Desplegable de Categorías -->
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#">Mujer ▾</a>
+                <ul class="dropdown">
+                    <li><a href="#">Packs de Bombachas</a></li>
+                    <li><a href="#">Bodys</a></li>
+                    <li><a href="#">Bombachas Sueltas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#">Hombre ▾</a>
+                <ul class="dropdown">
+                    <li><a href="#">Bóxers</a></li>
+                    <li><a href="#">Slips</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#">Niño ▾</a>
+                <ul class="dropdown">
+                    <li><a href="#">Ropa Interior Niño</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#">Blanquería ▾</a>
+                <ul class="dropdown">
+                    <li><a href="#">Sábanas</a></li>
+                    <li><a href="#">Toallones</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="filters">
+        <button class="filter-btn active">VER TODO</button>
+        <button class="filter-btn">PACKS DE BOMBACHAS</button>
+        <button class="filter-btn">BODYS</button>
+        <button class="filter-btn">BOMBACHAS SUELTAS</button>
     </div>
 
-    <div class="catalog-grid" id="catalog"></div>
+    <div class="catalog-container">
+        <!-- Producto 1: Pack de Bombachas -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80" alt="Pack x3 Colaless">
+            <div class="card-body">
+                <div class="card-title">Pack x3 Colaless regulable de morley sin costura</div>
+                <div class="card-desc">COLOR BLANCO</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Pack%20x3%20Colaless%20regulable" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
 
-    <!-- VENTANA EMERGENTE (MODAL) -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <button class="close-btn" id="closeModal">&times;</button>
-            <img src="" alt="" class="modal-image" id="modalImg">
-            <div class="modal-details">
-                <div>
-                    <div class="modal-brand" id="modalBrand"></div>
-                    <div class="modal-title" id="modalName"></div>
-                    <div class="modal-color" id="modalColor"></div>
-                    <div class="modal-talle" id="modalTalle"></div>
-                </div>
-                <a href="#" class="buy-whatsapp" id="modalWa" target="_blank">Consultar Precio por WhatsApp</a>
+        <!-- Producto 2: Pack de Bombachas -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Pack x2 Vedetina">
+            <div class="card-body">
+                <div class="card-title">Pack x2 Vedetina tiro medio de algodón y lycra</div>
+                <div class="card-desc">COLOR SURTIDO</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Pack%20x2%20Vedetina" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Producto 3: Body (Foto específica de body/ropa exterior elegante) -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Body Exclusivo">
+            <div class="card-body">
+                <div class="card-title">Body morley escote redondo calidad premium</div>
+                <div class="card-desc">COLOR NEGRO / BLANCO</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Body%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Producto 4: Bombacha suelta -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Bombacha suelta">
+            <div class="card-body">
+                <div class="card-title">Bombacha vedetina individual de algodón & lycra</div>
+                <div class="card-desc">COLOR SURTIDO</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20la%20Bombacha%20suelta" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Producto 5: Pack de Bombachas -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" alt="Pack x3 colaless">
+            <div class="card-body">
+                <div class="card-title">Pack x3 colaless de algodón y lycra</div>
+                <div class="card-desc">COLOR SURTIDO</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Pack%20x3%20colaless%20de%20algodón" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
     </div>
 
-    <script>
-        const productos = [
-            /* --- PACKS DE BOMBACHAS --- */
-            {cat: "packs", nombre: "Pack x3 Colaless regulable de morley sin costura", marca: "KAURY", color: "BLANCO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc9a2767-8ea5-40be-8195-193df6a2bcc4-967e8470bd2176998617629692538191-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 Vedetina tiro medio de algodon y lycra", marca: "TRENDA", color: "SURTIDO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7b86389f-9b96-43a2-8fec-f7b3eabb1b31-904e273dbdec7d4f5017804093699188-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless pack x3 de algodón", marca: "BRIGITTE", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/36e764db-75b2-4b2b-985f-916851f6cbf8-2a7b69ab7e01d0a8f817805925190317-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 vedetina de algodón & lycra", marca: "BRIGITTE", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/79892363-b7e8-425e-8114-c91e46e336a2-842cae939839564d6117720396465969-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 colaless de algodón y lycra", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/757ea949-7892-43ae-a698-930730f0699e-38166a15498f6fe0e117805924697359-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x2 con puntilla trasera", marca: "ANDRESSA", color: "BLANCO/SOFIA", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/23132188-498b-4602-bc70-f260a49764be-807a8a5d4d359a376817758401399187-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de tul", marca: "ANDRESSA", color: "VERDE/TURQUESA", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/61b80f1c-a97c-4bf8-bc9c-b183a75c6df4-a7b68ba29dec88fe9617614089947033-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x2 de puntilla", marca: "ANDRESSA", color: "NEGRO/ROJO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b9a0dfaf-7cb0-4481-93a2-cbff62b7d525-868373c17aec32738817579609345286-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 Bombacha less regulable surtido de microfibra", marca: "TRENDA", color: "NEGRO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9ba81a8c-d8e9-4851-9aa0-643db38fbe23-16327bdc199b03fd9417801607255084-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de microfibra y puntilla", marca: "BRIGITTE", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/07392cd0-1ced-4938-8ec0-95397715e4bd-ed6935f70f61579a7c17590074501255-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de puntilla", marca: "SIGRY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f80a091-e0c3-499a-90d0-b1ca8fd951ad-2a817cb13a5d6d0c3a17844125060482-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de algodón", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/6fc9bec2-24a0-46b3-8fe5-e0d41ab5a88f-7bac53f323d0e8915517716924897977-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 de microfibra", marca: "ANDRESSA", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/111b1bcf-62c7-4f07-9cb9-13bc1c4a3b5e-09548e5d5ea27cb38017614118040126-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de microfibra", marca: "ANDRESSA", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/89e9708b-d1f2-477d-9c53-489caebaa6d0-ee834b9eb61913e98317605366873476-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de puntilla", marca: "KAURY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/96e36620-dfa1-4b34-9c58-db28fc47f4e4-febf40519fbd78502317882776181710-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 minishort microfibra", marca: "BRIGITTE", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cf8d10df-1eaa-494d-9c7b-c60aa5426077-da29e67c4603b4816117805977260276-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 less de microfibra", marca: "BRIGITTE", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ddfe8b33-e7cd-41df-9ccc-bdf1b9f68b7a-da3d5111ceb1f157b817740245551024-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 vedetina de microfibra", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/56adb8de-c537-4695-baeb-f74dbeef6ffe-e5d9a8126b61e0813817727316560037-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 vedetina de microfibra", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/db485009-dc8c-4ed4-afee-a8de02d4bc64-4daad8e94099e8f7fb17727316354991-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 colaless microfibra", marca: "SIN MARCA", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/69082b5e-3943-4230-a8ba-992f9fec6356-d2ae3c9cc0a8f5aaed17727317317660-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 de algodón y lycra", marca: "ANDRESSA", color: "BLANCO/NEGRO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/98053cc5-5700-44e6-bf3e-14a44160d92c-26a2a38785b9a8fcf317758304126750-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 colaless morley", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/1a2f99c2-8a6b-486c-ab6f-77c46943307b-e508cc5f27d88dff8117805925005159-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 less tiro medio de morley doble", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/159c441d-26e9-4d5f-9e4c-4bbd3d38271f-efe99281f4ca60a0ff17727316785709-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 vedetina de morley", marca: "BRIGITTE", color: "SURTIDO", talle: "S/M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a0a0d7a1-181a-48a6-9d20-4b0f7cf0d194-e87e1e920d0251208f17727316652393-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 culotte de algodón & lycra con cintura doble", marca: "BRIGITTE", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a404fdd7-c462-42c9-9d55-a3aaddd6dac4-631d8d0d847055dc0617720396647894-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 3 colaless regulable de microfibra", marca: "TRENDA", color: "SURTIDO", talle: "4", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d050c5b7-0dde-438b-a615-62f67f6c2927-8b01cd8e03fdc72c8317801606562035-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x3 de morley", marca: "TIENTO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4e7a95bd-e1d6-4e94-9a7d-482e151c38ff-55cda4dd3b7d3cd1c917831879021941-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de morley", marca: "TIENTO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/276ed9a7-d990-4697-b335-50eb4152c6ea-80b5b33e8622e732df17589886811715-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless tiro alto pack x2 de morley", marca: "TIENTO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/63b2ba42-eb1f-431d-b09c-3ef7b3853599-bf3b548e8dc874fee117829153587969-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de algodón liso y estampado con elástico personalizado", marca: "KAURY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7c3db75d-53e4-44c4-a649-affe87e2fdb5-08904a872f9198ec4717868212880685-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culotte pack x3 de puntilla", marca: "NATUBEL", color: "SURTIDO", talle: "XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/1d40dc69-4a96-4c85-bf2f-bb214b430f04-7d8f60c2b7eff8813517590086086031-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x3 de microfibra", marca: "SIN MARCA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/726ddb26-2538-4cbc-b659-c0f9fe0bff72-36af1a5d23f94961bc17758314405020-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 less regulable de microfibra", marca: "BRIGITTE", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/32e5873d-d99f-4ffc-a03c-5cb85a6977d7-1c719230722b93bce117740245415554-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2.Less regulable dia del amigo", marca: "ANDRESSA", color: "SURTIDO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9aafa867-b053-48a2-a763-c64e28341ab9-8901f41d26fe54e59817614065909607-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de microfibra", marca: "KAURY", color: "BLANCO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a32756b3-5b78-4ca5-9719-985d6a9f9a6d-b4d54090f3c5a66dc117590036183125-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culotte pack x3 de puntilla", marca: "NATUBEL", color: "SURTIDO", talle: "L", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/897d213d-2db7-4c16-9e96-6b7fa0f63cf9-e76e4f056cea70d2ec17590085965844-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 3 vedetinas de algodon", marca: "TRENDA", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/f0ffed2d-c298-4a87-834b-1cbc7de1919a-ee272fbcc660ba31a717882956817450-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 Colaless de algodón liso y estampado con detalles de tiras", marca: "KAURY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c6a9f836-d6b2-435a-ac31-a121ddd31203-13f156d97e08bda91b17866330167442-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra estampada con puntilla", marca: "ANDRESSA", color: "CORAL", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/297ab571-070a-4a78-99e4-118837c21bc1-de54cd848d15cbdaec17588309285557-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less pack x4 con tiras regulables", marca: "BRIGITTE", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5bbef63c-4553-4d32-a872-6114b5c4269c-ed69a643a4868c08ab17590074728701-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2 less entera lisa", marca: "TRENDA", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/381a0b60-bcdc-47a9-9828-e9bdb200ca18-50e4d0334576515cee17786952268564-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 Colaless segunda piel", marca: "COCOT", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4778cfb7-805a-43d1-844b-7b7d8780b4bd-2f9ff26045084b631917614135267809-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de microfibra", marca: "KAURY", color: "BLANCO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/e379e048-36ce-45c3-9bd3-21509e0154c6-1f029ab3847c8c516a17590036020788-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de encaje con elástico", marca: "KAURY", color: "BLANCO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/63a9b409-6a7e-4f04-bcb8-85d98d48fc32-375a7cbd77b829627e17590037437456-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha maxivedetina pack x3 de morley con puntilla", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b8c13bc2-b47f-4a83-a9ee-cd76b654fa29-71bfcac5e45db98ae717822216407594-480-0.webp"},
-            {cat: "packs", nombre: "Pack X3 Colaless regulable Hello Kitty", marca: "RIO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3a7d1994-ca2f-40db-86e6-db5d62aa5941-d4c167df31fb10073417805916537838-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 3 colaless en microfibra basic", marca: "TRENDA", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/fbd5ed7a-55af-4085-8487-75c5a6830e7a-c564f61a6785b9a11517794694739254-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2 Vedetinas de microfibra y puntilla", marca: "TRENDA", color: "BLANCO/NOUGAT", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0475d53f-a3af-49b3-a8f7-e2c80d92e398-4c52c8ddcbf8e4234a17786974427272-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 de morley", marca: "KAURY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a091c6e9-dc61-4498-aa20-ff8c3e7e25d1-1a697e237bdf1be1b917875932627809-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra labrada con puntilla", marca: "BRIGITTE", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc4ad498-7dfd-4fab-b1c7-c1f91b0d2cd2-bccbcf2eaa6d95f71b17590075588533-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de encaje con elástico", marca: "KAURY", color: "BLANCO/FRESA", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c9916d2e-46ae-49a9-b404-85c6bee602d4-240283310cc9036cb317579867833487-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culote línea deportiva pack x3 con cintura personalizada de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0d04cd2b-cd33-45c9-8537-e8c276e259e3-72885608e5c9703f0117822216959508-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x3 de algodón", marca: "BELEN", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0214b05e-bbc3-4fd8-9bfe-0e016c4af7fe-680eb51f18897a374417727221840131-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less pack x3 regulable de tul", marca: "BELEN", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/78d87465-4588-4446-b9ed-b554a841398b-3541986113dc20c2da17875846161771-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless max pack x3 con moño de morley con puntilla", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b5436ffc-4e2f-4425-b994-9f30b5319f64-76ed1fa7997c5080bb17827349660172-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de microfibra", marca: "TIENTO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/72acd7e0-193d-441a-823e-3013768b9412-d82f4bc685da3b7aea17590026956025-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 en V de algodón", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/95f71caa-4fb1-443e-9108-b731eb973d0a-904f72e38cf39a8e3517827468620177-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 con doble moño de morley con puntilla", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4b4b8f41-824f-4064-8e98-87e63f00c210-6c81ec4ab3cc8a066017857713302508-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 con moño de morley con puntilla", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ef6dc31d-c3a0-4a0a-b789-356c5d8938d2-d1b4464c406ec17c3617837981914209-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2 Colaless tiro alto modal soft", marca: "TRENDA", color: "ANIMAL PRINT/NEGRO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d938fc1c-f9d0-4c27-a973-b771ffbe9635-c6bc54775dfd0a169f17782593679634-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x2 con tiras de microfibra estampada", marca: "SEXY LALI", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8e21a950-5ada-4bfd-b251-ae9254ae1395-cdcb2d2470ee64f1f117590064659081-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra y puntilla", marca: "KAURY", color: "BLANCO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/34bb1edd-5efe-47ef-be66-ca002741b9dd-c4e4820e4826c84dfd17590037212235-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x3 con moño de morley con puntilla", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/010c4eb3-96ef-4035-8d9f-693b5a49c742-8139fb6f25d613524817837981832490-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina línea deportiva pack x3 con cintura personalizada de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5a70f6e9-0920-4a70-9190-33df0e4a88d8-c4454420181d8f3def17827349926041-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 de modal soft estampado y algodón y lycra", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/da96f066-3177-4406-bdf6-c2ca2b6bc384-b223604bfbcb4836ae17759263517970-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless pack x3 de modal soft estampado y algodón y lycra", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/da96f066-3177-4406-bdf6-c2ca2b6bc384-b223604bfbcb4836ae17759263517970-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x3 de tul fantasía", marca: "LARA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/67154353-baef-443e-b9d0-4d72022f7dfc-90b8ec9b05d203227d17874242922749-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 colaless algodón y lycra con elastico personalizado.", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9957f466-d4c8-4db0-af92-6b56a765ba45-4b0bbe8d02223085f217830110440150-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless pack x2 surtido de morley", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9f3f0fa0-fb33-4d81-88f3-27efba5358ca-aa43f4be3058501dc117803360978332-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra", marca: "ANDRESSA", color: "UNICO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4eebb3d9-4eaa-4dfc-8f22-e44b045c1e13-2d141db1ee47cc928717590025513014-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra", marca: "ANDRESSA", color: "BLANCO/SOFIA", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/797449bf-a34e-483e-a502-bf4049566c37-c36b04cb73389cd2f117579607916720-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de algodón y lycra", marca: "ANDRESSA", color: "BLANCO/CAMEL", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0abe972f-2bb7-4d8e-af0d-45d21d849928-a060e6d79c22289dac17579607572421-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de puntilla", marca: "BRIGITTE", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5addc513-d6ea-4d92-9ebc-1f1636ba109a-625482edf352fb805d17590075560007-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 tanga less regulable de morley", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/67895f83-c4c7-452c-944e-f5c2d2a7897f-d93be5dde750083b7917882958251579-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless tiro alto pack x3 con grifa de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/25c7dd9e-6902-4a64-bfca-4e2c9ba23245-42b99eaf8f305aebe117882958152567-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 colaless algodón", marca: "BELEN", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/26ad7fb7-0811-4202-aa61-4c38dbac1624-7212596f52a365227a17874239422324-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha maxivedetina línea red pack x3 de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc281e7d-ce0a-4245-84da-0a976a11c88a-f55d483b720a3a5ede17871718865553-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless max pack x3 con chapita de encaje", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8112608e-f92a-48ab-b802-f6539e9235e7-d5997b495a64bd12a017827349560771-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 colaless algodón y lycra con elastico personalizado lateral.", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/e48ba7bc-c18a-4855-9a0c-e32a5e44a586-35853b61e3654ee2b317830110416895-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra y puntilla", marca: "KAURY", color: "NEGRO/ROJO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4fcf9d97-e6a6-42bf-b2f1-58cbba85f3da-e46cc743889cd61ad617709008616965-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha tiro alto pack x2 especial con puntilla al frente", marca: "DENNY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/45764283-3e2c-494a-9100-1cef735225a3-fc0c746a4d4975c78c17590102472287-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 less regulable de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b0819456-7bf4-4b27-89f0-c41e008d8842-8e5ce6febec9155a4417876638460243-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 Colaless de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d43327ef-44ba-4a57-9b49-2f5b7e2c8bf0-ca1df6e5a648198e0d17845718496946-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 de algodón y lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3a8ab0d8-fd8a-4616-8784-1c14ba456d40-d386d9d2bea81be97317827349263076-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culotte pack x3 de puntilla", marca: "NATUBEL", color: "SURTIDO", talle: "M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3806c563-cc5f-4a65-a916-628e79450492-3f4c27807560bd4f9117590086053295-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 Colaless de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c6389af8-a445-4a45-ad6c-5177fa1e199c-95cab2fb6e1d23859317847436255787-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless pack x2 surtido de algodón", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/88417bc6-cdde-47f3-9038-4b0919f0c595-23e3f18fbdb0033d0a17803361091281-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x3 de encaje", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/edb15205-3779-400e-aa83-bafddd3c7cd8-2b33cda29dcf1b7e9017876638363003-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina línea red pack x3 de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c10161e9-0735-40df-926c-7e30071ebfe0-0cfdc36416abe0946317827349380519-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/36431020-da3e-46d7-9490-07b4ff6ea0d2-583fd4a2226025308f17871718759510-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless línea red pack x3 de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/bbffd9d4-2b3e-44b9-bee1-883b20338fc5-44efc361e605a8184717855163537424-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless en V pack x3 con puntilla en piernas de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/dee557b6-a445-445f-b429-49db8cb34a02-113e23aefa629898a317822217077333-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 tiro alto algodon", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c9033a15-36f3-46e2-a3d8-d2c9cfef64f4-09fe60880ee93aeb7117819032715127-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless de algodón y lycra", marca: "TIENTO", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7718465b-46e1-4ff4-b894-05f5f5334c8b-248acd40704876823917579959267567-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 con chapita de encaje", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8918e87a-351b-40d9-a3c0-6421af66af13-a09015ac0ff1ef0ea217837968835672-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 super especial de microfibra labrada", marca: "DENNY", color: "SURTIDO", talle: "ESPECIAL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/de5ebbc6-b280-4cd7-a279-5e895ed62a3b-5a0a7d87b9608cec6417590102157317-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless pack x2 con estampa delantera", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a5f7285f-969c-4581-a996-c1823a7950be-6d93268bdc99c84e1a17589905678553-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 fantasía puntitos de microfibra", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3c2aa1f9-dedc-4d24-accc-c22990c88233-d1c06a4af38159242f17589904703957-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2 Culotte Less. Colores surtidos segun disponibilidad de stock", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/70550e07-05f8-429f-8a1f-b2f29ba46d1f-2551a53733f45c29a517589904664974-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de algodón y lycra", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/1ff27dd6-0553-438c-a7c9-4f421f0f6f7d-0b67cf61001814d03717589904578150-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2 Culotte Less Love", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ac0823b9-a2b5-4d67-86fb-e0876384949a-625cb72de05c46f6c217614066149008-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de algodón y lycra estampada", marca: "KIEROSURTIDO", color: "SURTIDO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/bf336ce1-1576-4362-96c0-3db715fc283c-ca5cbd66281ea6b36e17589904333483-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha culoteless pack x2 de microfibra", marca: "TIENTO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/36368f4e-43e7-438f-a05b-35187606379f-623d539992d0145bba17755922436082-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de algodón y lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8d5f2e32-67fe-433e-a738-6725c64bc06b-1b292003e38ee2f71817871718961308-480-0.webp"},
-            {cat: "packs", nombre: "Pack x3 Less de encaje.", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7c9ec86b-546e-4855-a8be-11eea9c593c5-226d6652136d4f9d0b17822216166962-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 surtido de algodón", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9d290c16-3c83-4ac6-ab82-e558ec024e43-6cb11ff5d79473a72a17803361177443-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 con puntilla", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/aa5a3cfb-b32e-43f5-bf59-c709f43ed180-69cf6bf52577369d4617591500602607-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 2 less regulable de algodón", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9f6a95c5-4d38-440d-94fd-a273f2dd8377-e7cf875aeec878032417882974267923-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 corredera ancha de microfibra", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b02d53a6-11d0-4e9f-86d2-aad158d2ff19-9ff9fcc9a66384d00517590106637983-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 especial de microfibra labrada", marca: "DENNY", color: "SURTIDO", talle: "ESPECIAL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/73c895a6-c9b1-4492-a906-d37e15f45f35-8582bd81108f884a4717590102105183-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x2 de algodón", marca: "LARA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/46152a22-7deb-452b-85a9-ced566c241dd-d2370990fdb9c4838d17600392232023-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 de algodón", marca: "VELLA", color: "SURTIDO", talle: "ESPECIAL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0258e7b5-5780-4cbe-9e3a-dfd13857f023-d5d198c393a2e668ce17800639922408-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de microfibra", marca: "VELLA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/437e2802-5b39-4648-b7c6-967762a5d01b-839fa1cea882d3025c17593485571362-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 universal de microfibra labrada", marca: "DENNY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0af6694c-ba62-4176-bdba-1c0ea9ba4746-d34a71e9ed4e0efd5617590102066081-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 especial mil rayas", marca: "DENNY", color: "SURTIDO", talle: "ESPECIAL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d93cbd6f-35f9-43e0-9f51-64dcb0508587-1d3d9e9fd4435ed49317590102390750-480-0.webp"},
-            {cat: "packs", nombre: "Pack x 3 Culotte de algodón Liso.", marca: "RIO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ad405ab2-b7a8-43d9-b42f-ac67e5b1dd86-eceb7689f99bebbf1817857784519597-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de algodón", marca: "B&K", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/26b18dd4-be20-45ce-8e9e-a6288b48daa7-2aecf7391fa1cacd2717691897668355-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x3 de algodón liso", marca: "RIO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0aaa4d32-01f4-4787-9ae6-9d2652e7b09a-60e3b797998b25452317591499077958-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x3 de algodón liso", marca: "RIO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c790f3d9-6c03-41cd-bfa1-67adddeeae12-4f68b4af4511eb9a4817591488742592-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 vedetina clásica de morley", marca: "MAIA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/1de1aee0-5f0b-47da-9ef6-e3bf80b572a4-2d24f6c3e6ba451da617710856636464-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 de lycra estampada surtida", marca: "RIO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/63654820-4dae-451c-bfdb-2eb6886367ce-877ca538203b065d2b17591488715124-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de algodón y lycra", marca: "RIO", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/50163045-84c0-471f-9551-2a40fdbfa157-04760d41a60fc697d817591488676293-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 universal mil rayas", marca: "DENNY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/61e2002e-a12d-4aff-a54a-7fcd5bbe3dc9-be16ea27f7b906bcf017590101860197-480-0.webp"},
-            {cat: "packs", nombre: "Pack x2 less clásica de morley", marca: "MAIA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5b24a16c-5ecc-4427-8df7-7175f5e1a935-ab3f4b0509291d6ff417713353368580-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha less regulable pack x2", marca: "NATUBEL", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a4d6fd69-050c-40aa-a388-eca1b4598405-b63d71cbc9cc014e3017590078153937-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 tiro corto mil rayas", marca: "DENNY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d498d8ff-d0a4-4c34-a29b-0b125fc091f6-63a0a446f975c1b36a17590101664949-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha vedetina pack x2 de algodón y lycra", marca: "MAIA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3be0b3ef-d028-4e6b-986f-7902cf86ba8c-04daa63dfff4b3b21b17844132543910-480-0.webp"},
-            {cat: "packs", nombre: "Bombacha colaless pack x2 de algodón y lycra", marca: "MAIA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/87622819-682d-4888-8ffe-edd53bccb8d3-9b6f01b3ddb3abb54817815504233467-480-0.webp"},
-
-            /* --- BODYS (CON FOTOS REALES) --- */
-            {cat: "bodys", nombre: "Body escote cruzado de microfibra", marca: "TRENDA", color: "CHOCOLATE", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7b86389f-9b96-43a2-8fec-f7b3eabb1b31-904e273dbdec7d4f5017804093699188-480-0.webp"},
-            {cat: "bodys", nombre: "Body micromorley manga larga", marca: "TRENDA", color: "VERDE", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/36e764db-75b2-4b2b-985f-916851f6cbf8-2a7b69ab7e01d0a8f817805925190317-480-0.webp"},
-            {cat: "bodys", nombre: "Body modal gamuzado estampado", marca: "TRENDA", color: "ANIMAL PRINT", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/79892363-b7e8-425e-8114-c91e46e336a2-842cae939839564d6117720396465969-480-0.webp"},
-            {cat: "bodys", nombre: "Body microfibra", marca: "TRENDA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/757ea949-7892-43ae-a698-930730f0699e-38166a15498f6fe0e117805924697359-480-0.webp"},
-            {cat: "bodys", nombre: "Body strapless de tul y microfibra", marca: "TRENDA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/23132188-498b-4602-bc70-f260a49764be-807a8a5d4d359a376817758401399187-480-0.webp"},
-            {cat: "bodys", nombre: "Body básico de algodón bordado", marca: "TRENDA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/61b80f1c-a97c-4bf8-bc9c-b183a75c6df4-a7b68ba29dec88fe9617614089947033-480-0.webp"},
-            {cat: "bodys", nombre: "Body colaless de microfibra y puntilla", marca: "KAURY", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b9a0dfaf-7cb0-4481-93a2-cbff62b7d525-868373c17aec32738817579609345286-480-0.webp"},
-            {cat: "bodys", nombre: "Body less con aro de microfibra y puntilla", marca: "KAURY", color: "BLANCO", talle: "90", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9ba81a8c-d8e9-4851-9aa0-643db38fbe23-16327bdc199b03fd9417801607255084-480-0.webp"},
-            {cat: "bodys", nombre: "Body con aro forrado en encaje y tull", marca: "TRENDA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/07392cd0-1ced-4938-8ec0-95397715e4bd-ed6935f70f61579a7c17590074501255-480-0.webp"},
-            {cat: "bodys", nombre: "Body de morley", marca: "BRIGITTE", color: "BLANCO", talle: "L", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f80a091-e0c3-499a-90d0-b1ca8fd951ad-2a817cb13a5d6d0c3a17844125060482-480-0.webp"},
-            {cat: "bodys", nombre: "Body de morley", marca: "BRIGITTE", color: "NEGRO", talle: "S", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/6fc9bec2-24a0-46b3-8fe5-e0d41ab5a88f-7bac53f323d0e8915517716924897977-480-0.webp"},
-            {cat: "bodys", nombre: "Bodyless de encaje.", marca: "MARCELA KOURY", color: "NEGRO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/111b1bcf-62c7-4f07-9cb9-13bc1c4a3b5e-09548e5d5ea27cb38017614118040126-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de microfibra y encaje con taza soft.", marca: "SIN MARCA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/89e9708b-d1f2-477d-9c53-489caebaa6d0-ee834b9eb61913e98317605366873476-480-0.webp"},
-            {cat: "bodys", nombre: "Body de raso y tul bordado", marca: "EXCLUSIVE", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/96e36620-dfa1-4b34-9c58-db28fc47f4e4-febf40519fbd78502317882776181710-480-0.webp"},
-            {cat: "bodys", nombre: "Body de algodón y lycra con puntilla", marca: "SEXY LALI", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cf8d10df-1eaa-494d-9c7b-c60aa5426077-da29e67c4603b4816117805977260276-480-0.webp"},
-            {cat: "bodys", nombre: "Body de microfibra", marca: "BRIGITTE", color: "BLANCO", talle: "L", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ddfe8b33-e7cd-41df-9ccc-bdf1b9f68b7a-da3d5111ceb1f157b817740245551024-480-0.webp"},
-            {cat: "bodys", nombre: "Body de microfibra doble con cuello alto.", marca: "BRIGITTE", color: "BLANCO", talle: "L", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/56adb8de-c537-4695-baeb-f74dbeef6ffe-e5d9a8126b61e0813817727316560037-480-0.webp"},
-            {cat: "bodys", nombre: "Body de microfibra", marca: "BRIGITTE", color: "VISON", talle: "XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/db485009-dc8c-4ed4-afee-a8de02d4bc64-4daad8e94099e8f7fb17727316354991-480-0.webp"},
-            {cat: "bodys", nombre: "Body detalle de puntilla de morley", marca: "LARA", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/69082b5e-3943-4230-a8ba-992f9fec6356-d2ae3c9cc0a8f5aaed17727317317660-480-0.webp"},
-            {cat: "bodys", nombre: "Body taza soft triángulo con morley y puntilla.", marca: "FAIRUZ", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/98053cc5-5700-44e6-bf3e-14a44160d92c-26a2a38785b9a8fcf317758304126750-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de microfibra y puntilla", marca: "SEXY LALI", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/1a2f99c2-8a6b-486c-ab6f-77c46943307b-e508cc5f27d88dff8117805925005159-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de puntilla", marca: "SEXY LALI", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/159c441d-26e9-4d5f-9e4c-4bbd3d38271f-efe99281f4ca60a0ff17727316785709-480-0.webp"},
-            {cat: "bodys", nombre: "Body de tela engomada", marca: "SEXY LALI", color: "NEGRO CRUSH", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a0a0d7a1-181a-48a6-9d20-4b0f7cf0d194-e87e1e920d0251208f17727316652393-480-0.webp"},
-            {cat: "bodys", nombre: "Body taza soft de puntilla y tela velvet con colaless", marca: "SEXY LALI", color: "BORDO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a404fdd7-c462-42c9-9d55-a3aaddd6dac4-631d8d0d847055dc0617720396647894-480-0.webp"},
-            {cat: "bodys", nombre: "Body de tul y puntilla", marca: "SEXY LALI", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d050c5b7-0dde-438b-a615-62f67f6c2927-8b01cd8e03fdc72c8317801606562035-480-0.webp"},
-            {cat: "bodys", nombre: "Body de tul y puntilla", marca: "SEXY LALI", color: "NEGRO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4e7a95bd-e1d6-4e94-9a7d-482e151c38ff-55cda4dd3b7d3cd1c917831879021941-480-0.webp"},
-            {cat: "bodys", nombre: "Body de encaje y microfibra", marca: "KAURY", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/276ed9a7-d990-4697-b335-50eb4152c6ea-80b5b33e8622e732df17589886811715-480-0.webp"},
-            {cat: "bodys", nombre: "Body microfibra", marca: "KAURY", color: "FRESA", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/63b2ba42-eb1f-431d-b09c-3ef7b3853599-bf3b548e8dc874fee117829153587969-480-0.webp"},
-            {cat: "bodys", nombre: "Body colaless de tul y puntilla", marca: "KAURY", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7c3db75d-53e4-44c4-a649-affe87e2fdb5-08904a872f9198ec4717868212880685-480-0.webp"},
-            {cat: "bodys", nombre: "Body Microfibra y Tul Cola Less", marca: "KAURY", color: "GRIS HUMO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/1d40dc69-4a96-4c85-bf2f-bb214b430f04-7d8f60c2b7eff8813517590086086031-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de algodón", marca: "KAURY", color: "AMARILLO FLUO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/726ddb26-2538-4cbc-b659-c0f9fe0bff72-36af1a5d23f94961bc17758314405020-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de algodón", marca: "KAURY", color: "GRIS CLARO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/32e5873d-d99f-4ffc-a03c-5cb85a6977d7-1c719230722b93bce117740245415554-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de puntilla y tul", marca: "KAURY", color: "ROJO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9aafa867-b053-48a2-a763-c64e28341ab9-8901f41d26fe54e59817614065909607-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de microfibra y puntilla", marca: "KAURY", color: "FRESA", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a32756b3-5b78-4ca5-9719-985d6a9f9a6d-b4d54090f3c5a66dc117590036183125-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de microfibra y puntilla", marca: "KAURY", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/897d213d-2db7-4c16-9e96-6b7fa0f63cf9-e76e4f056cea70d2ec17590085965844-480-0.webp"},
-            {cat: "bodys", nombre: "Body colaless de modal", marca: "KAURY", color: "ROJO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/f0ffed2d-c298-4a87-834b-1cbc7de1919a-ee272fbcc660ba31a717882956817450-480-0.webp"},
-            {cat: "bodys", nombre: "Body culoteless de microfibra y puntilla", marca: "KAURY", color: "ROJO", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c6a9f836-d6b2-435a-ac31-a121ddd31203-13f156d97e08bda91b17866330167442-480-0.webp"},
-            {cat: "bodys", nombre: "Body de puntilla y tul", marca: "MARCELA KOURY", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/297ab571-070a-4a78-99e4-118837c21bc1-de54cd848d15cbdaec17588309285557-480-0.webp"},
-            {cat: "bodys", nombre: "Body less con taza soft de algodón y lycra", marca: "MARCELA KOURY", color: "ACUA", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5bbef63c-4553-4d32-a872-6114b5c4269c-ed69a643a4868c08ab17590074728701-480-0.webp"},
-            {cat: "bodys", nombre: "Body less con taza soft de microfibra", marca: "MARCELA KOURY", color: "BLANCO", talle: "M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/381a0b60-bcdc-47a9-9828-e9bdb200ca18-50e4d0334576515cee17786952268564-480-0.webp"},
-            {cat: "bodys", nombre: "Body colaless de morley", marca: "AVRIL KAURY", color: "FUCSIA", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4778cfb7-805a-43d1-844b-7b7d8780b4bd-2f9ff26045084b631917614135267809-480-0.webp"},
-            {cat: "bodys", nombre: "Body less regulable de morley", marca: "TIENTO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/e379e048-36ce-45c3-9bd3-21509e0154c6-1f029ab3847c8c516a17590036020788-480-0.webp"},
-            {cat: "bodys", nombre: "Body de encaje puntilla", marca: "TIENTO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/63a9b409-6a7e-4f04-bcb8-85d98d48fc32-375a7cbd77b829627e17590037437456-480-0.webp"},
-            {cat: "bodys", nombre: "Body triángulo soft de microfibra y puntilla", marca: "TIENTO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b8c13bc2-b47f-4a83-a9ee-cd76b654fa29-71bfcac5e45db98ae717822216407594-480-0.webp"},
-            {cat: "bodys", nombre: "Body cola less forrado de puntilla", marca: "TIENTO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3a7d1994-ca2f-40db-86e6-db5d62aa5941-d4c167df31fb10073417805916537838-480-0.webp"},
-            {cat: "bodys", nombre: "Body de encaje elastizado y puntilla", marca: "TRENDA", color: "BLANCO", talle: "M", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/fbd5ed7a-55af-4085-8487-75c5a6830e7a-c564f61a6785b9a11517794694739254-480-0.webp"},
-            {cat: "bodys", nombre: "Body halter de encaje y puntilla", marca: "TRENDA", color: "BLANCO", talle: "S", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0475d53f-a3af-49b3-a8f7-e2c80d92e398-4c52c8ddcbf8e4234a17786974427272-480-0.webp"},
-            {cat: "bodys", nombre: "Body breteles anchos de microfibra de nylon y lycra", marca: "EXCLUSIVE", color: "CHOCOLATE", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a091c6e9-dc61-4498-aa20-ff8c3e7e25d1-1a697e237bdf1be1b917875932627809-480-0.webp"},
-            {cat: "bodys", nombre: "Body triángulo espalda en v de tul bordado y lycra", marca: "EXCLUSIVE", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc4ad498-7dfd-4fab-b1c7-c1f91b0d2cd2-bccbcf2eaa6d95f71b17590075588533-480-0.webp"},
-            {cat: "bodys", nombre: "Body soft de tul bordado y lycra", marca: "EXCLUSIVE", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/c9916d2e-46ae-49a9-b404-85c6bee602d4-240283310cc9036cb317579867833487-480-0.webp"},
-            {cat: "bodys", nombre: "Body con aro de tul y terciopelo", marca: "EXCLUSIVE", color: "NEGRO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0d04cd2b-cd33-45c9-8537-e8c276e259e3-72885608e5c9703f0117822216959508-480-0.webp"},
-            {cat: "bodys", nombre: "Body top falso aro de tul bordado", marca: "EXCLUSIVE", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0214b05e-bbc3-4fd8-9bfe-0e016c4af7fe-680eb51f18897a374417727221840131-480-0.webp"},
-            {cat: "bodys", nombre: "Body marilyn de tul bordado y microfibra", marca: "EXCLUSIVE", color: "NEGRO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/78d87465-4588-4446-b9ed-b554a841398b-3541986113dc20c2da17875846161771-480-0.webp"},
-            {cat: "bodys", nombre: "Body texturado", marca: "EXCLUSIVE", color: "NEGRO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b5436ffc-4e2f-4425-b994-9f30b5319f64-76ed1fa7997c5080bb17827349660172-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de microfibra", marca: "EXCLUSIVE", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/72acd7e0-193d-441a-823e-3013768b9412-d82f4bc685da3b7aea17590026956025-480-0.webp"},
-            {cat: "bodys", nombre: "Body less de morley", marca: "BELEN", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/95f71caa-4fb1-443e-9108-b731eb973d0a-904f72e38cf39a8e3517827468620177-480-0.webp"},
-            {cat: "bodys", nombre: "Body de morley y puntilla", marca: "BELEN", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4b4b8f41-824f-4064-8e98-87e63f00c210-6c81ec4ab3cc8a066017857713302508-480-0.webp"},
-            {cat: "bodys", nombre: "Body con aro forrado de tul y lycra", marca: "ANDRESSA", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ef6dc31d-c3a0-4a0a-b789-356c5d8938d2-d1b4464c406ec17c3617837981914209-480-0.webp"},
-            {cat: "bodys", nombre: "Body con aro de puntilla y tul lycra", marca: "ANDRESSA", color: "NEGRO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d938fc1c-f9d0-4c27-a973-b771ffbe9635-c6bc54775dfd0a169f17782593679634-480-0.webp"},
-            {cat: "bodys", nombre: "Body manga larga cuello polera de microfibra y tul lycra", marca: "ANDRESSA", color: "NEGRO/NUDE", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8e21a950-5ada-4bfd-b251-ae9254ae1395-cdcb2d2470ee64f1f117590064659081-480-0.webp"},
-            {cat: "bodys", nombre: "Body manga larga con cuello polera de tul", marca: "ANDRESSA", color: "NEGRO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/34bb1edd-5efe-47ef-be66-ca002741b9dd-c4e4820e4826c84dfd17590037212235-480-0.webp"},
-            {cat: "bodys", nombre: "Body con mangas desmontables de microfibra y tul", marca: "ANDRESSA", color: "NEGRO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/010c4eb3-96ef-4035-8d9f-693b5a49c742-8139fb6f25d613524817837981832490-480-0.webp"},
-            {cat: "bodys", nombre: "Body con cuello y hombreras de microfibra andressa", marca: "ANDRESSA", color: "AZUL", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5a70f6e9-0920-4a70-9190-33df0e4a88d8-c4454420181d8f3def17827349926041-480-0.webp"},
-            {cat: "bodys", nombre: "Body con aro de tul y puntilla", marca: "ANDRESSA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/da96f066-3177-4406-bdf6-c2ca2b6bc384-b223604bfbcb4836ae17759263517970-480-0.webp"},
-            {cat: "bodys", nombre: "Body marilyn con argolla de puntilla y tul", marca: "ANDRESSA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/67154353-baef-443e-b9d0-4d72022f7dfc-90b8ec9b05d203227d17874242922749-480-0.webp"},
-            {cat: "bodys", nombre: "Body de encaje andressa", marca: "ANDRESSA", color: "NEGRO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9957f466-d4c8-4db0-af92-6b56a765ba45-4b0bbe8d02223085f217830110440150-480-0.webp"},
-            {cat: "bodys", nombre: "Body de microfibra", marca: "ANDRESSA", color: "CHOCOLATE", talle: "90", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/9f3f0fa0-fb33-4d81-88f3-27efba5358ca-aa43f4be3058501dc117803360978332-480-0.webp"},
-            {cat: "bodys", nombre: "Body taza soft de puntilla y microfibra", marca: "ANDRESSA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4eebb3d9-4eaa-4dfc-8f22-e44b045c1e13-2d141db1ee47cc928717590025513014-480-0.webp"},
-            {cat: "bodys", nombre: "Body con aro de puntilla y tul", marca: "ANDRESSA", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/797449bf-a34e-483e-a502-bf4049566c37-c36b04cb73389cd2f117579607916720-480-0.webp"},
-            {cat: "bodys", nombre: "Body escote recto con espalda en v de morley", marca: "ANDRESSA", color: "BLANCO", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/0abe972f-2bb7-4d8e-af0d-45d21d849928-a060e6d79c22289dac17579607572421-480-0.webp"},
-            {cat: "bodys", nombre: "Body con choker desmontable de encaje", marca: "SIGRY", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/5addc513-d6ea-4d92-9ebc-1f1636ba109a-625482edf352fb805d17590075560007-480-0.webp"},
-
-            /* --- BOMBACHAS SUELTAS --- */
-            {cat: "sueltas", nombre: "Colaless segunda piel", marca: "COCOT", color: "AVELLANA", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/ec50d1bb-feeb-4289-a17c-c15ee9c07374-930d0dcb3b3658163717806069869593-480-0.webp"},
-            {cat: "sueltas", nombre: "Boxer de dama algodón y lycra", marca: "LARA", color: "AZUL", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/518dfadf-a3e0-4a55-b8be-a010b7623a26-9af0639a85a79e099817806902089656-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha less regulable de algodón y lycra", marca: "ANDRESSA", color: "BLANCO", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a919217f-0edd-4c29-9805-fb13e3f04795-9be8d98d2b4b25ccc717579606673943-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina de algodón y lycra", marca: "ANDRESSA", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/781bcd6b-57ce-40ea-bdb3-08ec4a1f1277-5ce9829b6d95c7c1d917806056242243-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha colaless modeladora de algodón", marca: "TIENTO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/594efbcb-3e4a-4689-8311-9f3d42b2e18f-9b8937970f699757f317579815012053-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha less regulable de tul bordado", marca: "EXCLUSIVE", color: "AZUL", talle: "100", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/2e62c751-67f0-4e80-93f7-c76221ef2d44-41373be5c7ae80dae117868085057656-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina de encaje doble tira", marca: "KIERO", color: "HUESO", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/edf5c6b8-a170-46b4-b03f-4fa6adedd6c1-e6656d52437045356517589213763195-480-0.webp"},
-            {cat: "sueltas", nombre: "Vedetina segunda piel", marca: "COCOT", color: "AVELLANA", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/6969c067-45e9-44d7-b842-720f6b421ff2-52aa127041c8ad93a817806069602555-480-0.webp"},
-            {cat: "sueltas", nombre: "Colaless por docena de algodón", marca: "DENNY", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/2524bb1a-0789-4814-ae3a-44edb11c53f8-4d81708a5c180e8cf417828272057031-480-0.webp"},
-            {cat: "sueltas", nombre: "Colaless lisa segunda piel", marca: "COCOT", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/7f214a70-4fd6-4467-8c4f-4dc572d5a0d3-a00526662815facd7217589282131941-480-0.webp"},
-            {cat: "sueltas", nombre: "Boxer de Algodon y Lycra con Elastico", marca: "NATUBEL", color: "FUCSIA", talle: "4", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/855fd057-21ba-475d-8e24-5ceb2887d57c-730eab20647f56a50c17614131748157-480-0.webp"},
-            {cat: "sueltas", nombre: "Faja sin costura colaless", marca: "KAURY", color: "BLANCO", talle: "S", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a755c2cf-0597-4661-9e6d-366130b7eb25-9fece190b937291d2b17607138663896-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha colaless seamless cintura de tul de microfibra", marca: "ANDRESSA", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/be98025f-cb50-4d0d-b83b-505434722c97-6be005036bd9dd953217589127479448-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha culoteless de tul bordado", marca: "EXCLUSIVE", color: "BLANCO", talle: "85", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/4b8d39f3-0880-4594-84c2-69f9a9b3008e-579ceb70c3ea85d6cd17579772698431-480-0.webp"},
-            {cat: "sueltas", nombre: "Pack x2 colaless microfibra", marca: "SIN MARCA", color: "SURTIDO", talle: "L/XL", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/69082b5e-3943-4230-a8ba-992f9fec6356-d2ae3c9cc0a8f5aaed17727317317660-480-0.webp"},
-            {cat: "sueltas", nombre: "Vedetina lisa segunda piel", marca: "COCOT", color: "BLANCO", talle: "4", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cb647fdc-5e8e-4436-9c0a-01fbeb5bc212-a761e3934ba5b8d09917589282093633-480-0.webp"},
-            {cat: "sueltas", nombre: "Culote liso segunda piel", marca: "COCOT", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b06e5103-1e5d-4412-a0cc-23fa158e0dd7-0fe1fc4acfa7d41b5317589282039575-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina de microfibra puntilla", marca: "KIERO", color: "BLANCO", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/553cfe51-3d99-4f89-b217-7f49c6c0d0d7-2418ee5ae0fcbd65e017588312111931-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina de microfibra puntilla con moño", marca: "KIERO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/de0e263d-3700-48ea-8768-6ce61948b09e-4a625fe7d587660f6617611501757806-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha tiro alto modeladora con refuerzo de lycra", marca: "TIENTO", color: "ALMENDRA", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/8c01595a-0a00-4cff-98b7-dec78dc0b532-51b4edf80f93b9872817579820064691-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha colaless de microfibra puntilla con moño", marca: "KIERO", color: "AVELLANA", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/d48adc3c-e59b-4ced-b498-8d66c3e8c797-a262e02e7cb1148e7317589213533882-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha tiro corto segunda piel", marca: "COCOT", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/61686e9c-6db9-48f5-98d5-6d7773fab6b8-82135748a32fc73f3417589280668904-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina algodon lycra", marca: "TIENTO", color: "BLANCO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/be0dfd1b-944a-4ca3-814c-ec519c5d2fc1-8c88dc9ede1e15332117579813971405-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha culoteless de microfibra puntilla con moño", marca: "KIERO", color: "AVELLANA", talle: "3", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/157213ff-5c24-4585-8de7-a39c6dc754a0-2b8197e2d57ef8266a17589213641973-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha colaless de encaje doble tira", marca: "KIERO", color: "HUESO", talle: "4", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/909c5194-c351-4332-8b31-597f0df0f2e8-f821012d701716476117589213706326-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina de encaje doble tira", marca: "KIERO", color: "HUESO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/23b150cc-a4eb-4235-8e8a-525f8110daee-8a4250ebd55423471017589213417623-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina de microfibra y nylon", marca: "ANDRESSA", color: "CHOCOLATE", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/17a6cad4-e83c-4a33-a731-305d47c0c65b-1094284f627fabf6e317805155772757-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina pack x3 de algodón con lycra", marca: "GABELA", color: "SURTIDO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/36431020-da3e-46d7-9490-07b4ff6ea0d2-583fd4a2226025308f17871718759510-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha vedetina modeladora alta de algodón y lycra", marca: "TIENTO", color: "ALMENDRA", talle: "6", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/3b44451b-8632-43d9-a7c5-5ec1f6396d0d-645e6a806150922d8217847482078521-480-0.webp"},
-            {cat: "sueltas", nombre: "Boxer de algodón y lycra liso con elástico personalizado.", marca: "BELEN", color: "BLANCO", talle: "UNICO", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/01bc7823-fceb-437f-b727-8de7b067a6ed-bcf1e5630aa6a0328117824903603662-480-0.webp"},
-            {cat: "sueltas", nombre: "Vedetina tiro alto micro fibra tul y bordado", marca: "TRENDA", color: "BLANCO", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/a2fcbee3-d32a-4569-8560-75e3ce074c4f-62106049d5288f1f5f17786949025215-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha culoteless de microfibra puntilla con moño", marca: "KIERO", color: "AVELLANA", talle: "2", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/cfce8f56-8389-40a9-b95b-6b34433ffecf-463a7687aa956642bb17589213232920-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha tiro alto modeladora con refuerzo de lycra", marca: "TIENTO", color: "ALMENDRA", talle: "7", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/b0a1c750-3a78-4cdf-8ed3-d0fa47f2f633-d158f07f1414331b0517579820373877-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha tiro alto modeladora con refuerzo de lycra", marca: "TIENTO", color: "ALMENDRA", talle: "5", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/49d344f6-d68e-4295-a7d3-025a36ec4807-fd5fdc531225d84ca917579820221098-480-0.webp"},
-            {cat: "sueltas", nombre: "Bombacha boxer de morley", marca: "ANDRESSA", color: "NEGRO", talle: "1", foto: "https://acdn-us.mitiendanube.com/stores/006/403/839/products/6a5904a7-4cee-4d48-83c6-c5a3e92f645b-e4bcfec57ff8b57ed617590025542920-480-0.webp"}
-        ];
-
-        const container = document.getElementById('catalog');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const closeModal = document.getElementById('closeModal');
-        
-        const modalImg = document.getElementById('modalImg');
-        const modalBrand = document.getElementById('modalBrand');
-        const modalName = document.getElementById('modalName');
-        const modalColor = document.getElementById('modalColor');
-        const modalTalle = document.getElementById('modalTalle');
-        const modalWa = document.getElementById('modalWa');
-
-        function mostrarProductos(categoria) {
-            container.innerHTML = '';
-            const filtrados = categoria === 'todos' ? productos : productos.filter(p => p.cat === categoria);
-            
-            filtrados.forEach((p) => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <img src="${p.foto}" alt="${p.nombre}" class="product-image" loading="lazy">
-                    <div class="product-info">
-                        <div>
-                            <div class="product-brand">${p.marca}</div>
-                            <div class="product-name">${p.nombre}</div>
-                            <div class="product-color">Color: ${p.color}</div>
-                        </div>
-                        <div class="product-footer">
-                            <span class="tag">Consultar</span>
-                        </div>
-                    </div>
-                `;
-
-                card.addEventListener('click', () => {
-                    modalImg.src = p.foto;
-                    modalBrand.textContent = p.marca;
-                    modalName.textContent = p.nombre;
-                    modalColor.textContent = "Color: " + p.color;
-                    modalTalle.textContent = "Talle: " + p.talle;
-                    
-                    const mensaje = `Hola! Me interesa saber el precio de este producto: *${p.nombre}* (${p.marca}) - Talle: ${p.talle} - Color: ${p.color}`;
-                    modalWa.href = `https://wa.me/5491168327127?text=${encodeURIComponent(mensaje)}`;
-
-                    modalOverlay.style.display = 'flex';
-                });
-
-                container.appendChild(card);
-            });
-        }
-
-        function filtrar(cat, boton) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-            boton.classList.add('active');
-            mostrarProductos(cat);
-        }
-
-        // Cargar todo al entrar por primera vez
-        mostrarProductos('todos');
-
-        closeModal.addEventListener('click', () => { modalOverlay.style.display = 'none'; });
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) modalOverlay.style.display = 'none';
-        });
-    </script>
 </body>
 </html>
