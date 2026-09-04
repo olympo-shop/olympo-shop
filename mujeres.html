@@ -25,12 +25,12 @@
         h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
         .logo-link:hover h1 { color: var(--accent-color); }
         
-        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: relative; z-index: 100; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
         .nav-item { position: relative; }
         .nav-item > a { display: block; padding: 15px 20px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
         .nav-item > a:hover { background-color: #f1ede6; color: #000; }
-        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 1000; border: 1px solid var(--border-color); }
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
         .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
@@ -38,8 +38,8 @@
         .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
         .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
 
-        .hero { text-align: center; padding: 40px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
-        .hero h2 { font-size: 24px; font-weight: 400; letter-spacing: 2px; margin-bottom: 5px; color: #333; }
+        .hero { text-align: center; padding: 30px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
+        .hero h2 { font-size: 22px; font-weight: 400; letter-spacing: 2px; margin-bottom: 5px; color: #333; }
         .hero p { font-size: 13px; color: #666; margin: 0; }
 
         .catalog-container { max-width: 1200px; margin: 30px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
@@ -136,11 +136,11 @@
     <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
 
     <div class="hero">
-        <h2>SECCIÓN MUJER - TODO EL CATÁLOGO</h2>
-        <p>Conjuntos, corpiños, bodys, packs, ropa deportiva y más</p>
+        <h2>SECCIÓN MUJER - CATÁLOGO GENERAL</h2>
+        <p>Todos los conjuntos, corpiños, deportivos y prendas femeninas</p>
     </div>
 
-    <!-- Grilla General de Mujer -->
+    <!-- Grilla Unificada Completa de Mujer -->
     <div class="catalog-container">
         <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con tanga less de puntilla</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
         <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto cruzado y culote less de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">GRIS - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20cruzado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
