@@ -27,24 +27,31 @@
         nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; }
         .nav-item { position: relative; }
-        .nav-item > a { display: block; padding: 15px 30px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+        .nav-item > a { display: block; padding: 15px 25px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
         .nav-item > a:hover { background-color: #f1ede6; color: #000; }
         .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
         .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
 
-        .hero { text-align: center; padding: 60px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
-        .hero h2 { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: 10px; }
-        .hero p { font-size: 15px; color: #666; }
+        .section-header { max-width: 1200px; margin: 30px auto 10px auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        .section-title { font-size: 20px; font-weight: 600; color: #333; margin: 0; }
+        .ver-mas { font-size: 13px; font-weight: 600; color: var(--accent-color); text-decoration: none; }
+        .ver-mas:hover { text-decoration: underline; }
 
-        .section-title { max-width: 1200px; margin: 40px auto 20px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
-        
-        .categories-grid { max-width: 1200px; margin: 20px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .cat-card { background-color: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 30px; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent-color); }
-        .cat-card h3 { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; letter-spacing: 1px; }
-        .cat-card span { font-size: 13px; color: var(--accent-color); font-weight: 600; }
+        .horizontal-scroll-container { max-width: 1200px; margin: 15px auto 30px auto; padding: 0 20px; display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 15px; }
+        .horizontal-scroll-container::-webkit-scrollbar { height: 6px; }
+        .horizontal-scroll-container::-webkit-scrollbar-thumb { background: #dcd6cd; border-radius: 4px; }
+
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; min-width: 220px; width: 220px; flex-shrink: 0; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
+        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
+        .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
+        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 10px; font-style: italic; }
+        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
+        .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
+        .btn-consultar:hover { background-color: #1ebe57; }
     </style>
 </head>
 <body>
@@ -74,7 +81,6 @@
                     <li><a href="pijamas.html">Pijamas y Camisolines</a></li>
                     <li><a href="deportivo.html">Deportivo</a></li>
                     <li><a href="medias.html">Medias</a></li>
-                    <li><a href="plussize.html">Plus Size</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -96,42 +102,43 @@
                     <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a href="plussize.html">Plus Size</a>
+            </li>
         </ul>
     </nav>
 
-    <div class="hero">
-        <h2>BIENVENIDOS A OLYMPO SHOP</h2>
-        <p>Elegí una categoría para explorar todo nuestro catálogo de lencería e indumentaria.</p>
+    <!-- Sección Destacados / Conjuntos -->
+    <div class="section-header">
+        <h2 class="section-title">Conjuntos Destacados</h2>
+        <a href="conjuntos.html" class="ver-mas">Ver más &rarr;</a>
+    </div>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con tanga less de puntilla</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo%20con%20tanga%20less%20de%20puntilla" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto cruzado y culote less de algodón y lycra.</div><div class="card-price">Consultar precio</div><div class="card-desc">GRIS - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20cruzado%20y%20culote%20less" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edb83fca-c8c6-40d8-bc0d-a26dc84fd5e1-dd375222637948fad017589288782432-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con less de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">ROSA - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo%20con%20less" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e5f1da2f-e724-4fc8-a89a-33d95820051a-a64d1f25e7a97f31d817813817967358-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Conjunto top deportivo con vedetina de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 95</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20top%20deportivo%20con%20vedetina" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <div class="section-title">Sección Mujer</div>
-    <div class="categories-grid">
-        <a href="conjuntos.html" class="cat-card"><h3>Conjuntos</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="corpinos.html" class="cat-card"><h3>Corpiños</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="bombachas.html" class="cat-card"><h3>Bombachas Sueltas</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="packs.html" class="cat-card"><h3>Packs de Bombachas</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="bodys.html" class="cat-card"><h3>Bodys</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="pijamas.html" class="cat-card"><h3>Pijamas y Camisolines</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="deportivo.html" class="cat-card"><h3>Deportivo</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="medias.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="plussize.html" class="cat-card"><h3>Plus Size</h3><span>Ver catálogo &rarr;</span></a>
+    <!-- Sección Bóxers de Hombre -->
+    <div class="section-header">
+        <h2 class="section-title">Bóxers de Hombre</h2>
+        <a href="boxers.html" class="ver-mas">Ver más &rarr;</a>
+    </div>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/31ae0faf-1830-4d3e-9bb4-c60039720f1b-6dd4b3c7de2105641517762003367414-480-0.webp"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Boxer de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">AZUL ESTUDIO - XXL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20de%20algodón%20y%20lycra%20xy" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/70f3e31d-41b4-4638-a935-26a96a8c3fa7-f51d34b71c04ed08e417589220477879-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Bóxer dufour rayado sin costura.</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - M</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bóxer%20dufour%20rayado%20sin%20costura" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/632303d4-3aab-4b02-8057-318b89e09c81-8d8528c2179b8d879617755866410964-480-0.webp"><div class="card-body"><div class="card-brand">CIUDADELA</div><div class="card-title">Boxer sin costura liso Tom.</div><div class="card-price">Consultar precio</div><div class="card-desc">MELANGE - S</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20sin%20costura%20liso%20Tom" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <div class="section-title">Sección Hombre</div>
-    <div class="categories-grid">
-        <a href="boxers.html" class="cat-card"><h3>Bóxers</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="slips.html" class="cat-card"><h3>Slips</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="medias-hombre.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
+    <!-- Sección Plus Size -->
+    <div class="section-header">
+        <h2 class="section-title">Colección Plus Size</h2>
+        <a href="plussize.html" class="ver-mas">Ver más &rarr;</a>
     </div>
-
-    <div class="section-title">Sección Niños</div>
-    <div class="categories-grid">
-        <a href="ninos-conjuntos.html" class="cat-card"><h3>Conjuntos</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-boxers.html" class="cat-card"><h3>Bóxers</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-deportivo.html" class="cat-card"><h3>Deportivo</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-medias.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-bombachas.html" class="cat-card"><h3>Bombachas</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-pijamas.html" class="cat-card"><h3>Pijamas y Térmicas</h3><span>Ver catálogo &rarr;</span></a>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/725877e4-59a6-4553-af79-24682aae0e21-dd1eadf15df13036bc17579802280215-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Corpiño taza doble de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">GRIS - 105</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20taza%20doble%20de%20algodón%20y%20lycra%20plus" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/5e45b20b-0f46-4f6d-b0a4-0dda632c4687-72662467fc0307824517579802945986-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Corpiño sin aro de microfibra</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20sin%20aro%20de%20microfibra%20plus" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 </body>
 </html>
