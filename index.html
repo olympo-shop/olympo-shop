@@ -33,6 +33,11 @@
             flex-wrap: wrap;
         }
 
+        /* Espaciador izquierdo para equilibrar el logo */
+        .header-spacer {
+            width: 150px;
+        }
+
         .social-top {
             display: flex;
             gap: 12px;
@@ -90,7 +95,7 @@
 
         .nav-item > a {
             display: block;
-            padding: 15px 25px;
+            padding: 15px 30px;
             text-decoration: none;
             color: var(--text-color);
             font-size: 14px;
@@ -113,7 +118,7 @@
             background-color: #ffffff;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
             list-style: none;
-            min-width: 180px;
+            min-width: 200px;
             z-index: 100;
             border: 1px solid var(--border-color);
         }
@@ -243,6 +248,9 @@
                 width: 100%;
                 justify-content: center;
             }
+            .header-spacer {
+                display: none;
+            }
             .nav-menu {
                 flex-direction: column;
                 width: 100%;
@@ -260,17 +268,16 @@
 <body>
 
     <header>
+        <div class="header-spacer"></div>
+        <div class="logo-container">
+            <h1>OLYMPO SHOP</h1>
+        </div>
         <div class="social-top">
             <a href="https://wa.me/5491168327127?text=Hola!%20Quiero%20consultar%20por%20un%20producto%20de%20Olympo%20Shop" target="_blank" class="btn-wsp">WhatsApp</a>
             <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
         </div>
-        <div class="logo-container">
-            <h1>OLYMPO SHOP</h1>
-        </div>
-        <div style="width: 150px;"></div>
     </header>
 
-    <!-- Menú Desplegable de Categorías -->
     <nav>
         <ul class="nav-menu">
             <li class="nav-item">
@@ -279,6 +286,8 @@
                     <li><a href="#">Packs de Bombachas</a></li>
                     <li><a href="#">Bodys</a></li>
                     <li><a href="#">Bombachas Sueltas</a></li>
+                    <li><a href="#">Corpiños</a></li>
+                    <li><a href="#">Conjuntos</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -286,19 +295,7 @@
                 <ul class="dropdown">
                     <li><a href="#">Bóxers</a></li>
                     <li><a href="#">Slips</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#">Niño ▾</a>
-                <ul class="dropdown">
-                    <li><a href="#">Ropa Interior Niño</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#">Blanquería ▾</a>
-                <ul class="dropdown">
-                    <li><a href="#">Sábanas</a></li>
-                    <li><a href="#">Toallones</a></li>
+                    <li><a href="#">Medias</a></li>
                 </ul>
             </li>
         </ul>
@@ -309,10 +306,11 @@
         <button class="filter-btn">PACKS DE BOMBACHAS</button>
         <button class="filter-btn">BODYS</button>
         <button class="filter-btn">BOMBACHAS SUELTAS</button>
+        <button class="filter-btn">CORPIÑOS</button>
+        <button class="filter-btn">CONJUNTOS</button>
     </div>
 
     <div class="catalog-container">
-        <!-- Producto 1: Pack de Bombachas -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80" alt="Pack x3 Colaless">
             <div class="card-body">
@@ -322,7 +320,6 @@
             </div>
         </div>
 
-        <!-- Producto 2: Pack de Bombachas -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Pack x2 Vedetina">
             <div class="card-body">
@@ -332,7 +329,6 @@
             </div>
         </div>
 
-        <!-- Producto 3: Body (Foto específica de body/ropa exterior elegante) -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Body Exclusivo">
             <div class="card-body">
@@ -342,7 +338,6 @@
             </div>
         </div>
 
-        <!-- Producto 4: Bombacha suelta -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Bombacha suelta">
             <div class="card-body">
@@ -352,13 +347,12 @@
             </div>
         </div>
 
-        <!-- Producto 5: Pack de Bombachas -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" alt="Pack x3 colaless">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Corpiño">
             <div class="card-body">
-                <div class="card-title">Pack x3 colaless de algodón y lycra</div>
-                <div class="card-desc">COLOR SURTIDO</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Pack%20x3%20colaless%20de%20algodón" target="_blank" class="btn-consultar">Consultar</a>
+                <div class="card-title">Corpiño deportivo / triangulito sin argollas</div>
+                <div class="card-desc">COLORES VARIOS</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Corpiño" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
     </div>
