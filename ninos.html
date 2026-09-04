@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympo Shop - Sección Niños</title>
+    <style>
+        :root {
+            --bg-color: #f9f8f6;
+            --header-bg: #f9f8f6;
+            --text-color: #2c2c2c;
+            --accent-color: #d4af37;
+            --card-bg: #ffffff;
+            --border-color: #e5e0d8;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
+        header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .social-top { display: flex; gap: 12px; }
+        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 7px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+        .btn-wsp { background-color: #25d366; }
+        .btn-ig { background-color: #e1306c; }
+        .logo-container { text-align: center; flex-grow: 1; }
+        .logo-link { text-decoration: none; color: #222; display: inline-block; }
+        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
+        .logo-link:hover h1 { color: var(--accent-color); }
+        
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
+        .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; }
+        .nav-item { position: relative; }
+        .nav-item > a { display: block; padding: 15px 25px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+        .nav-item > a:hover { background-color: #f1ede6; color: #000; }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
+        .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
+        .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
+        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
+
+        .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
+        .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
+
+        .hero { text-align: center; padding: 50px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
+        .hero h2 { font-size: 28px; font-weight: 300; letter-spacing: 2px; margin-bottom: 10px; color: #333; }
+        .hero p { font-size: 14px; color: #666; margin: 0; }
+
+        .section-title { max-width: 1200px; margin: 40px auto 20px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        
+        .categories-grid { max-width: 1200px; margin: 20px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .cat-card { background-color: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 35px 20px; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent-color); }
+        .cat-card h3 { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; letter-spacing: 1px; color: #333; }
+        .cat-card span { font-size: 13px; color: var(--accent-color); font-weight: 600; }
+
+        #btn-volver-arriba {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+            z-index: 9999;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        #btn-volver-arriba:hover {
+            background-color: #b8972e;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="width: 100px;"></div>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <h1>OLYMPO SHOP</h1>
+            </a>
+        </div>
+        <div class="social-top">
+            <a href="https://wa.me/5491168327127" target="_blank" class="btn-wsp">WhatsApp</a>
+            <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">Mujer ▾</a>
+                <ul class="dropdown">
+                    <li><a href="packs.html">Packs de Bombachas</a></li>
+                    <li><a href="bodys.html">Bodys</a></li>
+                    <li><a href="bombachas.html">Bombachas Sueltas</a></li>
+                    <li><a href="conjuntos.html">Conjuntos</a></li>
+                    <li><a href="corpinos.html">Corpiños</a></li>
+                    <li><a href="pijamas.html">Pijamas y Camisolines</a></li>
+                    <li><a href="deportivo.html">Deportivo</a></li>
+                    <li><a href="medias.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="boxers.html">Hombre ▾</a>
+                <ul class="dropdown">
+                    <li><a href="boxers.html">Bóxers</a></li>
+                    <li><a href="slips.html">Slips</a></li>
+                    <li><a href="medias-hombre.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="ninos.html">Niños ▾</a>
+                <ul class="dropdown">
+                    <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
+                    <li><a href="ninos-boxers.html">Bóxers</a></li>
+                    <li><a href="ninos-deportivo.html">Deportivo</a></li>
+                    <li><a href="ninos-medias.html">Medias</a></li>
+                    <li><a href="ninos-bombachas.html">Bombachas</a></li>
+                    <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="plussize.html">Plus Size</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
+
+    <div class="hero">
+        <h2>CATEGORÍA NIÑOS</h2>
+        <p>Seleccioná una subcategoría para ver todo el catálogo disponible.</p>
+    </div>
+
+    <div class="section-title">Apartados de Niños</div>
+    <div class="categories-grid">
+        <a href="ninos-conjuntos.html" class="cat-card"><h3>Conjuntos</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-boxers.html" class="cat-card"><h3>Bóxers</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-deportivo.html" class="cat-card"><h3>Deportivo</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-medias.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-bombachas.html" class="cat-card"><h3>Bombachas</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-pijamas.html" class="cat-card"><h3>Pijamas y Térmicas</h3><span>Ver catálogo &rarr;</span></a>
+    </div>
+
+    <!-- Botón flotante para volver arriba -->
+    <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
+</body>
+</html>
