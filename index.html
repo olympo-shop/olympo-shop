@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olympo Shop - Catálogo</title>
+    <title>Olympo Shop - Tienda Oficial</title>
     <style>
         :root {
             --bg-color: #f9f8f6;
@@ -13,320 +13,50 @@
             --card-bg: #ffffff;
             --border-color: #e5e0d8;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        header {
-            background-color: var(--header-bg);
-            padding: 20px 40px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            flex-wrap: wrap;
-        }
-
-        .header-spacer { width: 150px; }
-
-        .social-top {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-top a {
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            color: #fff;
-            padding: 7px 12px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.3s;
-        }
-
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
+        header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .social-top { display: flex; gap: 12px; }
+        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 7px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
         .btn-wsp { background-color: #25d366; }
         .btn-ig { background-color: #e1306c; }
-        .social-top a:hover { opacity: 0.85; }
-
-        .logo-container {
-            text-align: center;
-            flex-grow: 1;
-        }
-
-        .logo-link {
-            text-decoration: none;
-            color: #222;
-            display: inline-block;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 30px;
-            letter-spacing: 4px;
-            font-weight: 400;
-            transition: color 0.2s;
-        }
-
-        .logo-link:hover h1 {
-            color: var(--accent-color);
-        }
-
-        nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
+        .logo-container { text-align: center; flex-grow: 1; }
+        .logo-link { text-decoration: none; color: #222; display: inline-block; }
+        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
+        .logo-link:hover h1 { color: var(--accent-color); }
+        
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
+        .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; }
         .nav-item { position: relative; }
+        .nav-item > a { display: block; padding: 15px 30px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+        .nav-item > a:hover { background-color: #f1ede6; color: #000; }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
+        .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
+        .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
+        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
 
-        .nav-item > a {
-            display: block;
-            padding: 15px 30px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            transition: background 0.3s, color 0.3s;
-        }
+        .hero { text-align: center; padding: 60px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
+        .hero h2 { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: 10px; }
+        .hero p { font-size: 15px; color: #666; }
 
-        .nav-item > a:hover {
-            background-color: #f1ede6;
-            color: #000;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #ffffff;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            list-style: none;
-            min-width: 200px;
-            z-index: 100;
-            border: 1px solid var(--border-color);
-        }
-
-        .dropdown li a {
-            display: block;
-            padding: 12px 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 13px;
-            border-bottom: 1px solid #f4f4f4;
-            transition: background 0.2s;
-        }
-
-        .dropdown li a:hover {
-            background-color: #f9f8f6;
-            color: var(--accent-color);
-        }
-
-        .nav-item:hover .dropdown,
-        .nav-item:focus-within .dropdown {
-            display: block;
-        }
-
-        .section-header {
-            max-width: 1200px;
-            margin: 40px auto 10px auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-            margin: 0;
-        }
-
-        .btn-ver-mas {
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--accent-color);
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .btn-ver-mas:hover {
-            color: #333;
-            text-decoration: underline;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .catalog-slider {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 15px 5px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent-color) #e5e0d8;
-        }
-
-        .catalog-slider::-webkit-scrollbar { height: 6px; }
-        .catalog-slider::-webkit-scrollbar-thumb {
-            background-color: var(--accent-color);
-            border-radius: 10px;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.95);
-            border: 1px solid var(--border-color);
-            color: #333;
-            font-size: 22px;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .slider-btn:hover { background-color: #fff; color: var(--accent-color); }
-        .slider-btn.prev { left: -5px; }
-        .slider-btn.next { right: -5px; }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-width: 230px;
-            max-width: 230px;
-            flex-shrink: 0;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background-color: #eee;
-        }
-
-        .card-body {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-title {
-            font-size: 13px;
-            font-weight: 600;
-            margin: 0 0 5px 0;
-            color: #444;
-        }
-
-        .card-brand {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .card-price {
-            font-size: 13px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .card-desc {
-            font-size: 11px;
-            color: #777;
-            margin: 0 0 15px 0;
-            flex-grow: 1;
-        }
-
-        .btn-consultar {
-            background-color: #25d366;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .btn-consultar:hover { background-color: #1ebe57; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; }
-            .social-top { width: 100%; justify-content: center; }
-            .header-spacer { display: none; }
-            .nav-menu { flex-direction: column; width: 100%; text-align: center; }
-            .dropdown { position: static; box-shadow: none; border: none; background-color: #f4f1ea; }
-            .slider-btn { display: none; }
-        }
+        .section-title { max-width: 1200px; margin: 40px auto 20px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        
+        .categories-grid { max-width: 1200px; margin: 20px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .cat-card { background-color: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 30px; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent-color); }
+        .cat-card h3 { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; letter-spacing: 1px; }
+        .cat-card span { font-size: 13px; color: var(--accent-color); font-weight: 600; }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="header-spacer"></div>
+        <div style="width: 100px;"></div>
         <div class="logo-container">
             <a href="index.html" class="logo-link">
                 <h1>OLYMPO SHOP</h1>
             </a>
         </div>
         <div class="social-top">
-            <a href="https://wa.me/5491168327127?text=Hola!%20Quiero%20consultar%20por%20un%20producto%20de%20Olympo%20Shop" target="_blank" class="btn-wsp">WhatsApp</a>
+            <a href="https://wa.me/5491168327127" target="_blank" class="btn-wsp">WhatsApp</a>
             <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
         </div>
     </header>
@@ -339,83 +69,69 @@
                     <li><a href="packs.html">Packs de Bombachas</a></li>
                     <li><a href="bodys.html">Bodys</a></li>
                     <li><a href="bombachas.html">Bombachas Sueltas</a></li>
+                    <li><a href="conjuntos.html">Conjuntos</a></li>
+                    <li><a href="corpinos.html">Corpiños</a></li>
+                    <li><a href="pijamas.html">Pijamas y Camisolines</a></li>
+                    <li><a href="deportivo.html">Deportivo</a></li>
+                    <li><a href="medias.html">Medias</a></li>
+                    <li><a href="plussize.html">Plus Size</a></li>
                 </ul>
             </li>
             <li class="nav-item">
                 <a href="index.html">Hombre ▾</a>
                 <ul class="dropdown">
-                    <li><a href="#">Bóxers</a></li>
-                    <li><a href="#">Slips</a></li>
-                    <li><a href="#">Medias</a></li>
+                    <li><a href="boxers.html">Bóxers</a></li>
+                    <li><a href="slips.html">Slips</a></li>
+                    <li><a href="medias-hombre.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="index.html">Niños ▾</a>
+                <ul class="dropdown">
+                    <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
+                    <li><a href="ninos-boxers.html">Bóxers</a></li>
+                    <li><a href="ninos-deportivo.html">Deportivo</a></li>
+                    <li><a href="ninos-medias.html">Medias</a></li>
+                    <li><a href="ninos-bombachas.html">Bombachas</a></li>
+                    <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <!-- PACKS DE BOMBACHAS -->
-    <div class="section-header">
-        <h2 class="section-title">Packs de Bombachas</h2>
-        <a href="packs.html" class="btn-ver-mas">Ver más &rarr;</a>
-    </div>
-    <div class="slider-wrapper">
-        <button class="slider-btn prev" onclick="scrollSlider('slider-packs', -500)">&#10094;</button>
-        <div id="slider-packs" class="catalog-slider">
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc9a2767-8ea5-40be-8195-193df6a2bcc4-967e8470bd2176998617629692538191-480-0.webp"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Pack x3 Colaless regulable de morley sin costura</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - L/XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20Colaless%20regulable" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7b86389f-9b96-43a2-8fec-f7b3eabb1b31-904e273dbdec7d4f5017804093699188-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Pack x2 Vedetina tiro medio de algodon y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 2</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x2%20Vedetina" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/36e764db-75b2-4b2b-985f-916851f6cbf8-2a7b69ab7e01d0a8f817805925190317-480-0.webp"><div class="card-body"><div class="card-brand">BRIGITTE</div><div class="card-title">Bombacha culoteless pack x3 de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - L/XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20culoteless%20pack%20x3" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/79892363-b7e8-425e-8114-c91e46e336a2-842cae939839564d6117720396465969-480-0.webp"><div class="card-body"><div class="card-brand">BRIGITTE</div><div class="card-title">Pack x3 vedetina de algodón & lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - L/XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20vedetina" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/757ea949-7892-43ae-a698-930730f0699e-38166a15498f6fe0e117805924697359-480-0.webp"><div class="card-body"><div class="card-brand">BRIGITTE</div><div class="card-title">Pack x3 colaless de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - S/M</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20colaless" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/23132188-498b-4602-bc70-f260a49764be-807a8a5d4d359a376817758401399187-480-0.webp"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha less regulable pack x2 con puntilla trasera</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO/SOFIA - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20regulable" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/61b80f1c-a97c-4bf8-bc9c-b183a75c6df4-a7b68ba29dec88fe9617614089947033-480-0.webp"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha colaless pack x2 de tul</div><div class="card-price">Consultar precio</div><div class="card-desc">VERDE/TURQUESA - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20colaless%20tul" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b9a0dfaf-7cb0-4481-93a2-cbff62b7d525-868373c17aec32738817579609345286-480-0.webp"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha less regulable pack x2 de puntilla</div><div class="card-price">Consultar precio</div><div class="card-desc">NEGRO/ROJO - 2</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20puntilla" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        </div>
-        <button class="slider-btn next" onclick="scrollSlider('slider-packs', 500)">&#10095;</button>
+    <div class="hero">
+        <h2>BIENVENIDOS A OLYMPO SHOP</h2>
+        <p>Elegí una categoría para explorar todo nuestro catálogo de lencería e indumentaria.</p>
     </div>
 
-    <!-- BODYS -->
-    <div class="section-header">
-        <h2 class="section-title">Bodys</h2>
-        <a href="bodys.html" class="btn-ver-mas">Ver más &rarr;</a>
-    </div>
-    <div class="slider-wrapper">
-        <button class="slider-btn prev" onclick="scrollSlider('slider-bodys', -500)">&#10094;</button>
-        <div id="slider-bodys" class="catalog-slider">
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0572a79a-d87b-4c45-af26-729948301478-75a9ad8d6e6fc8675b17786974868106-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body escote cruzado de microfibra</div><div class="card-price">Consultar precio</div><div class="card-desc">CHOCOLATE - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20escote%20cruzado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e4340279-87cd-4a5a-adcd-c30e608f42fb-83c379d965ec6cfa4a17782612074856-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body micromorley manga larga</div><div class="card-price">Consultar precio</div><div class="card-desc">VERDE - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20micromorley" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f482281-be59-40ef-8157-00ce2f7ffad5-a4afbcda11b8d117ee17786975069924-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body modal gamuzado estampado</div><div class="card-price">Consultar precio</div><div class="card-desc">ANIMAL PRINT - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20modal%20gamuzado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cbe1c79e-99a6-461f-bfd8-03420e5d9a01-52556163b5ac1f7aac17773943890593-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body microfibra</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20microfibra" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/560ef7c8-303b-42a0-b4ad-4d04cb93f1d0-b9906cbcd44bdf00b317773165334484-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body strapless de tul y microfibra</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20strapless" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/355270f3-a926-4b04-b8c0-a4306dd8a6fe-7a15f12091e2c588b017770474810850-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body básico de algodón bordado</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20básico" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e6b1fcf7-6d4c-442c-92f4-5aa1fcb489b1-bceec4d9fec0a5bfbd17719606475492-480-0.webp"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Body colaless de microfibra y puntilla</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 2</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20colaless" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        </div>
-        <button class="slider-btn next" onclick="scrollSlider('slider-bodys', 500)">&#10095;</button>
+    <div class="section-title">Sección Mujer</div>
+    <div class="categories-grid">
+        <a href="conjuntos.html" class="cat-card"><h3>Conjuntos</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="corpinos.html" class="cat-card"><h3>Corpiños</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="bombachas.html" class="cat-card"><h3>Bombachas Sueltas</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="packs.html" class="cat-card"><h3>Packs de Bombachas</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="bodys.html" class="cat-card"><h3>Bodys</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="pijamas.html" class="cat-card"><h3>Pijamas y Camisolines</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="deportivo.html" class="cat-card"><h3>Deportivo</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="medias.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="plussize.html" class="cat-card"><h3>Plus Size</h3><span>Ver catálogo &rarr;</span></a>
     </div>
 
-    <!-- BOMBACHAS SUELTAS -->
-    <div class="section-header">
-        <h2 class="section-title">Bombachas Sueltas</h2>
-        <a href="bombachas.html" class="btn-ver-mas">Ver más &rarr;</a>
-    </div>
-    <div class="slider-wrapper">
-        <button class="slider-btn prev" onclick="scrollSlider('slider-bombachas', -500)">&#10094;</button>
-        <div id="slider-bombachas" class="catalog-slider">
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ec50d1bb-feeb-4289-a17c-c15ee9c07374-930d0dcb3b3658163717806069869593-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Colaless segunda piel</div><div class="card-price">Consultar precio</div><div class="card-desc">AVELLANA - 2</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20segunda%20piel" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/518dfadf-a3e0-4a55-b8be-a010b7623a26-9af0639a85a79e099817806902089656-480-0.webp"><div class="card-body"><div class="card-brand">LARA</div><div class="card-title">Boxer de dama algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">AZUL - 3</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20de%20dama" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a919217f-0edd-4c29-9805-fb13e3f04795-9be8d98d2b4b25ccc717579606673943-480-0.webp"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha less regulable de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 3</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20regulable" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/781bcd6b-57ce-40ea-bdb3-08ec4a1f1277-5ce9829b6d95c7c1d917806056242243-480-0.webp"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha vedetina de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20vedetina" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/594efbcb-3e4a-4689-8311-9f3d42b2e18f-9b8937970f699757f317579815012053-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha colaless modeladora de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20modeladora" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2e62c751-67f0-4e80-93f7-c76221ef2d44-41373be5c7ae80dae117868085057656-480-0.webp"><div class="card-body"><div class="card-brand">EXCLUSIVE</div><div class="card-title">Bombacha less regulable de tul bordado</div><div class="card-price">Consultar precio</div><div class="card-desc">AZUL - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Tul%20bordado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-            <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edf5c6b8-a170-46b4-b03f-4fa6adedd6c1-e6656d52437045356517589213763195-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha vedetina de encaje doble tira</div><div class="card-price">Consultar precio</div><div class="card-desc">HUESO - 3</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Encaje%20doble%20tira" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        </div>
-        <button class="slider-btn next" onclick="scrollSlider('slider-bombachas', 500)">&#10095;</button>
+    <div class="section-title">Sección Hombre</div>
+    <div class="categories-grid">
+        <a href="boxers.html" class="cat-card"><h3>Bóxers</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="slips.html" class="cat-card"><h3>Slips</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="medias-hombre.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
     </div>
 
-    <script>
-        function scrollSlider(sliderId, distance) {
-            const slider = document.getElementById(sliderId);
-            slider.scrollBy({ left: distance, behavior: 'smooth' });
-        }
-    </script>
-
+    <div class="section-title">Sección Niños</div>
+    <div class="categories-grid">
+        <a href="ninos-conjuntos.html" class="cat-card"><h3>Conjuntos</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-boxers.html" class="cat-card"><h3>Bóxers</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-deportivo.html" class="cat-card"><h3>Deportivo</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-medias.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-bombachas.html" class="cat-card"><h3>Bombachas</h3><span>Ver catálogo &rarr;</span></a>
+        <a href="ninos-pijamas.html" class="cat-card"><h3>Pijamas y Térmicas</h3><span>Ver catálogo &rarr;</span></a>
+    </div>
 </body>
 </html>
