@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olympo Shop - Sección Niños</title>
+    <title>Olympo Shop - Todos los productos de Niños</title>
     <style>
         :root {
             --bg-color: #f9f8f6;
@@ -13,6 +13,7 @@
             --card-bg: #ffffff;
             --border-color: #e5e0d8;
         }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
         header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .social-top { display: flex; gap: 12px; }
@@ -37,17 +38,22 @@
         .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
         .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
 
-        .hero { text-align: center; padding: 50px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
-        .hero h2 { font-size: 28px; font-weight: 300; letter-spacing: 2px; margin-bottom: 10px; color: #333; }
-        .hero p { font-size: 14px; color: #666; margin: 0; }
+        .hero { text-align: center; padding: 40px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
+        .hero h2 { font-size: 26px; font-weight: 400; letter-spacing: 2px; margin-bottom: 5px; color: #333; }
+        .hero p { font-size: 13px; color: #666; margin: 0; }
 
-        .section-title { max-width: 1200px; margin: 40px auto 20px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        /* Estructura en cuadrícula (grilla) para mostrar todos los productos */
+        .catalog-container { max-width: 1200px; margin: 30px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
         
-        .categories-grid { max-width: 1200px; margin: 20px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .cat-card { background-color: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 35px 20px; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent-color); }
-        .cat-card h3 { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; letter-spacing: 1px; color: #333; }
-        .cat-card span { font-size: 13px; color: var(--accent-color); font-weight: 600; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
+        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
+        .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
+        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 10px; font-style: italic; }
+        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
+        .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
+        .btn-consultar:hover { background-color: #1ebe57; }
 
         #btn-volver-arriba {
             position: fixed;
@@ -131,18 +137,18 @@
     <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
 
     <div class="hero">
-        <h2>CATEGORÍA NIÑOS</h2>
-        <p>Seleccioná una subcategoría para ver todo el catálogo disponible.</p>
+        <h2>SECCIÓN NIÑOS - TODOS LOS PRODUCTOS</h2>
+        <p>Explorá todo el catálogo disponible para los chicos</p>
     </div>
 
-    <div class="section-title">Apartados de Niños</div>
-    <div class="categories-grid">
-        <a href="ninos-conjuntos.html" class="cat-card"><h3>Conjuntos</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-boxers.html" class="cat-card"><h3>Bóxers</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-deportivo.html" class="cat-card"><h3>Deportivo</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-medias.html" class="cat-card"><h3>Medias</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-bombachas.html" class="cat-card"><h3>Bombachas</h3><span>Ver catálogo &rarr;</span></a>
-        <a href="ninos-pijamas.html" class="cat-card"><h3>Pijamas y Térmicas</h3><span>Ver catálogo &rarr;</span></a>
+    <!-- Grilla completa de productos de Niños -->
+    <div class="catalog-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4de3ecae-b498-4e3c-a25f-f184c692a5c6-5ec00cff083c2ec97717848288438270-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Media invisible nena estampa princesas de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 2</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Media%20invisible%20nena%20estampa%20princesas" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/709faae9-7f98-4e42-8223-2ecb6c8cb9c9-833f16b438f555f5d817589213886993-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha nena pack x2 de algodón y lycra estampada</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20nena%20pack%20x2" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4433b475-4977-4aad-aad1-e0f4ce7084df-e80f45e4204be6bebb17781032327424-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama niña con tul manga larga FROZEN</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20niña%20FROZEN" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/3e8ce7a3-140a-471e-947f-62585351a067-ef21237cd6737ca48d17726586589713-480-0.webp"><div class="card-body"><div class="card-brand">ELEMENTO</div><div class="card-title">Soquete liso niños</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Soquete%20liso%20niños" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8c8211db-6b99-4c12-b883-1123cf75f315-1817761168239023-480-0.webp"><div class="card-body"><div class="card-brand">ELEMENTO</div><div class="card-title">Boxer infantil de algodón y lycra estampado</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 6</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20infantil%20estampado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://scard... (si tenés más los podés seguir sumando acá)" alt=""> -->
     </div>
 
     <!-- Botón flotante para volver arriba -->
