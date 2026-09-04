@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympo Shop - Sección Mujer</title>
+    <style>
+        :root {
+            --bg-color: #f9f8f6;
+            --header-bg: #f9f8f6;
+            --text-color: #2c2c2c;
+            --accent-color: #d4af37;
+            --card-bg: #ffffff;
+            --border-color: #e5e0d8;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
+        header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .social-top { display: flex; gap: 12px; }
+        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 7px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+        .btn-wsp { background-color: #25d366; }
+        .btn-ig { background-color: #e1306c; }
+        .logo-container { text-align: center; flex-grow: 1; }
+        .logo-link { text-decoration: none; color: #222; display: inline-block; }
+        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
+        .logo-link:hover h1 { color: var(--accent-color); }
+        
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
+        .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; }
+        .nav-item { position: relative; }
+        .nav-item > a { display: block; padding: 15px 25px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+        .nav-item > a:hover { background-color: #f1ede6; color: #000; }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
+        .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
+        .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
+        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
+
+        .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
+        .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
+
+        .hero { text-align: center; padding: 40px 20px; background-color: #f1ede6; border-bottom: 1px solid var(--border-color); }
+        .hero h2 { font-size: 26px; font-weight: 400; letter-spacing: 2px; margin-bottom: 5px; color: #333; }
+        .hero p { font-size: 13px; color: #666; margin: 0; }
+
+        .catalog-container { max-width: 1200px; margin: 30px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
+        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
+        .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
+        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 10px; font-style: italic; }
+        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
+        .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
+        .btn-consultar:hover { background-color: #1ebe57; }
+
+        #btn-volver-arriba {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+            z-index: 9999;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        #btn-volver-arriba:hover {
+            background-color: #b8972e;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="width: 100px;"></div>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <h1>OLYMPO SHOP</h1>
+            </a>
+        </div>
+        <div class="social-top">
+            <a href="https://wa.me/5491168327127" target="_blank" class="btn-wsp">WhatsApp</a>
+            <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="mujeres.html">Mujer ▾</a>
+                <ul class="dropdown">
+                    <li><a href="packs.html">Packs de Bombachas</a></li>
+                    <li><a href="bodys.html">Bodys</a></li>
+                    <li><a href="bombachas.html">Bombachas Sueltas</a></li>
+                    <li><a href="conjuntos.html">Conjuntos</a></li>
+                    <li><a href="corpinos.html">Corpiños</a></li>
+                    <li><a href="pijamas.html">Pijamas y Camisolines</a></li>
+                    <li><a href="deportivo.html">Deportivo</a></li>
+                    <li><a href="medias.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="boxers.html">Hombre ▾</a>
+                <ul class="dropdown">
+                    <li><a href="boxers.html">Bóxers</a></li>
+                    <li><a href="slips.html">Slips</a></li>
+                    <li><a href="medias-hombre.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="ninos.html">Niños ▾</a>
+                <ul class="dropdown">
+                    <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
+                    <li><a href="ninos-boxers.html">Bóxers</a></li>
+                    <li><a href="ninos-deportivo.html">Deportivo</a></li>
+                    <li><a href="ninos-medias.html">Medias</a></li>
+                    <li><a href="ninos-bombachas.html">Bombachas</a></li>
+                    <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="plussize.html">Plus Size</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
+
+    <div class="hero">
+        <h2>SECCIÓN MUJER - CATÁLOGO GENERAL</h2>
+        <p>Encontrá conjuntos, corpiños, bodys, ropa deportiva y más</p>
+    </div>
+
+    <!-- Grilla de productos de Mujer -->
+    <div class="catalog-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con tanga less de puntilla</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto cruzado y culote less de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">GRIS - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20cruzado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edb83fca-c8c6-40d8-bc0d-a26dc84fd5e1-dd375222637948fad017589288782432-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con less de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">ROSA - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo%20con%20less" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e5f1da2f-e724-4fc8-a89a-33d95820051a-a64d1f25e7a97f31d817813817967358-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Conjunto top deportivo con vedetina de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 95</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20top%20deportivo" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8b4f7780-b9e2-4ca8-81a5-1e225863ce12-e7b03aa10f2282a4cf17847389280516-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Conjunto top deportivo taza soft y cola less regulable</div><div class="card-price">Consultar precio</div><div class="card-desc">ALMENDRA - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20top%20deportivo%20taza%20soft" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/33d1fcd2-2765-46e5-9a21-70fd303f8594-8c7aa16aecd08647fc17805906322836-480-0.webp"><div class="card-body"><div class="card-brand">BRIGITTE</div><div class="card-title">Top de microfibra reforzado con algodón interno</div><div class="card-price">Consultar precio</div><div class="card-desc">AERO - XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Top%20de%20microfibra" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/94bdf5ca-38a3-4189-b48f-45d0a571e92b-23f91968f22222cbdb17761162086488-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Conjunto top deportivo taza soft y short</div><div class="card-price">Consultar precio</div><div class="card-desc">ROJO - 1</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20top%20deportivo%20y%20short" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a3a1884d-6baa-4c7f-a0b9-60513d6ab513-4ca2a339aeda14ff9617742913579964-480-0.webp"><div class="card-body"><div class="card-brand">SEXY LALI</div><div class="card-title">Conjunto top y culotteless algodon</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20top%20y%20culotteless" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+
+    <!-- Botón flotante para volver arriba -->
+    <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
+</body>
+</html>
