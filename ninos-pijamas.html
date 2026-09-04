@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympo Shop - Niños - Pijamas y Térmicas</title>
+    <style>
+        :root {
+            --bg-color: #f9f8f6;
+            --header-bg: #f9f8f6;
+            --text-color: #2c2c2c;
+            --accent-color: #d4af37;
+            --card-bg: #ffffff;
+            --border-color: #e5e0d8;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
+        header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .social-top { display: flex; gap: 12px; }
+        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 7px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+        .btn-wsp { background-color: #25d366; }
+        .btn-ig { background-color: #e1306c; }
+        .logo-container { text-align: center; flex-grow: 1; }
+        .logo-link { text-decoration: none; color: #222; display: inline-block; }
+        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
+        .logo-link:hover h1 { color: var(--accent-color); }
+        
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
+        .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; }
+        .nav-item { position: relative; }
+        .nav-item > a { display: block; padding: 15px 30px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+        .nav-item > a:hover { background-color: #f1ede6; color: #000; }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
+        .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
+        .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
+        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
+
+        .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
+        .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
+        .section-title { max-width: 1200px; margin: 30px auto 10px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        .catalog-container { max-width: 1200px; margin: 20px auto; padding: 0 20px 40px 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
+        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
+        .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
+        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 10px; font-style: italic; }
+        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
+        .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
+        .btn-consultar:hover { background-color: #1ebe57; }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="width: 100px;"></div>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <h1>OLYMPO SHOP</h1>
+            </a>
+        </div>
+        <div class="social-top">
+            <a href="https://wa.me/5491168327127" target="_blank" class="btn-wsp">WhatsApp</a>
+            <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">Mujer ▾</a>
+                <ul class="dropdown">
+                    <li><a href="packs.html">Packs de Bombachas</a></li>
+                    <li><a href="bodys.html">Bodys</a></li>
+                    <li><a href="bombachas.html">Bombachas Sueltas</a></li>
+                    <li><a href="conjuntos.html">Conjuntos</a></li>
+                    <li><a href="corpinos.html">Corpiños</a></li>
+                    <li><a href="pijamas.html">Pijamas y Camisolines</a></li>
+                    <li><a href="deportivo.html">Deportivo</a></li>
+                    <li><a href="medias.html">Medias</a></li>
+                    <li><a href="plussize.html">Plus Size</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="index.html">Hombre ▾</a>
+                <ul class="dropdown">
+                    <li><a href="boxers.html">Bóxers</a></li>
+                    <li><a href="slips.html">Slips</a></li>
+                    <li><a href="medias-hombre.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="index.html">Niños ▾</a>
+                <ul class="dropdown">
+                    <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
+                    <li><a href="ninos-boxers.html">Bóxers</a></li>
+                    <li><a href="ninos-deportivo.html">Deportivo</a></li>
+                    <li><a href="ninos-medias.html">Medias</a></li>
+                    <li><a href="ninos-bombachas.html">Bombachas</a></li>
+                    <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
+    <div class="section-title">Pijamas y Térmicas de Niños</div>
+    
+    <div class="catalog-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4433b475-4977-4aad-aad1-e0f4ce7084df-e80f45e4204be6bebb17781032327424-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama niña con tul manga larga FROZEN</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20niña%20con%20tul%20manga%20larga%20FROZEN" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4271cb67-4274-4b3d-8678-f2e5196e9e3e-8f52b1823fc6e56d5517769650047800-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta térmica de algodón a rayas</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20térmica%20de%20algodón%20a%20rayas" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/5afad03b-2642-4644-9300-abc31ebfb7c2-030c90144c523fbd5817769650178718-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta térmica polisoft nena</div><div class="card-price">Consultar precio</div><div class="card-desc">AZUL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20térmica%20polisoft%20nena" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/5566ca0a-3b7d-47f4-80b3-00f7cff818d6-8283fdd4aa1775510e17793951150454-480-0.webp"><div class="card-body"><div class="card-brand">ELEMENTO</div><div class="card-title">Pijama nena invierno de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20nena%20invierno%20de%20algodón" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d4c8836a-309d-4606-8246-802cc0cecde6-6ca93f7d66b63aa66e17793950925131-480-0.webp"><div class="card-body"><div class="card-brand">ELEMENTO</div><div class="card-title">Pijama nene de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20nene%20de%20algodón" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9cba4340-b4a9-4529-ba80-af19c2d820a8-851213e5e79147d17917781032189096-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama niña con capa manga larga FROZEN</div><div class="card-price">Consultar precio</div><div class="card-desc">CELESTE</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20niña%20con%20capa%20manga%20larga%20FROZEN" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/108492a6-3188-4041-8b31-938f0ebfbc9c-c4c0542cb958c954a517781032382648-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama manga larga REY LEON</div><div class="card-price">Consultar precio</div><div class="card-desc">VERDE</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20manga%20larga%20REY%20LEON" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e52def06-5445-4e25-8035-cdc5d756c878-778460da82764f634717828485097402-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta termica polisoft</div><div class="card-price">Consultar precio</div><div class="card-desc">AVELLANA</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20termica%20polisoft" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0ee4d0e9-f5b0-4395-bf92-2e2b4ff45f7b-61de37b8abb52f662917799986646864-480-0.webp"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Camiseta térmica de microfibra y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">AZUL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20térmica%20de%20microfibra%20y%20lycra" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0bf924c9-8285-47d7-ae8c-73592b265f07-4a91a7e879cd2753fb17794722086924-480-0.webp"><div class="card-body"><div class="card-brand">ELEMENTO</div><div class="card-title">Pijama de nena KITTY de algodón.</div><div class="card-price">Consultar precio</div><div class="card-desc">LILA</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20de%20nena%20KITTY%20de%20algodón" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/05e04f2b-92ae-4de2-9825-7f888d3c19bd-e58dfa36b430a39e5317830124598050-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta termica polisoft nena</div><div class="card-price">Consultar precio</div><div class="card-desc">AZUL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20termica%20polisoft%20nena%202" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2b6fd99f-3d25-4ffa-a665-33516479db7a-b8366ca50c8ff8436a17828535913540-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta térmica de algodón a rayas nena</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20térmica%20de%20algodón%20a%20rayas%20nena" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/f720b241-f436-4637-945b-df78848db73c-56a92809fe4b0c72c817769631662978-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta termica de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20termica%20de%20algodón" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4fbb73bd-ff09-4934-a377-3e04dc795072-78717973d910367d9917691090708059-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Camiseta niña Princesas</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20niña%20Princesas" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e5390282-763f-4080-9f87-b655877a69e4-72e6b57928642f278617861142357148-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Calza princesas</div><div class="card-price">Consultar precio</div><div class="card-desc">ROSA</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Calza%20princesas" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+</body>
+</html>
