@@ -33,7 +33,6 @@
             flex-wrap: wrap;
         }
 
-        /* Espaciador izquierdo para equilibrar el logo */
         .header-spacer {
             width: 150px;
         }
@@ -73,7 +72,6 @@
             color: #222;
         }
 
-        /* Menú de navegación desplegable */
         nav {
             background-color: #ffffff;
             border-bottom: 1px solid var(--border-color);
@@ -109,7 +107,6 @@
             color: #000;
         }
 
-        /* Submenú desplegable */
         .dropdown {
             display: none;
             position: absolute;
@@ -138,43 +135,15 @@
             color: var(--accent-color);
         }
 
-        /* Mostrar desplegable con hover en compu o toque en celu */
         .nav-item:hover .dropdown,
         .nav-item:focus-within .dropdown {
             display: block;
         }
 
-        /* Filtros de productos */
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 25px 20px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background-color: #e5e0d8;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 12px;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: #555;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: #333;
-            color: #fff;
-        }
-
         .catalog-container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 40px 20px;
+            margin: 30px auto;
+            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
@@ -214,6 +183,21 @@
             font-weight: 600;
             margin: 0 0 5px 0;
             color: #444;
+        }
+
+        .card-brand {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .card-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
         }
 
         .card-desc {
@@ -301,58 +285,978 @@
         </ul>
     </nav>
 
-    <div class="filters">
-        <button class="filter-btn active">VER TODO</button>
-        <button class="filter-btn">PACKS DE BOMBACHAS</button>
-        <button class="filter-btn">BODYS</button>
-        <button class="filter-btn">BOMBACHAS SUELTAS</button>
-        <button class="filter-btn">CORPIÑOS</button>
-        <button class="filter-btn">CONJUNTOS</button>
-    </div>
-
     <div class="catalog-container">
+        <!-- ================= SECTION: PACKS DE BOMBACHAS ================= -->
+        <!-- 1 -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80" alt="Pack x3 Colaless">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc9a2767-8ea5-40be-8195-193df6a2bcc4-967e8470bd2176998617629692538191-480-0.webp" alt="Pack x3 Colaless regulable de morley sin costura">
             <div class="card-body">
+                <div class="card-brand">KAURY</div>
                 <div class="card-title">Pack x3 Colaless regulable de morley sin costura</div>
-                <div class="card-desc">COLOR BLANCO</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Pack%20x3%20Colaless%20regulable" target="_blank" class="btn-consultar">Consultar</a>
+                <div class="card-price">$22,786.40</div>
+                <div class="card-desc">BLANCO - L/XL</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20Colaless%20regulable%20de%20morley%20sin%20costura" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
 
+        <!-- 2 -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Pack x2 Vedetina">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7b86389f-9b96-43a2-8fec-f7b3eabb1b31-904e273dbdec7d4f5017804093699188-480-0.webp" alt="Pack x2 Vedetina tiro medio de algodon y lycra">
             <div class="card-body">
-                <div class="card-title">Pack x2 Vedetina tiro medio de algodón y lycra</div>
-                <div class="card-desc">COLOR SURTIDO</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Pack%20x2%20Vedetina" target="_blank" class="btn-consultar">Consultar</a>
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Pack x2 Vedetina tiro medio de algodon y lycra</div>
+                <div class="card-price">$28,229.50</div>
+                <div class="card-desc">SURTIDO - 2</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x2%20Vedetina%20tiro%20medio%20de%20algodon%20y%20lycra" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
 
+        <!-- 3 -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Body Exclusivo">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/36e764db-75b2-4b2b-985f-916851f6cbf8-2a7b69ab7e01d0a8f817805925190317-480-0.webp" alt="Bombacha culoteless pack x3 de algodón">
             <div class="card-body">
-                <div class="card-title">Body morley escote redondo calidad premium</div>
-                <div class="card-desc">COLOR NEGRO / BLANCO</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Body%20morley" target="_blank" class="btn-consultar">Consultar</a>
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Bombacha culoteless pack x3 de algodón</div>
+                <div class="card-price">$28,099.50</div>
+                <div class="card-desc">SURTIDO - L/XL</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20culoteless%20pack%20x3%20de%20algodón" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
 
+        <!-- 4 -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Bombacha suelta">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/79892363-b7e8-425e-8114-c91e46e336a2-842cae939839564d6117720396465969-480-0.webp" alt="Pack x3 vedetina de algodón & lycra">
             <div class="card-body">
-                <div class="card-title">Bombacha vedetina individual de algodón & lycra</div>
-                <div class="card-desc">COLOR SURTIDO</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20la%20Bombacha%20suelta" target="_blank" class="btn-consultar">Consultar</a>
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Pack x3 vedetina de algodón & lycra</div>
+                <div class="card-price">$22,214.40</div>
+                <div class="card-desc">SURTIDO - L/XL</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20vedetina%20de%20algodón%20&%20lycra" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
 
+        <!-- 5 -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Corpiño">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/757ea949-7892-43ae-a698-930730f0699e-38166a15498f6fe0e117805924697359-480-0.webp" alt="Pack x3 colaless de algodón y lycra">
             <div class="card-body">
-                <div class="card-title">Corpiño deportivo / triangulito sin argollas</div>
-                <div class="card-desc">COLORES VARIOS</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20el%20Corpiño" target="_blank" class="btn-consultar">Consultar</a>
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Pack x3 colaless de algodón y lycra</div>
+                <div class="card-price">$21,127.60</div>
+                <div class="card-desc">SURTIDO - S/M</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20colaless%20de%20algodón%20y%20lycra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/23132188-498b-4602-bc70-f260a49764be-807a8a5d4d359a376817758401399187-480-0.webp" alt="Bombacha less regulable pack x2 con puntilla trasera">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Bombacha less regulable pack x2 con puntilla trasera</div>
+                <div class="card-price">$20,233.20</div>
+                <div class="card-desc">BLANCO/SOFIA - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20regulable%20pack%20x2%20con%20puntilla%20trasera" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/61b80f1c-a97c-4bf8-bc9c-b183a75c6df4-a7b68ba29dec88fe9617614089947033-480-0.webp" alt="Bombacha colaless pack x2 de tul">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Bombacha colaless pack x2 de tul</div>
+                <div class="card-price">$20,233.20</div>
+                <div class="card-desc">VERDE/TURQUESA - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20colaless%20pack%20x2%20de%20tul" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b9a0dfaf-7cb0-4481-93a2-cbff62b7d525-868373c17aec32738817579609345286-480-0.webp" alt="Bombacha less regulable pack x2 de puntilla">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Bombacha less regulable pack x2 de puntilla</div>
+                <div class="card-price">$20,233.20</div>
+                <div class="card-desc">NEGRO/ROJO - 2</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20regulable%20pack%20x2%20de%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9ba81a8c-d8e9-4851-9aa0-643db38fbe23-16327bdc199b03fd9417801607255084-480-0.webp" alt="Pack x3 Bombacha less regulable surtido de microfibra">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Pack x3 Bombacha less regulable surtido de microfibra</div>
+                <div class="card-price">$25,070.50</div>
+                <div class="card-desc">NEGRO - 2</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x3%20Bombacha%20less%20regulable%20surtido%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/07392cd0-1ced-4938-8ec0-95397715e4bd-ed6935f70f61579a7c17590074501255-480-0.webp" alt="Bombacha colaless pack x3 de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Bombacha colaless pack x3 de microfibra y puntilla</div>
+                <div class="card-price">$19,650.80</div>
+                <div class="card-desc">SURTIDO - UNICO</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20colaless%20pack%20x3%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- ================= SECTION: BODYS ================= -->
+        <!-- Body 1 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc9a2767-8ea5-40be-8195-193df6a2bcc4-967e8470bd2176998617629692538191-480-0.webp" alt="Body escote cruzado de microfibra">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body escote cruzado de microfibra</div>
+                <div class="card-price">$33,332.00</div>
+                <div class="card-desc">CHOCOLATE - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20escote%20cruzado%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 2 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7b86389f-9b96-43a2-8fec-f7b3eabb1b31-904e273dbdec7d4f5017804093699188-480-0.webp" alt="Body micromorley manga larga">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body micromorley manga larga</div>
+                <div class="card-price">$32,695.00</div>
+                <div class="card-desc">VERDE - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20micromorley%20manga%20larga" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 3 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/36e764db-75b2-4b2b-985f-916851f6cbf8-2a7b69ab7e01d0a8f817805925190317-480-0.webp" alt="Body modal gamuzado estampado">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body modal gamuzado estampado</div>
+                <div class="card-price">$32,539.00</div>
+                <div class="card-desc">ANIMAL PRINT - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20modal%20gamuzado%20estampado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 4 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/79892363-b7e8-425e-8114-c91e46e336a2-842cae939839564d6117720396465969-480-0.webp" alt="Body microfibra">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body microfibra</div>
+                <div class="card-price">$18,314.40</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 5 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/757ea949-7892-43ae-a698-930730f0699e-38166a15498f6fe0e117805924697359-480-0.webp" alt="Body strapless de tul y microfibra">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body strapless de tul y microfibra</div>
+                <div class="card-price">$23,888.80</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20strapless%20de%20tul%20y%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 6 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/23132188-498b-4602-bc70-f260a49764be-807a8a5d4d359a376817758401399187-480-0.webp" alt="Body básico de algodón bordado">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body básico de algodón bordado</div>
+                <div class="card-price">$19,921.20</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20básico%20de%20algodón%20bordado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 7 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/61b80f1c-a97c-4bf8-bc9c-b183a75c6df4-a7b68ba29dec88fe9617614089947033-480-0.webp" alt="Body colaless de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body colaless de microfibra y puntilla</div>
+                <div class="card-price">$26,707.20</div>
+                <div class="card-desc">BLANCO - 2</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20colaless%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 8 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b9a0dfaf-7cb0-4481-93a2-cbff62b7d525-868373c17aec32738817579609345286-480-0.webp" alt="Body less con aro de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body less con aro de microfibra y puntilla</div>
+                <div class="card-price">$36,592.40</div>
+                <div class="card-desc">BLANCO - 90</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20con%20aro%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 9 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9ba81a8c-d8e9-4851-9aa0-643db38fbe23-16327bdc199b03fd9417801607255084-480-0.webp" alt="Body con aro forrado en encaje y tull">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body con aro forrado en encaje y tull</div>
+                <div class="card-price">$12,480.00</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20aro%20forrado%20en%20encaje%20y%20tull" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 10 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/07392cd0-1ced-4938-8ec0-95397715e4bd-ed6935f70f61579a7c17590074501255-480-0.webp" alt="Body de morley">
+            <div class="card-body">
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Body de morley</div>
+                <div class="card-price">$32,760.00</div>
+                <div class="card-desc">BLANCO - L</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 11 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f80a091-e0c3-499a-90d0-b1ca8fd951ad-2a817cb13a5d6d0c3a17844125060482-480-0.webp" alt="Body de morley">
+            <div class="card-body">
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Body de morley</div>
+                <div class="card-price">$31,590.00</div>
+                <div class="card-desc">NEGRO - S</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 12 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/6fc9bec2-24a0-46b3-8fe5-e0d41ab5a88f-7bac53f323d0e8915517716924897977-480-0.webp" alt="Bodyless de encaje">
+            <div class="card-body">
+                <div class="card-brand">MARCELA KOURY</div>
+                <div class="card-title">Bodyless de encaje</div>
+                <div class="card-price">$33,883.20</div>
+                <div class="card-desc">NEGRO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bodyless%20de%20encaje" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 13 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/111b1bcf-62c7-4f07-9cb9-13bc1c4a3b5e-09548e5d5ea27cb38017614118040126-480-0.webp" alt="Body less de microfibra y encaje con taza soft">
+            <div class="card-body">
+                <div class="card-brand">OLYMPO SHOP</div>
+                <div class="card-title">Body less de microfibra y encaje con taza soft</div>
+                <div class="card-price">$26,473.20</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20microfibra%20y%20encaje%20con%20taza%20soft" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 14 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/89e9708b-d1f2-477d-9c53-489caebaa6d0-ee834b9eb61913e98317605366873476-480-0.webp" alt="Body de raso y tul bordado">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body de raso y tul bordado</div>
+                <div class="card-price">$64,797.20</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20raso%20y%20tul%20bordado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 15 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/96e36620-dfa1-4b34-9c58-db28fc47f4e4-febf40519fbd78502317882776181710-480-0.webp" alt="Body de algodón y lycra con puntilla">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body de algodón y lycra con puntilla</div>
+                <div class="card-price">$20,618.00</div>
+                <div class="card-desc">BLANCO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20algodón%20y%20lycra%20con%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 16 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cf8d10df-1eaa-494d-9c7b-c60aa5426077-da29e67c4603b4816117805977260276-480-0.webp" alt="Body de microfibra">
+            <div class="card-body">
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Body de microfibra</div>
+                <div class="card-price">$36,550.80</div>
+                <div class="card-desc">BLANCO - L</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 17 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ddfe8b33-e7cd-41df-9ccc-bdf1b9f68b7a-da3d5111ceb1f157b817740245551024-480-0.webp" alt="Body de microfibra doble con cuello alto">
+            <div class="card-body">
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Body de microfibra doble con cuello alto</div>
+                <div class="card-price">$31,033.60</div>
+                <div class="card-desc">BLANCO - L</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20microfibra%20doble%20con%20cuello%20alto" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 18 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/56adb8de-c537-4695-baeb-f74dbeef6ffe-e5d9a8126b61e0813817727316560037-480-0.webp" alt="Body de microfibra">
+            <div class="card-body">
+                <div class="card-brand">BRIGITTE</div>
+                <div class="card-title">Body de microfibra</div>
+                <div class="card-price">$33,170.80</div>
+                <div class="card-desc">VISON - XL</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 19 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/db485009-dc8c-4ed4-afee-a8de02d4bc64-4daad8e94099e8f7fb17727316354991-480-0.webp" alt="Body detalle de puntilla de morley">
+            <div class="card-body">
+                <div class="card-brand">LARA</div>
+                <div class="card-title">Body detalle de puntilla de morley</div>
+                <div class="card-price">$16,619.20</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20detalle%20de%20puntilla%20de%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 20 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/69082b5e-3943-4230-a8ba-992f9fec6356-d2ae3c9cc0a8f5aaed17727317317660-480-0.webp" alt="Body taza soft triángulo con morley y puntilla">
+            <div class="card-body">
+                <div class="card-brand">FAIRUZ</div>
+                <div class="card-title">Body taza soft triángulo con morley y puntilla</div>
+                <div class="card-price">$26,863.20</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20taza%20soft%20triángulo%20con%20morley%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 21 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/98053cc5-5700-44e6-bf3e-14a44160d92c-26a2a38785b9a8fcf317758304126750-480-0.webp" alt="Body less de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body less de microfibra y puntilla</div>
+                <div class="card-price">$29,629.60</div>
+                <div class="card-desc">BLANCO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 22 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/1a2f99c2-8a6b-486c-ab6f-77c46943307b-e508cc5f27d88dff8117805925005159-480-0.webp" alt="Body less de puntilla">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body less de puntilla</div>
+                <div class="card-price">$23,852.40</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 23 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/159c441d-26e9-4d5f-9e4c-4bbd3d38271f-efe99281f4ca60a0ff17727316785709-480-0.webp" alt="Body de tela engomada">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body de tela engomada</div>
+                <div class="card-price">$24,122.80</div>
+                <div class="card-desc">NEGRO CRUSH - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20tela%20engomada" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 24 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a0a0d7a1-181a-48a6-9d20-4b0f7cf0d194-e87e1e920d0251208f17727316652393-480-0.webp" alt="Body taza soft de puntilla y tela velvet con colaless">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body taza soft de puntilla y tela velvet con colaless</div>
+                <div class="card-price">$16,900.00</div>
+                <div class="card-desc">BORDO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20taza%20soft%20de%20puntilla%20y%20tela%20velvet" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 25 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a404fdd7-c462-42c9-9d55-a3aaddd6dac4-631d8d0d847055dc0617720396647894-480-0.webp" alt="Body de tul y puntilla">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body de tul y puntilla</div>
+                <div class="card-price">$25,656.80</div>
+                <div class="card-desc">BLANCO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20tul%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 26 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d050c5b7-0dde-438b-a615-62f67f6c2927-8b01cd8e03fdc72c8317801606562035-480-0.webp" alt="Body de tul y puntilla">
+            <div class="card-body">
+                <div class="card-brand">SEXY LALI</div>
+                <div class="card-title">Body de tul y puntilla</div>
+                <div class="card-price">$28,480.40</div>
+                <div class="card-desc">NEGRO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20tul%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 27 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4e7a95bd-e1d6-4e94-9a7d-482e151c38ff-55cda4dd3b7d3cd1c917831879021941-480-0.webp" alt="Body de encaje y microfibra">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body de encaje y microfibra</div>
+                <div class="card-price">$30,071.60</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20encaje%20y%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 28 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/276ed9a7-d990-4697-b335-50eb4152c6ea-80b5b33e8622e732df17589886811715-480-0.webp" alt="Body microfibra">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body microfibra</div>
+                <div class="card-price">$18,870.80</div>
+                <div class="card-desc">FRESA - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 29 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/63b2ba42-eb1f-431d-b09c-3ef7b3853599-bf3b548e8dc874fee117829153587969-480-0.webp" alt="Body colaless de tul y puntilla">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body colaless de tul y puntilla</div>
+                <div class="card-price">$24,289.20</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20colaless%20de%20tul%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 30 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7c3db75d-53e4-44c4-a649-affe87e2fdb5-08904a872f9198ec4717868212880685-480-0.webp" alt="Body Microfibra y Tul Cola Less">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body Microfibra y Tul Cola Less</div>
+                <div class="card-price">$24,544.00</div>
+                <div class="card-desc">GRIS HUMO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20Microfibra%20y%20Tul%20Cola%20Less" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 31 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/1d40dc69-4a96-4c85-bf2f-bb214b430f04-7d8f60c2b7eff8813517590086086031-480-0.webp" alt="Body less de algodón">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body less de algodón</div>
+                <div class="card-price">$18,236.40</div>
+                <div class="card-desc">AMARILLO FLUO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20algodón" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 32 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/726ddb26-2538-4cbc-b659-c0f9fe0bff72-36af1a5d23f94961bc17758314405020-480-0.webp" alt="Body less de algodón">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body less de algodón</div>
+                <div class="card-price">$14,700.40</div>
+                <div class="card-desc">GRIS CLARO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20algodón" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 33 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/32e5873d-d99f-4ffc-a03c-5cb85a6977d7-1c719230722b93bce117740245415554-480-0.webp" alt="Body less de puntilla y tul">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body less de puntilla y tul</div>
+                <div class="card-price">$26,000.00</div>
+                <div class="card-desc">ROJO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20puntilla%20y%20tul" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 34 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9aafa867-b053-48a2-a763-c64e28341ab9-8901f41d26fe54e59817614065909607-480-0.webp" alt="Body less de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body less de microfibra y puntilla</div>
+                <div class="card-price">$20,935.20</div>
+                <div class="card-desc">FRESA - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 35 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a32756b3-5b78-4ca5-9719-985d6a9f9a6d-b4d54090f3c5a66dc117590036183125-480-0.webp" alt="Body less de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body less de microfibra y puntilla</div>
+                <div class="card-price">$26,286.00</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 36 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/897d213d-2db7-4c16-9e96-6b7fa0f63cf9-e76e4f056cea70d2ec17590085965844-480-0.webp" alt="Body colaless de modal">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body colaless de modal</div>
+                <div class="card-price">$16,224.00</div>
+                <div class="card-desc">ROJO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20colaless%20de%20modal" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 37 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/f0ffed2d-c298-4a87-834b-1cbc7de1919a-ee272fbcc660ba31a717882956817450-480-0.webp" alt="Body culoteless de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">KAURY</div>
+                <div class="card-title">Body culoteless de microfibra y puntilla</div>
+                <div class="card-price">$18,200.00</div>
+                <div class="card-desc">ROJO - 3</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20culoteless%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 38 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/c6a9f836-d6b2-435a-ac31-a121ddd31203-13f156d97e08bda91b17866330167442-480-0.webp" alt="Body de puntilla y tul">
+            <div class="card-body">
+                <div class="card-brand">MARCELA KOURY</div>
+                <div class="card-title">Body de puntilla y tul</div>
+                <div class="card-price">$17,576.00</div>
+                <div class="card-desc">BLANCO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20puntilla%20y%20tul" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 39 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/297ab571-070a-4a78-99e4-118837c21bc1-de54cd848d15cbdaec17588309285557-480-0.webp" alt="Body less con taza soft de algodón y lycra">
+            <div class="card-body">
+                <div class="card-brand">MARCELA KOURY</div>
+                <div class="card-title">Body less con taza soft de algodón y lycra</div>
+                <div class="card-price">$24,018.80</div>
+                <div class="card-desc">ACUA - L</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20con%20taza%20soft%20de%20algodón%20y%20lycra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 40 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/5bbef63c-4553-4d32-a872-6114b5c4269c-ed69a643a4868c08ab17590074728701-480-0.webp" alt="Body less con taza soft de microfibra">
+            <div class="card-body">
+                <div class="card-brand">MARCELA KOURY</div>
+                <div class="card-title">Body less con taza soft de microfibra</div>
+                <div class="card-price">$18,387.20</div>
+                <div class="card-desc">BLANCO - M</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20con%20taza%20soft%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 41 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/381a0b60-bcdc-47a9-9828-e9bdb200ca18-50e4d0334576515cee17786952268564-480-0.webp" alt="Body colaless de morley">
+            <div class="card-body">
+                <div class="card-brand">AVRIL KAURY</div>
+                <div class="card-title">Body colaless de morley</div>
+                <div class="card-price">$13,000.00</div>
+                <div class="card-desc">FUCSIA - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20colaless%20de%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 42 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4778cfb7-805a-43d1-844b-7b7d8780b4bd-2f9ff26045084b631917614135267809-480-0.webp" alt="Body less regulable de morley">
+            <div class="card-body">
+                <div class="card-brand">TIENTO</div>
+                <div class="card-title">Body less regulable de morley</div>
+                <div class="card-price">$15,600.00</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20regulable%20de%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 43 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e379e048-36ce-45c3-9bd3-21509e0154c6-1f029ab3847c8c516a17590036020788-480-0.webp" alt="Body de encaje puntilla">
+            <div class="card-body">
+                <div class="card-brand">TIENTO</div>
+                <div class="card-title">Body de encaje puntilla</div>
+                <div class="card-price">$15,600.00</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20encaje%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 44 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/63a9b409-6a7e-4f04-bcb8-85d98d48fc32-375a7cbd77b829627e17590037437456-480-0.webp" alt="Body triángulo soft de microfibra y puntilla">
+            <div class="card-body">
+                <div class="card-brand">TIENTO</div>
+                <div class="card-title">Body triángulo soft de microfibra y puntilla</div>
+                <div class="card-price">$18,200.00</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20triángulo%20soft%20de%20microfibra%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 45 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b8c13bc2-b47f-4a83-a9ee-cd76b654fa29-71bfcac5e45db98ae717822216407594-480-0.webp" alt="Body cola less forrado de puntilla">
+            <div class="card-body">
+                <div class="card-brand">TIENTO</div>
+                <div class="card-title">Body cola less forrado de puntilla</div>
+                <div class="card-price">$22,495.20</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20cola%20less%20forrado%20de%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 46 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/3a7d1994-ca2f-40db-86e6-db5d62aa5941-d4c167df31fb10073417805916537838-480-0.webp" alt="Body de encaje elastizado y puntilla">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body de encaje elastizado y puntilla</div>
+                <div class="card-price">$12,480.00</div>
+                <div class="card-desc">BLANCO - M</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20encaje%20elastizado%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 47 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/fbd5ed7a-55af-4085-8487-75c5a6830e7a-c564f61a6785b9a11517794694739254-480-0.webp" alt="Body halter de encaje y puntilla">
+            <div class="card-body">
+                <div class="card-brand">TRENDA</div>
+                <div class="card-title">Body halter de encaje y puntilla</div>
+                <div class="card-price">$12,480.00</div>
+                <div class="card-desc">BLANCO - S</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20halter%20de%20encaje%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 48 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0475d53f-a3af-49b3-a8f7-e2c80d92e398-4c52c8ddcbf8e4234a17786974427272-480-0.webp" alt="Body breteles anchos de microfibra de nylon y lycra">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body breteles anchos de microfibra de nylon y lycra</div>
+                <div class="card-price">$45,890.00</div>
+                <div class="card-desc">CHOCOLATE - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20breteles%20anchos%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 49 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a091c6e9-dc61-4498-aa20-ff8c3e7e25d1-1a697e237bdf1be1b917875932627809-480-0.webp" alt="Body triángulo espalda en v de tul bordado y lycra">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body triángulo espalda en v de tul bordado y lycra</div>
+                <div class="card-price">$72,898.80</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20triángulo%20espalda%20en%20v%20de%20tul%20bordado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 50 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cc4ad498-7dfd-4fab-b1c7-c1f91b0d2cd2-bccbcf2eaa6d95f71b17590075588533-480-0.webp" alt="Body soft de tul bordado y lycra">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body soft de tul bordado y lycra</div>
+                <div class="card-price">$70,200.00</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20soft%20de%20tul%20bordado%20y%20lycra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 51 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/c9916d2e-46ae-49a9-b404-85c6bee602d4-240283310cc9036cb317579867833487-480-0.webp" alt="Body con aro de tul y terciopelo">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body con aro de tul y terciopelo</div>
+                <div class="card-price">$51,292.80</div>
+                <div class="card-desc">NEGRO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20aro%20de%20tul%20y%20terciopelo" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 52 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0d04cd2b-cd33-45c9-8537-e8c276e259e3-72885608e5c9703f0117822216959508-480-0.webp" alt="Body top falso aro de tul bordado">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body top falso aro de tul bordado</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20top%20falso%20aro%20de%20tul%20bordado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 53 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0214b05e-bbc3-4fd8-9bfe-0e016c4af7fe-680eb51f18897a374417727221840131-480-0.webp" alt="Body marilyn de tul bordado y microfibra">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body marilyn de tul bordado y microfibra</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">NEGRO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20marilyn%20de%20tul%20bordado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 54 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/78d87465-4588-4446-b9ed-b554a841398b-3541986113dc20c2da17875846161771-480-0.webp" alt="Body texturado">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body texturado</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">NEGRO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20texturado" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 55 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b5436ffc-4e2f-4425-b994-9f30b5319f64-76ed1fa7997c5080bb17827349660172-480-0.webp" alt="Body less de microfibra">
+            <div class="card-body">
+                <div class="card-brand">EXCLUSIVE</div>
+                <div class="card-title">Body less de microfibra</div>
+                <div class="card-price">$40,487.20</div>
+                <div class="card-desc">BLANCO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 56 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/72acd7e0-193d-441a-823e-3013768b9412-d82f4bc685da3b7aea17590026956025-480-0.webp" alt="Body less de morley">
+            <div class="card-body">
+                <div class="card-brand">BELEN</div>
+                <div class="card-title">Body less de morley</div>
+                <div class="card-price">$18,085.60</div>
+                <div class="card-desc">BLANCO - 2</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20less%20de%20morley" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 57 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/95f71caa-4fb1-443e-9108-b731eb973d0a-904f72e38cf39a8e3517827468620177-480-0.webp" alt="Body de morley y puntilla">
+            <div class="card-body">
+                <div class="card-brand">BELEN</div>
+                <div class="card-title">Body de morley y puntilla</div>
+                <div class="card-price">$17,596.80</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20morley%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 58 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4b4b8f41-824f-4064-8e98-87e63f00c210-6c81ec4ab3cc8a066017857713302508-480-0.webp" alt="Body con aro forrado de tul y lycra">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body con aro forrado de tul y lycra</div>
+                <div class="card-price">$41,823.60</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20aro%20forrado%20de%20tul%20y%20lycra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 59 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ef6dc31d-c3a0-4a0a-b789-356c5d8938d2-d1b4464c406ec17c3617837981914209-480-0.webp" alt="Body con aro de puntilla y tul lycra">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body con aro de puntilla y tul lycra</div>
+                <div class="card-price">$39,249.60</div>
+                <div class="card-desc">NEGRO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20aro%20de%20puntilla%20y%20tul%20lycra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 60 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d938fc1c-f9d0-4c27-a973-b771ffbe9635-c6bc54775dfd0a169f17782593679634-480-0.webp" alt="Body manga larga cuello polera de microfibra y tul lycra">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body manga larga cuello polera de microfibra y tul lycra</div>
+                <div class="card-price">$41,158.00</div>
+                <div class="card-desc">NEGRO/NUDE - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20manga%20larga%20cuello%20polera" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 61 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8e21a950-5ada-4bfd-b251-ae9254ae1395-cdcb2d2470ee64f1f117590064659081-480-0.webp" alt="Body manga larga con cuello polera de tul">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body manga larga con cuello polera de tul</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">NEGRO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20manga%20larga%20con%20cuello%20polera%20de%20tul" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 62 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/34bb1edd-5efe-47ef-be66-ca002741b9dd-c4e4820e4826c84dfd17590037212235-480-0.webp" alt="Body con mangas desmontables de microfibra y tul">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body con mangas desmontables de microfibra y tul</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">NEGRO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20mangas%20desmontables" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 63 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/010c4eb3-96ef-4035-8d9f-693b5a49c742-8139fb6f25d613524817837981832490-480-0.webp" alt="Body con cuello y hombreras de microfibra andressa">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body con cuello y hombreras de microfibra andressa</div>
+                <div class="card-price">$60,391.50</div>
+                <div class="card-desc">AZUL - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20cuello%20y%20hombreras" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 64 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/5a70f6e9-0920-4a70-9190-33df0e4a88d8-c4454420181d8f3def17827349926041-480-0.webp" alt="Body con aro de tul y puntilla">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body con aro de tul y puntilla</div>
+                <div class="card-price">$44,116.80</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20aro%20de%20tul%20y%20puntilla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 65 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/da96f066-3177-4406-bdf6-c2ca2b6bc384-b223604bfbcb4836ae17759263517970-480-0.webp" alt="Body marilyn con argolla de puntilla y tul">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body marilyn con argolla de puntilla y tul</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20marilyn%20con%20argolla" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 66 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/67154353-baef-443e-b9d0-4d72022f7dfc-90b8ec9b05d203227d17874242922749-480-0.webp" alt="Body de encaje andressa">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body de encaje andressa</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">NEGRO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20encaje%20andressa" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 67 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9957f466-d4c8-4db0-af92-6b56a765ba45-4b0bbe8d02223085f217830110440150-480-0.webp" alt="Body de microfibra">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body de microfibra</div>
+                <div class="card-price">$35,100.00</div>
+                <div class="card-desc">CHOCOLATE - 90</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20de%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 68 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9f3f0fa0-fb33-4d81-88f3-27efba5358ca-aa43f4be3058501dc117803360978332-480-0.webp" alt="Body taza soft de puntilla y microfibra">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body taza soft de puntilla y microfibra</div>
+                <div class="card-price">$53,414.40</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20taza%20soft%20de%20puntilla%20y%20microfibra" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 69 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4eebb3d9-4eaa-4dfc-8f22-e44b045c1e13-2d141db1ee47cc928717590025513014-480-0.webp" alt="Body con aro de puntilla y tul">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body con aro de puntilla y tul</div>
+                <div class="card-price">$46,009.60</div>
+                <div class="card-desc">BLANCO - 85</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20aro%20de%20puntilla%20y%20tul" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 70 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/797449bf-a34e-483e-a502-bf4049566c37-c36b04cb73389cd2f117579607916720-480-0.webp" alt="Body escote recto con espalda en v de morley">
+            <div class="card-body">
+                <div class="card-brand">ANDRESSA</div>
+                <div class="card-title">Body escote recto con espalda en v de morley</div>
+                <div class="card-price">$29,686.80</div>
+                <div class="card-desc">BLANCO - 100</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20escote%20recto%20con%20espalda%20en%20v" target="_blank" class="btn-consultar">Consultar</a>
+            </div>
+        </div>
+
+        <!-- Body 71 -->
+        <div class="card">
+            <img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0abe972f-2bb7-4d8e-af0d-45d21d849928-a060e6d79c22289dac17579607572421-480-0.webp" alt="Body con choker desmontable de encaje">
+            <div class="card-body">
+                <div class="card-brand">SIGRY</div>
+                <div class="card-title">Body con choker desmontable de encaje</div>
+                <div class="card-price">$14,560.00</div>
+                <div class="card-desc">BLANCO - 1</div>
+                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20con%20choker%20desmontable" target="_blank" class="btn-consultar">Consultar</a>
             </div>
         </div>
     </div>
