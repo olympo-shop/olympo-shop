@@ -40,9 +40,12 @@
         .ver-mas { text-decoration: none; color: var(--accent-color); font-size: 13px; font-weight: 600; }
         .ver-mas:hover { text-decoration: underline; }
 
-        .horizontal-scroll-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        /* Contenedor de scroll horizontal */
+        .horizontal-scroll-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 15px; }
+        .horizontal-scroll-container::-webkit-scrollbar { height: 6px; }
+        .horizontal-scroll-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
         
-        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .card { min-width: 220px; width: 220px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; scroll-snap-align: start; flex-shrink: 0; }
         .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
         .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
@@ -131,7 +134,7 @@
         </ul>
     </nav>
 
-    <!-- Bloque Destacados Mujer (Estándar, sin plus size) -->
+    <!-- Bloque Destacados Mujer -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Mujer</h2>
         <a href="mujeres.html" class="ver-mas">Ver más &rarr;</a>
