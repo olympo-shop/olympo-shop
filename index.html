@@ -20,7 +20,6 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            scroll-behavior: smooth;
         }
 
         header {
@@ -178,7 +177,6 @@
             text-decoration: underline;
         }
 
-        /* Carrusel horizontal ancho */
         .slider-wrapper {
             position: relative;
             max-width: 1200px;
@@ -355,21 +353,21 @@
     <nav>
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="#mujer">Mujer ▾</a>
+                <a href="index.html">Mujer ▾</a>
                 <ul class="dropdown">
-                    <li><a href="#packs-bombachas">Packs de Bombachas</a></li>
-                    <li><a href="#bodys">Bodys</a></li>
-                    <li><a href="#bombachas">Bombachas Sueltas</a></li>
+                    <li><a href="packs.html">Packs de Bombachas</a></li>
+                    <li><a href="bodys.html">Bodys</a></li>
+                    <li><a href="bombachas.html">Bombachas Sueltas</a></li>
                     <li><a href="#">Corpiños</a></li>
                     <li><a href="#">Conjuntos</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#hombre">Hombre ▾</a>
+                <a href="index.html">Hombre ▾</a>
                 <ul class="dropdown">
                     <li><a href="#">Bóxers</a></li>
-                    <li><a href="#slips">Slips</a></li>
-                    <li><a href="#medias">Medias</a></li>
+                    <li><a href="#">Slips</a></li>
+                    <li><a href="#">Medias</a></li>
                 </ul>
             </li>
         </ul>
@@ -377,8 +375,8 @@
 
     <!-- ================= SECCIÓN: PACKS DE BOMBACHAS ================= -->
     <div class="section-header">
-        <h2 id="packs-bombachas" class="section-title">Packs de Bombachas</h2>
-        <a href="#packs-bombachas" class="btn-ver-mas">Ver más &rarr;</a>
+        <h2 class="section-title">Packs de Bombachas</h2>
+        <a href="packs.html" class="btn-ver-mas">Ver más &rarr;</a>
     </div>
     <div class="slider-wrapper">
         <button class="slider-btn prev" onclick="scrollSlider('slider-packs', -500)">&#10094;</button>
@@ -439,8 +437,8 @@
 
     <!-- ================= SECCIÓN: BODYS ================= -->
     <div class="section-header">
-        <h2 id="bodys" class="section-title">Bodys</h2>
-        <a href="#bodys" class="btn-ver-mas">Ver más &rarr;</a>
+        <h2 class="section-title">Bodys</h2>
+        <a href="bodys.html" class="btn-ver-mas">Ver más &rarr;</a>
     </div>
     <div class="slider-wrapper">
         <button class="slider-btn prev" onclick="scrollSlider('slider-bodys', -500)">&#10094;</button>
@@ -491,8 +489,8 @@
 
     <!-- ================= SECCIÓN: BOMBACHAS SUELTAS ================= -->
     <div class="section-header">
-        <h2 id="bombachas" class="section-title">Bombachas Sueltas</h2>
-        <a href="#bombachas" class="btn-ver-mas">Ver más &rarr;</a>
+        <h2 class="section-title">Bombachas Sueltas</h2>
+        <a href="bombachas.html" class="btn-ver-mas">Ver más &rarr;</a>
     </div>
     <div class="slider-wrapper">
         <button class="slider-btn prev" onclick="scrollSlider('slider-bombachas', -500)">&#10094;</button>
@@ -541,7 +539,6 @@
         <button class="slider-btn next" onclick="scrollSlider('slider-bombachas', 500)">&#10095;</button>
     </div>
 
-    <!-- Script de desplazamiento horizontal -->
     <script>
         function scrollSlider(sliderId, distance) {
             const slider = document.getElementById(sliderId);
