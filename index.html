@@ -22,25 +22,21 @@
         .btn-ig { background-color: #e1306c; }
         .logo-container { text-align: center; flex-grow: 1; }
         .logo-link { text-decoration: none; color: #222; display: inline-block; }
-        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
-        .logo-link:hover h1 { color: var(--accent-color); }
+        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; }
         
         nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: relative; z-index: 100; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
         .nav-item { position: relative; }
-        .nav-item > a { display: block; padding: 15px 20px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
-        .nav-item > a:hover { background-color: #f1ede6; color: #000; }
+        .nav-item > a { display: block; padding: 15px 20px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; }
         .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 1000; border: 1px solid var(--border-color); }
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
-        .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
         .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
 
         .section-header { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 40px auto 15px auto; padding: 0 20px; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
-        .section-title { font-size: 20px; font-weight: 400; letter-spacing: 1px; margin: 0; color: #333; }
+        .section-title { font-size: 20px; font-weight: 400; margin: 0; color: #333; }
         .ver-mas { text-decoration: none; color: var(--accent-color); font-size: 13px; font-weight: 600; }
-        .ver-mas:hover { text-decoration: underline; }
-
-        /* Contenedor de scroll horizontal */
+        
+        /* Contenedor de scroll horizontal corregido */
         .horizontal-scroll-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 15px; }
         .horizontal-scroll-container::-webkit-scrollbar { height: 6px; }
         .horizontal-scroll-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
@@ -51,43 +47,17 @@
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
         .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
         .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 10px; font-style: italic; }
-        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
         .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
-        .btn-consultar:hover { background-color: #1ebe57; }
 
         #btn-volver-arriba {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--accent-color);
-            color: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-            z-index: 9999;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        #btn-volver-arriba:hover {
-            background-color: #b8972e;
-            transform: translateY(-3px);
+            position: fixed; bottom: 25px; right: 25px; background-color: var(--accent-color); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.15); z-index: 9999;
         }
     </style>
 </head>
 <body>
     <header>
         <div style="width: 50px;"></div>
-        <div class="logo-container">
-            <a href="index.html" class="logo-link">
-                <h1>OLYMPO SHOP</h1>
-            </a>
-        </div>
+        <div class="logo-container"><a href="index.html" class="logo-link"><h1>OLYMPO SHOP</h1></a></div>
         <div class="social-top">
             <a href="https://wa.me/5491168327127" target="_blank" class="btn-wsp">Wsp</a>
             <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Ig</a>
@@ -128,43 +98,31 @@
                     <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="plussize.html">Plus Size</a>
-            </li>
+            <li class="nav-item"><a href="plussize.html">Plus Size</a></li>
         </ul>
     </nav>
 
-    <!-- Bloque Destacados Mujer -->
+    <!-- Sección Destacados Mujer con Scroll Lateral -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Mujer</h2>
         <a href="mujeres.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con tanga less de puntilla</div><div class="card-price">Consultar precio</div><div class="card-desc">BLANCO - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto cruzado y culote less de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">GRIS - 100</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20cruzado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edb83fca-c8c6-40d8-bc0d-a26dc84fd5e1-dd375222637948fad017589288782432-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con less de algodón y lycra</div><div class="card-price">Consultar precio</div><div class="card-desc">ROSA - 85</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo%20less" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e5f1da2f-e724-4fc8-a89a-33d95820051a-a64d1f25e7a97f31d817813817967358-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Conjunto top deportivo con vedetina de algodón</div><div class="card-price">Consultar precio</div><div class="card-desc">SURTIDO - 95</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20top%20deportivo" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con tanga less de puntilla</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto cruzado y culote less de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edb83fca-c8c6-40d8-bc0d-a26dc84fd5e1-dd375222637948fad017589288782432-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con less de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e5f1da2f-e724-4fc8-a89a-33d95820051a-a64d1f25e7a97f31d817813817967358-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Conjunto top deportivo con vedetina de algodón</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Bloque Destacados Hombre -->
+    <!-- Sección Destacados Hombre con Scroll Lateral -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Hombre</h2>
         <a href="boxers.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/boxer-hombre.webp"><div class="card-body"><div class="card-brand">BOXER</div><div class="card-title">Bóxers lisos y estampados</div><div class="card-price">Consultar precio</div><div class="card-desc">VARIOS TALLES</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bóxers" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/boxer-hombre.webp"><div class="card-body"><div class="card-brand">BOXER</div><div class="card-title">Bóxers lisos y estampados</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Bloque Destacados Niños -->
-    <div class="section-header">
-        <h2 class="section-title">Destacados Sección Niños</h2>
-        <a href="ninos.html" class="ver-mas">Ver más &rarr;</a>
-    </div>
-    <div class="horizontal-scroll-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ninos-ropa.webp"><div class="card-body"><div class="card-brand">NIÑOS</div><div class="card-title">Conjuntos y Ropa Infantil</div><div class="card-price">Consultar precio</div><div class="card-desc">VARIOS TALLES</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20ropa%20de%20niños" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-    </div>
-
-    <!-- Botón flotante para volver arriba -->
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
 </body>
 </html>
