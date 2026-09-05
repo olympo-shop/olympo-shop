@@ -27,7 +27,7 @@
         .logo-link { text-decoration: none; color: #222; display: inline-block; }
         h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; }
         
-        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: relative; z-index: 100; }
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
         .nav-item { position: relative; }
         .nav-item > a { display: block; padding: 15px 20px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
@@ -41,6 +41,7 @@
         .section-title { font-size: 20px; font-weight: 400; margin: 0; color: #333; }
         .ver-mas { text-decoration: none; color: var(--accent-color); font-size: 13px; font-weight: 600; }
         
+        /* Carrusel horizontal fluido para deslizar varias fotos */
         .horizontal-scroll-container { 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -141,26 +142,28 @@
         <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/24a66614-7bfa-481c-bd3d-50f5d39195d3-a8214c66acb230004c17579770674342-480-0.webp"><div class="card-body"><div class="card-brand">EXCLUSIVE</div><div class="card-title">Bustier con cierre de raso elastizado</div><div class="card-price">$62,098.40</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bustier" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Sección Hombre (Con sus fotos reales y correctas de bóxers/térmicas) -->
+    <!-- Sección Hombre (Con los bóxers correctos y sin links rotos) -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Hombre</h2>
         <a href="boxers.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/01bc7823-fceb-437f-b727-8de7b067a6ed-bcf1e5630aa6a0328117824903603662-480-0.webp"><div class="card-body"><div class="card-brand">BELEN</div><div class="card-title">Boxer de algodón y lycra liso con elástico personalizado</div><div class="card-price">$7,332.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/855fd057-21ba-475d-8e24-5ceb2887d57c-730eab20647f56a50c17614131748157-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Boxer de Algodon y Lycra con Elastico</div><div class="card-price">$9,620.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/309d72c3-526d-406b-a593-c222ac6697ba-6393b898e888d1ec3a17793939896047-480-0.webp"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Camiseta térmica manga larga cuello alto microfibra hombre</div><div class="card-price">$32,500.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20térmica" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/70f3e31d-41b4-4638-a935-26a96a8c3fa7-f51d34b71c04ed08e417589220477879-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Bóxer dufour rayado sin costura</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bóxer%20dufour" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/632303d4-3aab-4b02-8057-318b89e09c81-8d8528c2179b8d879617755866410964-480-0.webp"><div class="card-body"><div class="card-brand">CIUDADELA</div><div class="card-title">Boxer sin costura liso Tom</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20sin%20costura" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/067044cb-a42e-4899-8522-235729107688-0877d97d58e6e437e417849169860524-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer liso de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20liso" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/362c9214-539d-4b58-ba43-9520fbce3124-9e15f3f77a5b9922f317590022488715-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer pierna corta elástico tejido</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20pierna%20corta" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Sección Niños (Con fotos reales de buzos y ropa de niños) -->
+    <!-- Sección Niños (Con los pijamas, térmicas y ropa infantil correcta) -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Niños</h2>
         <a href="ninos.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a8f18982-b73d-4b18-b69c-424931b7b679-13488c53504bfda12717781088577599-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Buzo Clasico Mickey</div><div class="card-price">$19,500.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Buzo%20Mickey" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e206e4d8-aef8-4b6e-93c4-9c6bd8a46899-2354b87af6a68488e617781088337884-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pantalon de Mickey Friends</div><div class="card-price">$19,500.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pantalon%20Mickey" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/97e1d921-357e-4b6f-9527-a9cc05bb9487-3328b6212f5cc1c2a317781088212503-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Buzo de Mickey Friends</div><div class="card-price">$26,130.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Buzo%20Mickey" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4433b475-4977-4aad-aad1-e0f4ce7084df-e80f45e4204be6bebb17781032327424-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama niña con tul manga larga FROZEN</div><div class="card-price">$39.000,00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20Frozen" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4271cb67-4274-4b3d-8678-f2e5196e9e3e-8f52b1823fc6e56d5517769650047800-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta térmica de algodón a rayas</div><div class="card-price">$21.541,00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta%20térmica" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a8f18982-b73d-4b18-b69c-424931b7b679-13488c53504bfda12717781088577599-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Buzo Clasico Mickey</div><div class="card-price">$19.500,00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Buzo%20Mickey" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f46276a-fc47-4f6f-8fc7-10c0a5b6ca29-d363da5f2e9b0ed8f717589220789201-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Boxer kids Sin Costura Estampado</div><div class="card-price">$5.850,00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20kids" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
     <!-- Sección Plus Size -->
@@ -169,9 +172,10 @@
         <a href="plussize.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/04375346-9478-4fec-9cfe-350ce0230565-1d9d0aada4d765a82f17614129516137-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño Reductor de Encaje Reforzado</div><div class="card-price">$13,010.40</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20Reductor" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc982ce2-805d-4d2f-b13b-04fc33fdd17b-f9541fe3342d9423bc17786948486153-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Corpiño soutien reductor de microfibra y tul bordado</div><div class="card-price">$29,380.00</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20soutien" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/306f8001-cb61-4869-9e73-5decc9f17f18-96726d59de353ce60d17851692912657-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño reductor reforzado</div><div class="card-price">$24,264.50</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20reductor" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/725877e4-59a6-4553-af79-24682aae0e21-dd1eadf15df13036bc17579802280215-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Corpiño taza doble de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20taza%20doble%20plus" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/04375346-9478-4fec-9cfe-350ce0230565-1d9d0aada4d765a82f17614129516137-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño Reductor de Encaje Reforzado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20Reductor%20plus" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc982ce2-805d-4d2f-b13b-04fc33fdd17b-f9541fe3342d9423bc17786948486153-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Corpiño soutien reductor de microfibra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20reductor%20plus" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/306f8001-cb61-4869-9e73-5decc9f17f18-96726d59de353ce60d17851692912657-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño reductor reforzado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño%20reductor%20reforzado%20plus" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
