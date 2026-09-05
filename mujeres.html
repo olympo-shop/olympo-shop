@@ -39,24 +39,8 @@
         .hero h2 { font-size: 22px; font-weight: 400; margin-bottom: 5px; color: #333; }
         .hero p { font-size: 13px; color: #666; margin: 0; }
 
-        /* Contenedor adaptado para que se vea ordenado y completo en celu */
-        .catalog-container { 
-            max-width: 1200px; 
-            margin: 30px auto; 
-            padding: 0 20px; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-            gap: 20px; 
-        }
-        
-        .card { 
-            background-color: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column; 
-        }
+        .catalog-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
         .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
         .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
