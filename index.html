@@ -18,7 +18,6 @@
         
         header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         
-        /* Botones de redes restaurados a su formato original visible */
         .social-top { display: flex; gap: 10px; }
         .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 8px 16px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .btn-wsp { background-color: #25d366; }
@@ -42,6 +41,7 @@
         .section-title { font-size: 20px; font-weight: 400; margin: 0; color: #333; }
         .ver-mas { text-decoration: none; color: var(--accent-color); font-size: 13px; font-weight: 600; }
         
+        /* Carrusel horizontal fluido para deslizar varias fotos */
         .horizontal-scroll-container { 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -49,7 +49,7 @@
             display: flex; 
             gap: 20px; 
             overflow-x: auto; 
-            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
             padding-bottom: 20px;
         }
         .horizontal-scroll-container::-webkit-scrollbar { height: 8px; }
@@ -64,12 +64,9 @@
             overflow: hidden; 
             display: flex; 
             flex-direction: column; 
-            flex-shrink: 0;
-            scroll-snap-align: start;
+            flex-shrink: 0; 
         }
-        .card-img-container { width: 100%; height: 260px; background-color: #eee; overflow: hidden; }
-        .card-img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
         .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
         .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
@@ -133,90 +130,47 @@
         </ul>
     </nav>
 
-    <!-- Sección Mujer -->
+    <!-- Scroll Lateral - Destacados Mujer (Varias fotos) -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Mujer</h2>
         <a href="mujeres.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card">
-            <div class="card-img-container"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"></div>
-            <div class="card-body">
-                <div class="card-brand">FAIRUZ</div>
-                <div class="card-title">Conjunto triángulo con tanga less de puntilla</div>
-                <div class="card-price">Consultar precio</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-img-container"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"></div>
-            <div class="card-body">
-                <div class="card-brand">FAIRUZ</div>
-                <div class="card-title">Conjunto cruzado y culote less de algodón y lycra</div>
-                <div class="card-price">Consultar precio</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a>
-            </div>
-        </div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a6f1346c-a77f-4817-9ee1-802bdf874b20-c6b97ed0cf0096116d17589289103652-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con tanga less de puntilla</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto cruzado y culote less de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edb83fca-c8c6-40d8-bc0d-a26dc84fd5e1-dd375222637948fad017589288782432-480-0.webp"><div class="card-body"><div class="card-brand">FAIRUZ</div><div class="card-title">Conjunto triángulo con less de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e5f1da2f-e724-4fc8-a89a-33d95820051a-a64d1f25e7a97f31d817813817967358-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Conjunto top deportivo con vedetina de algodón</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Sección Hombre -->
+    <!-- Scroll Lateral - Destacados Hombre (Varias fotos) -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Hombre</h2>
         <a href="boxers.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card">
-            <div class="card-img-container"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/01bc7823-fceb-437f-b727-8de7b067a6ed-bcf1e5630aa6a0328117824903603662-480-0.webp"></div>
-            <div class="card-body">
-                <div class="card-brand">BELEN</div>
-                <div class="card-title">Boxer de algodón y lycra liso con elástico personalizado</div>
-                <div class="card-price">Consultar precio</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-img-container"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/855fd057-21ba-475d-8e24-5ceb2887d57c-730eab20647f56a50c17614131748157-480-0.webp"></div>
-            <div class="card-body">
-                <div class="card-brand">NATUBEL</div>
-                <div class="card-title">Boxer de Algodon y Lycra con Elastico</div>
-                <div class="card-price">Consultar precio</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a>
-            </div>
-        </div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/01bc7823-fceb-437f-b727-8de7b067a6ed-bcf1e5630aa6a0328117824903603662-480-0.webp"><div class="card-body"><div class="card-brand">BELEN</div><div class="card-title">Boxer de algodón y lycra liso con elástico personalizado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/855fd057-21ba-475d-8e24-5ceb2887d57c-730eab20647f56a50c17614131748157-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Boxer de Algodon y Lycra con Elastico</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/12586791-036f-4428-9844-31f0cf2f7336-c6b97ed0cf0096116d17590089851610-480-0.webp"><div class="card-body"><div class="card-brand">BOXER</div><div class="card-title">Bóxer de algodón y lycra lisos</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Sección Niños -->
+    <!-- Scroll Lateral - Destacados Niños (Varias fotos) -->
     <div class="section-header">
         <h2 class="section-title">Destacados Sección Niños</h2>
         <a href="ninos.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card">
-            <div class="card-img-container"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/3a7d1994-ca2f-40db-86e6-db5d62aa5941-d4c167df31fb10073417805916537838-480-0.webp"></div>
-            <div class="card-body">
-                <div class="card-brand">RIO</div>
-                <div class="card-title">Pack X3 Colaless regulable Hello Kitty</div>
-                <div class="card-price">Consultar precio</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Hello%20Kitty" target="_blank" class="btn-consultar">Consultar por WhatsApp</a>
-            </div>
-        </div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/3a7d1994-ca2f-40db-86e6-db5d62aa5941-d4c167df31fb10073417805916537838-480-0.webp"><div class="card-body"><div class="card-brand">RIO</div><div class="card-title">Pack X3 Colaless regulable Hello Kitty</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20ninos" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/658ea265-ef96-4b3b-96f8-4a6b0cd1b3b5-770d24e648f243846d17590109909866-480-0.webp"><div class="card-body"><div class="card-brand">NIÑOS</div><div class="card-title">Conjunto infantil y ropa interior</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20ninos" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Sección Plus Size -->
+    <!-- Scroll Lateral - Destacados Plus Size (Varias fotos) -->
     <div class="section-header">
         <h2 class="section-title">Destacados Plus Size</h2>
         <a href="plussize.html" class="ver-mas">Ver más &rarr;</a>
     </div>
     <div class="horizontal-scroll-container">
-        <div class="card">
-            <div class="card-img-container"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/04375346-9478-4fec-9cfe-350ce0230565-1d9d0aada4d765a82f17614129516137-480-0.webp"></div>
-            <div class="card-body">
-                <div class="card-brand">NATUBEL</div>
-                <div class="card-title">Corpiño Reductor de Encaje Reforzado</div>
-                <div class="card-price">Consultar precio</div>
-                <a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Plus%20Size" target="_blank" class="btn-consultar">Consultar por WhatsApp</a>
-            </div>
-        </div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/04375346-9478-4fec-9cfe-350ce0230565-1d9d0aada4d765a82f17614129516137-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño Reductor de Encaje Reforzado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Plus%20Size" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc982ce2-805d-4d2f-b13b-04fc33fdd17b-f9541fe3342d9423bc17786948486153-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Corpiño soutien reductor de microfibra y tul bordado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Plus%20Size" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
