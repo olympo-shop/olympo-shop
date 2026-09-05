@@ -48,7 +48,7 @@
         .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
         .btn-consultar:hover { background-color: #1ebe57; }
 
-        /* Estilos del Recuadrito Modal (Popup) */
+        /* Estilos del Recuadrito Modal (Popup) con foto completa visible */
         #modal-producto {
             display: none;
             position: fixed;
@@ -88,14 +88,32 @@
             color: #333;
             cursor: pointer;
             z-index: 10;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .modal-cerrar:hover { color: var(--accent-color); }
-        .modal-contenido img {
+        
+        /* Contenedor de la foto para que se vea ENTERA sin recortes */
+        .modal-img-container {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
-            background-color: #eee;
+            height: 360px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Esto hace que se vea la foto entera sin que se corte nada */
+        }
+
         .modal-body {
             padding: 20px;
             display: flex;
@@ -248,11 +266,13 @@
         <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e439972d-d5b2-42b3-9dc9-35f8e9ce22cf-871f0cfe2f41ce123917590031791441-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">MARCELA KOURY</div><div class="card-title">Medias invisibles hombre "Army"</div><div class="card-desc">GRIS MELANGE - UNICO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Medias%20invisibles%20Army" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Ventana Modal con la foto grande y detalles -->
+    <!-- Ventana Modal con la foto ENTERA y detalles -->
     <div id="modal-producto" onclick="cerrarModalFuera(event)">
         <div class="modal-contenido">
             <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
-            <img id="modal-img" src="" alt="Producto">
+            <div class="modal-img-container">
+                <img id="modal-img" src="" alt="Producto">
+            </div>
             <div class="modal-body">
                 <div id="modal-brand" class="modal-brand"></div>
                 <h3 id="modal-title" class="modal-title"></h3>
