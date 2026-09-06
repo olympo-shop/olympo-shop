@@ -37,4 +37,24 @@
         .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
         .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
         .section-title { max-width: 1200px; margin: 30px auto 10px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
-        .catalog-container { max-width: 1200px; margin: 20px auto; padding: 0 20px 40px 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,
+        .catalog-container { max-width: 1200px; margin: 20px auto; padding: 0 20px 40px 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; cursor: pointer; transition: opacity 0.2s; }
+        .card img:hover { opacity: 0.9; }
+        .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
+        .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
+        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
+        .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; }
+        .btn-consultar:hover { background-color: #1ebe57; }
+
+        /* Estilos del Recuadrito Modal (Popup) con foto entera */
+        #modal-producto {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
