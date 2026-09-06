@@ -31,14 +31,14 @@
         h1 { margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 400; color: #222; }
         @media (min-width: 768px) { h1 { font-size: 26px; letter-spacing: 4px; } }
         
-        /* Menú superior adaptado para celu (scroll horizontal y despliegue táctil) y compu (centrado) */
+        /* Menú superior adaptable */
         nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); width: 100%; position: sticky; top: 0; z-index: 1000; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; justify-content: flex-start; min-width: max-content; }
         @media (min-width: 768px) {
             .nav-menu { justify-content: center; min-width: auto; flex-wrap: wrap; }
         }
         .nav-item { position: relative; }
-        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; cursor: pointer; }
+        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; cursor: pointer; user-select: none; }
         @media (min-width: 768px) {
             .nav-item > a { padding: 15px 20px; font-size: 14px; letter-spacing: 1px; }
         }
@@ -48,7 +48,7 @@
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; white-space: nowrap; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
         
-        /* Clase para mostrar el menú al tocar en celulares */
+        /* Control táctil para celulares */
         .nav-item.activo .dropdown { display: block; }
         @media (min-width: 768px) {
             .nav-item:hover .dropdown { display: block; }
@@ -196,8 +196,8 @@
 
     <nav>
         <ul class="nav-menu">
-            <li class="nav-item" onclick="toggleMenu(event, this)">
-                <a>Mujer ▾</a>
+            <li class="nav-item">
+                <a onclick="toggleMenu(event, this)">Mujer ▾</a>
                 <ul class="dropdown">
                     <li><a href="mujeres.html">Catálogo General</a></li>
                     <li><a href="packs.html">Packs de Bombachas</a></li>
@@ -210,16 +210,16 @@
                     <li><a href="medias.html">Medias</a></li>
                 </ul>
             </li>
-            <li class="nav-item" onclick="toggleMenu(event, this)">
-                <a>Hombre ▾</a>
+            <li class="nav-item">
+                <a onclick="toggleMenu(event, this)">Hombre ▾</a>
                 <ul class="dropdown">
                     <li><a href="boxers.html">Bóxers</a></li>
                     <li><a href="slips.html">Slips</a></li>
                     <li><a href="medias-hombre.html">Medias</a></li>
                 </ul>
             </li>
-            <li class="nav-item" onclick="toggleMenu(event, this)">
-                <a>Niños ▾</a>
+            <li class="nav-item">
+                <a onclick="toggleMenu(event, this)">Niños ▾</a>
                 <ul class="dropdown">
                     <li><a href="ninos.html">Catálogo Niños</a></li>
                     <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
@@ -331,21 +331,27 @@
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
 
     <script>
-        // Función para abrir y cerrar menús desplegables al tacto en celulares
+        // Función limpia para abrir/cerrar menús desplegables en celular con un toque
         function toggleMenu(event, element) {
             if (window.innerWidth < 768) {
+                event.preventDefault();
                 event.stopPropagation();
-                const isOpen = element.classList.contains('activo');
+                const parentLi = element.closest('.nav-item');
+                const isOpen = parentLi.classList.contains('activo');
+                
+                // Cierra todos los demás
                 document.querySelectorAll('.nav-item').forEach(item => {
                     item.classList.remove('activo');
                 });
+                
+                // Si no estaba abierto, lo abre
                 if (!isOpen) {
-                    element.classList.add('activo');
+                    parentLi.classList.add('activo');
                 }
             }
         }
 
-        // Cierra los menús si se toca fuera
+        // Cierra los menús desplegables si se toca fuera de ellos en el celular
         window.addEventListener('click', function(e) {
             if (!e.target.closest('.nav-item')) {
                 document.querySelectorAll('.nav-item').forEach(item => {
