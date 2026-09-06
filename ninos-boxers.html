@@ -45,13 +45,98 @@
 
         .catalog-container { max-width: 1200px; margin: 30px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
         .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; cursor: pointer; transition: opacity 0.2s; }
+        .card img:hover { opacity: 0.9; }
         .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
         .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
-        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 5px; font-style: italic; }
         .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
         .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; margin-top: auto; }
+
+        /* Estilos del Recuadrito Modal (Popup) con foto entera */
+        #modal-producto {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-contenido {
+            background-color: #fff;
+            border-radius: 10px;
+            max-width: 450px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-cerrar:hover { color: var(--accent-color); }
+        .modal-img-container {
+            width: 100%;
+            height: 360px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .modal-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .modal-brand { font-size: 12px; font-weight: 700; color: var(--accent-color); text-transform: uppercase; }
+        .modal-title { font-size: 16px; font-weight: 600; color: #222; margin: 0; }
+        .modal-desc { font-size: 13px; color: #666; margin-bottom: 10px; }
+        .modal-btn-wsp {
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+        }
+        .modal-btn-wsp:hover { background-color: #1ebe57; }
 
         #btn-volver-arriba {
             position: fixed; bottom: 25px; right: 25px; background-color: var(--accent-color); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.15); z-index: 9999;
@@ -120,23 +205,67 @@
         <p>Bóxers infantiles y juveniles</p>
     </div>
 
-    <!-- Grilla completa de Bóxers de Niños -->
+    <!-- Grilla completa de Bóxers de Niños sin precios y con el texto de talles -->
     <div class="catalog-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f46276a-fc47-4f6f-8fc7-10c0a5b6ca29-d363da5f2e9b0ed8f717589220789201-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Boxer kids Sin Costura Estampado</div><div class="card-price">$5.850,00</div><div class="card-desc">SURTIDO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20kids" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7049a71c-b9ac-4ff1-8d02-0b512a4e9116-c0e496ce4d55d0ee3817674506247974-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer niño estampado de algodón y lycra</div><div class="card-price">$6.500,00</div><div class="card-desc">SURTIDO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/f0426f54-db0f-42df-a23a-ed07aff91cc9-c10f1cc3da0b02e6fd17605390071730-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer niño liso de algodón y lycra</div><div class="card-price">$4.888,00</div><div class="card-desc">NEGRO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e1d014f1-7df3-4262-ae60-78d947281c07-4c97f4fb1a6308672e17589220699650-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Boxer niño liso sin costura de microfibra</div><div class="card-price">$5.850,00</div><div class="card-desc">SURTIDO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cd31982e-267d-49ac-8757-210d28975b25-d11dabfdc0dd1a220817579841329928-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño estampado con elástico de algodón y lycra</div><div class="card-price">$7.332,00</div><div class="card-desc">AZUL MARINO/BLANCO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4877ae5c-46e2-475d-8851-7f389040c4a4-75b5e4c7524f69fe6a17579840796703-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño de algodón y lycra estampado</div><div class="card-price">$7.332,00</div><div class="card-desc">AZUL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/95abaac9-1e3a-41bf-bd12-d91ef32d71e6-c842e2b9eada03e21417589222866304-480-0.webp"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Boxer niño estampa goat de algodón y lycra</div><div class="card-price">$10.134,80</div><div class="card-desc">NEGRO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0bf5a0d0-da98-42d0-b567-ead9f7a96925-6a1fa6717d47b0fbc517579841007866-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño estampado de algodón y lycra</div><div class="card-price">$7.332,00</div><div class="card-desc">AZUL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/98d83884-2831-4bef-b8ea-e71c1d0c8a2a-afad7c7d5fe366199b17590023095359-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer niño liso de algodón y lycra</div><div class="card-price">$6.110,00</div><div class="card-desc">NEGRO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2ef7ff90-1d28-40b0-8c4b-5b98a769f759-903993503bd666558e17589178028967-480-0.webp"><div class="card-body"><div class="card-brand">UOMO</div><div class="card-title">Boxer niño estampa san lorenzo con elástico azul y rojo de algodón y lycra</div><div class="card-price">$7.800,00</div><div class="card-desc">AZUL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/39ee5f2f-c3c5-4286-ab09-38fd88740eaa-617cfcb5adefa4657417589222830939-480-0.webp"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Boxer niño estampa dibu de algodón y lycra</div><div class="card-price">$10.134,80</div><div class="card-desc">UNICO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/25815c62-af61-40f4-84ba-0cd6647d9a00-bfda046c31bd58f3db17579841206128-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño estampado con elástico de algodón y lycra</div><div class="card-price">$7.332,00</div><div class="card-desc">CELESTE</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/086726ed-08c0-424a-9b76-ce3520f4c712-0c6d951796803525da17589177741398-480-0.webp"><div class="card-body"><div class="card-brand">UOMO</div><div class="card-title">Boxer niño estampa estudiantes con elástico león de algodón y lycra</div><div class="card-price">$7.800,00</div><div class="card-desc">NEGRO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f46276a-fc47-4f6f-8fc7-10c0a5b6ca29-d363da5f2e9b0ed8f717589220789201-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Boxer kids Sin Costura Estampado</div><div class="card-desc">SURTIDO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20kids" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7049a71c-b9ac-4ff1-8d02-0b512a4e9116-c0e496ce4d55d0ee3817674506247974-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer niño estampado de algodón y lycra</div><div class="card-desc">SURTIDO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/f0426f54-db0f-42df-a23a-ed07aff91cc9-c10f1cc3da0b02e6fd17605390071730-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer niño liso de algodón y lycra</div><div class="card-desc">NEGRO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e1d014f1-7df3-4262-ae60-78d947281c07-4c97f4fb1a6308672e17589220699650-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Boxer niño liso sin costura de microfibra</div><div class="card-desc">SURTIDO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cd31982e-267d-49ac-8757-210d28975b25-d11dabfdc0dd1a220817579841329928-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño estampado con elástico de algodón y lycra</div><div class="card-desc">AZUL MARINO/BLANCO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4877ae5c-46e2-475d-8851-7f389040c4a4-75b5e4c7524f69fe6a17579840796703-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño de algodón y lycra estampado</div><div class="card-desc">AZUL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/95abaac9-1e3a-41bf-bd12-d91ef32d71e6-c842e2b9eada03e21417589222866304-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Boxer niño estampa goat de algodón y lycra</div><div class="card-desc">NEGRO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0bf5a0d0-da98-42d0-b567-ead9f7a96925-6a1fa6717d47b0fbc517579841007866-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño estampado de algodón y lycra</div><div class="card-desc">AZUL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/98d83884-2831-4bef-b8ea-e71c1d0c8a2a-afad7c7d5fe366199b17590023095359-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer niño liso de algodón y lycra</div><div class="card-desc">NEGRO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2ef7ff90-1d28-40b0-8c4b-5b98a769f759-903993503bd666558e17589178028967-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">UOMO</div><div class="card-title">Boxer niño estampa san lorenzo con elástico azul y rojo de algodón y lycra</div><div class="card-desc">AZUL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/39ee5f2f-c3c5-4286-ab09-38fd88740eaa-617cfcb5adefa4657417589222830939-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Boxer niño estampa dibu de algodón y lycra</div><div class="card-desc">UNICO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/25815c62-af61-40f4-84ba-0cd6647d9a00-bfda046c31bd58f3db17579841206128-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer niño estampado con elástico de algodón y lycra</div><div class="card-desc">CELESTE - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/086726ed-08c0-424a-9b76-ce3520f4c712-0c6d951796803525da17589177741398-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">UOMO</div><div class="card-title">Boxer niño estampa estudiantes con elástico león de algodón y lycra</div><div class="card-desc">NEGRO - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20niño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+
+    <!-- Ventana Modal con la foto ENTERA y detalles -->
+    <div id="modal-producto" onclick="cerrarModalFuera(event)">
+        <div class="modal-contenido">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <div class="modal-img-container">
+                <img id="modal-img" src="" alt="Producto">
+            </div>
+            <div class="modal-body">
+                <div id="modal-brand" class="modal-brand"></div>
+                <h3 id="modal-title" class="modal-title"></h3>
+                <div id="modal-desc" class="modal-desc"></div>
+                <a id="modal-wsp" href="#" target="_blank" class="modal-btn-wsp">Consultar por WhatsApp</a>
+            </div>
+        </div>
     </div>
 
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
+
+    <script>
+        function abrirModal(imgElement) {
+            const card = imgElement.closest('.card');
+            const brand = card.querySelector('.card-brand').innerText;
+            const title = card.querySelector('.card-title').innerText;
+            const desc = card.querySelector('.card-desc').innerText;
+            const wspLink = card.querySelector('.btn-consultar').href;
+
+            document.getElementById('modal-img').src = imgElement.src;
+            document.getElementById('modal-brand').innerText = brand;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-wsp').href = wspLink;
+
+            document.getElementById('modal-producto').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-producto').style.display = 'none';
+        }
+
+        function cerrarModalFuera(event) {
+            if (event.target.id === 'modal-producto') {
+                cerrarModal();
+            }
+        }
+    </script>
 </body>
 </html>
