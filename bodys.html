@@ -31,22 +31,28 @@
         h1 { margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 400; color: #222; }
         @media (min-width: 768px) { h1 { font-size: 26px; letter-spacing: 4px; } }
         
-        /* Menú superior adaptado para celu (scroll horizontal) y compu (centrado) */
+        /* Menú superior adaptado para celu (scroll horizontal y despliegue táctil) y compu (centrado) */
         nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); width: 100%; position: sticky; top: 0; z-index: 1000; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; justify-content: flex-start; min-width: max-content; }
         @media (min-width: 768px) {
             .nav-menu { justify-content: center; min-width: auto; flex-wrap: wrap; }
         }
         .nav-item { position: relative; }
-        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; }
+        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; cursor: pointer; }
         @media (min-width: 768px) {
             .nav-item > a { padding: 15px 20px; font-size: 14px; letter-spacing: 1px; }
         }
         .nav-item > a:hover { background-color: #f1ede6; color: #000; }
+        
         .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 1000; border: 1px solid var(--border-color); }
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; white-space: nowrap; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
-        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
+        
+        /* Clase para mostrar el menú al tocar en celulares */
+        .nav-item.activo .dropdown { display: block; }
+        @media (min-width: 768px) {
+            .nav-item:hover .dropdown { display: block; }
+        }
 
         .nav-volver { padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border-color); }
         @media (min-width: 768px) { .nav-volver { padding: 12px 40px; } }
@@ -55,7 +61,7 @@
         .section-title { max-width: 1200px; margin: 25px auto 10px auto; padding: 0 15px; font-size: 18px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
         @media (min-width: 768px) { .section-title { padding: 0 20px; font-size: 22px; margin: 30px auto 10px auto; } }
 
-        /* Grilla adaptable: 2 columnas en celulares, expansión automática en compu */
+        /* Grilla adaptable */
         .catalog-container { 
             max-width: 1200px; 
             margin: 20px auto; 
@@ -89,7 +95,7 @@
         @media (min-width: 768px) { .btn-consultar { padding: 10px; font-size: 12px; } }
         .btn-consultar:hover { background-color: #1ebe57; }
 
-        /* Estilos del Recuadrito Modal (Popup) adaptable a celulares */
+        /* Estilos del Recuadrito Modal (Popup) */
         #modal-producto {
             display: none;
             position: fixed;
@@ -190,8 +196,8 @@
 
     <nav>
         <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="mujeres.html">Mujer ▾</a>
+            <li class="nav-item" onclick="toggleMenu(event, this)">
+                <a>Mujer ▾</a>
                 <ul class="dropdown">
                     <li><a href="mujeres.html">Catálogo General</a></li>
                     <li><a href="packs.html">Packs de Bombachas</a></li>
@@ -204,16 +210,16 @@
                     <li><a href="medias.html">Medias</a></li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="boxers.html">Hombre ▾</a>
+            <li class="nav-item" onclick="toggleMenu(event, this)">
+                <a>Hombre ▾</a>
                 <ul class="dropdown">
                     <li><a href="boxers.html">Bóxers</a></li>
                     <li><a href="slips.html">Slips</a></li>
                     <li><a href="medias-hombre.html">Medias</a></li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="ninos.html">Niños ▾</a>
+            <li class="nav-item" onclick="toggleMenu(event, this)">
+                <a>Niños ▾</a>
                 <ul class="dropdown">
                     <li><a href="ninos.html">Catálogo Niños</a></li>
                     <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
@@ -325,6 +331,25 @@
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
 
     <script>
+        // Función para abrir y cerrar menús desplegables al tacto en celulares
+        function toggleMenu(event, element) {
+            if (window.innerWidth < 768) {
+                event.stopPropagation();
+                // Cierra otros menús abiertos
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    if (item !== element) item.classList.remove('activo');
+                });
+                element.classList.toggle('activo');
+            }
+        }
+
+        // Cierra los menús si se toca fuera
+        window.addEventListener('click', function() {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('activo');
+            });
+        });
+
         function abrirModal(imgElement) {
             const card = imgElement.closest('.card');
             const brand = card.querySelector('.card-brand').innerText;
