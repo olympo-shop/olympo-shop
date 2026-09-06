@@ -31,14 +31,14 @@
         h1 { margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 400; color: #222; }
         @media (min-width: 768px) { h1 { font-size: 26px; letter-spacing: 4px; } }
         
-        /* Menú superior normal y estándar */
+        /* Menú superior con soporte táctil perfecto para celulares */
         nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); width: 100%; position: sticky; top: 0; z-index: 1000; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; justify-content: flex-start; min-width: max-content; }
         @media (min-width: 768px) {
             .nav-menu { justify-content: center; min-width: auto; flex-wrap: wrap; }
         }
         .nav-item { position: relative; }
-        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; }
+        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; cursor: pointer; }
         @media (min-width: 768px) {
             .nav-item > a { padding: 15px 20px; font-size: 14px; letter-spacing: 1px; }
         }
@@ -48,10 +48,11 @@
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; white-space: nowrap; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
         
-        .nav-item:hover .dropdown, 
-        .nav-item:focus-within .dropdown { 
-            display: block; 
+        /* En compu abre con hover; en celu abre con la clase 'open' al tocar */
+        @media (min-width: 768px) {
+            .nav-item:hover .dropdown { display: block; }
         }
+        .nav-item.open .dropdown { display: block; }
 
         .nav-volver { padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border-color); }
         @media (min-width: 768px) { .nav-volver { padding: 12px 40px; } }
@@ -60,7 +61,7 @@
         .section-title { max-width: 1200px; margin: 25px auto 10px auto; padding: 0 15px; font-size: 18px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
         @media (min-width: 768px) { .section-title { padding: 0 20px; font-size: 22px; margin: 30px auto 10px auto; } }
 
-        /* Grilla adaptable: 2 columnas en celulares, expansión automática en compu */
+        /* Grilla adaptable */
         .catalog-container { 
             max-width: 1200px; 
             margin: 20px auto; 
@@ -196,7 +197,7 @@
     <nav>
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="mujeres.html">Mujer ▾</a>
+                <a onclick="handleMenu(event, this)">Mujer ▾</a>
                 <ul class="dropdown">
                     <li><a href="mujeres.html">Catálogo General</a></li>
                     <li><a href="packs.html">Packs de Bombachas</a></li>
@@ -210,7 +211,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="boxers.html">Hombre ▾</a>
+                <a onclick="handleMenu(event, this)">Hombre ▾</a>
                 <ul class="dropdown">
                     <li><a href="boxers.html">Bóxers</a></li>
                     <li><a href="slips.html">Slips</a></li>
@@ -218,7 +219,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="ninos.html">Niños ▾</a>
+                <a onclick="handleMenu(event, this)">Niños ▾</a>
                 <ul class="dropdown">
                     <li><a href="ninos.html">Catálogo Niños</a></li>
                     <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
