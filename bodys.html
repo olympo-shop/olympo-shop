@@ -335,19 +335,23 @@
         function toggleMenu(event, element) {
             if (window.innerWidth < 768) {
                 event.stopPropagation();
-                // Cierra otros menús abiertos
+                const isOpen = element.classList.contains('activo');
                 document.querySelectorAll('.nav-item').forEach(item => {
-                    if (item !== element) item.classList.remove('activo');
+                    item.classList.remove('activo');
                 });
-                element.classList.toggle('activo');
+                if (!isOpen) {
+                    element.classList.add('activo');
+                }
             }
         }
 
         // Cierra los menús si se toca fuera
-        window.addEventListener('click', function() {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('activo');
-            });
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('activo');
+                });
+            }
         });
 
         function abrirModal(imgElement) {
