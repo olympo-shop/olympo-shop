@@ -45,13 +45,98 @@
 
         .catalog-container { max-width: 1200px; margin: 30px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
         .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; cursor: pointer; transition: opacity 0.2s; }
+        .card img:hover { opacity: 0.9; }
         .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
         .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
-        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 5px; font-style: italic; }
         .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
         .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; margin-top: auto; }
+
+        /* Estilos del Recuadrito Modal (Popup) */
+        #modal-producto {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-contenido {
+            background-color: #fff;
+            border-radius: 10px;
+            max-width: 450px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-cerrar:hover { color: var(--accent-color); }
+        .modal-img-container {
+            width: 100%;
+            height: 360px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .modal-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .modal-brand { font-size: 12px; font-weight: 700; color: var(--accent-color); text-transform: uppercase; }
+        .modal-title { font-size: 16px; font-weight: 600; color: #222; margin: 0; }
+        .modal-desc { font-size: 13px; color: #666; margin-bottom: 10px; }
+        .modal-btn-wsp {
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+        }
+        .modal-btn-wsp:hover { background-color: #1ebe57; }
 
         #btn-volver-arriba {
             position: fixed; bottom: 25px; right: 25px; background-color: var(--accent-color); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.15); z-index: 9999;
@@ -118,20 +203,64 @@
         <p>Catálogo completo de slips</p>
     </div>
 
-    <!-- Grilla completa de Slips con los datos corregidos -->
+    <!-- Grilla de Slips sin precios y con textos de talles actualizados -->
     <div class="catalog-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b037de20-d043-46c3-980b-4bded3679fdd-739d9f501930fe6b5d17590021417287-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Slip de jersey de algodón</div><div class="card-price">$5.850,00</div><div class="card-desc">BLANCO - Talle: 10</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/21fc4d37-1352-416f-9ce6-2ba1aee30905-854f73c95d7063fd1b17849117600745-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Slip deportivo liso de algodón y lycra</div><div class="card-price">$11.242,40</div><div class="card-desc">GRIS/ROJO - Talle: L</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2e5762e9-70fd-4c52-90dd-cd311d8d28c0-6867e551f650772ab017579836655003-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Slip liso de algodón y lycra</div><div class="card-price">$10.998,00</div><div class="card-desc">NEGRO - Talle: XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/43e3387e-ecab-4325-90a7-8a9d6c5979c4-bf630e60dcfb616b8117579836994389-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Slip liso con elástico de algodón y lycra</div><div class="card-price">$10.145,20</div><div class="card-desc">ROJO - Talle: XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/be1779f3-7b3e-4727-bfd9-1531220b843e-ea8db864b2b2e8870917691134047262-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Slip liso de algodón y lycra</div><div class="card-price">$8.320,00</div><div class="card-desc">SURTIDO - Talle: L</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc15ee66-7853-4263-b45a-c638a94f4071-4b07413a8180edb8dc17579927496698-480-0.webp"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Slip con elástico personalizado de algodón y lycra</div><div class="card-price">$13.000,00</div><div class="card-desc">AERO - Talle: S</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d4c122fb-05d9-4eda-9169-52323e28bf57-dd7e9ac3382ee9312c17579926946793-480-0.webp"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Slip con elástico personalizado de algodón y lycra</div><div class="card-price">$13.000,00</div><div class="card-desc">FRANCIA - Talle: M</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/68b95561-1820-48d7-a01b-21bc1bf147ad-566a345ac751291b7817579926152732-480-0.webp"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Slip combinado de jersey de algodón</div><div class="card-price">$13.000,00</div><div class="card-desc">BLANCO - Talle: L</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b216a0c5-8148-4a10-a30b-5aefe59483ff-cc7235ea595e1009e517589225184022-480-0.webp"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Slip liso de algodón y lycra</div><div class="card-price">$10.400,00</div><div class="card-desc">GRIS - Talle: XL</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9b8f9553-31d4-46a6-8350-62554c5345e7-4d35bbfb831855205517590020784193-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Slip liso con elástico personalizado de algodón y lycra</div><div class="card-price">$8.320,00</div><div class="card-desc">BLANCO - Talle: M</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b037de20-d043-46c3-980b-4bded3679fdd-739d9f501930fe6b5d17590021417287-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Slip de jersey de algodón</div><div class="card-desc">BLANCO - Talle: 10 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/21fc4d37-1352-416f-9ce6-2ba1aee30905-854f73c95d7063fd1b17849117600745-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Slip deportivo liso de algodón y lycra</div><div class="card-desc">GRIS/ROJO - Talle: L - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2e5762e9-70fd-4c52-90dd-cd311d8d28c0-6867e551f650772ab017579836655003-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Slip liso de algodón y lycra</div><div class="card-desc">NEGRO - Talle: XL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/43e3387e-ecab-4325-90a7-8a9d6c5979c4-bf630e60dcfb616b8117579836994389-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Slip liso con elástico de algodón y lycra</div><div class="card-desc">ROJO - Talle: XL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/be1779f3-7b3e-4727-bfd9-1531220b843e-ea8db864b2b2e8870917691134047262-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Slip liso de algodón y lycra</div><div class="card-desc">SURTIDO - Talle: L - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc15ee66-7853-4263-b45a-c638a94f4071-4b07413a8180edb8dc17579927496698-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Slip con elástico personalizado de algodón y lycra</div><div class="card-desc">AERO - Talle: S - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d4c122fb-05d9-4eda-9169-52323e28bf57-dd7e9ac3382ee9312c17579926946793-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Slip con elástico personalizado de algodón y lycra</div><div class="card-desc">FRANCIA - Talle: M - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/68b95561-1820-48d7-a01b-21bc1bf147ad-566a345ac751291b7817579926152732-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Slip combinado de jersey de algodón</div><div class="card-desc">BLANCO - Talle: L - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b216a0c5-8148-4a10-a30b-5aefe59483ff-cc7235ea595e1009e517589225184022-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">XY</div><div class="card-title">Slip liso de algodón y lycra</div><div class="card-desc">GRIS - Talle: XL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9b8f9553-31d4-46a6-8350-62554c5345e7-4d35bbfb831855205517590020784193-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Slip liso con elástico personalizado de algodón y lycra</div><div class="card-desc">BLANCO - Talle: M - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Slip" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+
+    <!-- Ventana Modal de Producto con foto entera -->
+    <div id="modal-producto" onclick="cerrarModalFuera(event)">
+        <div class="modal-contenido">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <div class="modal-img-container">
+                <img id="modal-img" src="" alt="Producto">
+            </div>
+            <div class="modal-body">
+                <div id="modal-brand" class="modal-brand"></div>
+                <h3 id="modal-title" class="modal-title"></h3>
+                <div id="modal-desc" class="modal-desc"></div>
+                <a id="modal-wsp" href="#" target="_blank" class="modal-btn-wsp">Consultar por WhatsApp</a>
+            </div>
+        </div>
     </div>
 
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
+
+    <script>
+        function abrirModal(imgElement) {
+            const card = imgElement.closest('.card');
+            const brand = card.querySelector('.card-brand').innerText;
+            const title = card.querySelector('.card-title').innerText;
+            const desc = card.querySelector('.card-desc').innerText;
+            const wspLink = card.querySelector('.btn-consultar').href;
+
+            document.getElementById('modal-img').src = imgElement.src;
+            document.getElementById('modal-brand').innerText = brand;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-wsp').href = wspLink;
+
+            document.getElementById('modal-producto').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-producto').style.display = 'none';
+        }
+
+        function cerrarModalFuera(event) {
+            if (event.target.id === 'modal-producto') {
+                cerrarModal();
+            }
+        }
+    </script>
 </body>
 </html>
