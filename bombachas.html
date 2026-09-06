@@ -13,27 +13,305 @@
             --card-bg: #ffffff;
             --border-color: #e5e0d8;
         }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
-        header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
-        .social-top { display: flex; gap: 12px; }
-        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 7px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+        
+        header { background-color: var(--header-bg); padding: 15px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .social-top { display: flex; gap: 8px; }
+        .social-top a { text-decoration: none; font-size: 12px; font-weight: 600; color: #fff; padding: 6px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; }
         .btn-wsp { background-color: #25d366; }
         .btn-ig { background-color: #e1306c; }
-        .logo-container { text-align: center; flex-grow: 1; }
+        .logo-container { text-align: center; flex-grow: 1; order: -1; width: 100%; }
+        @media (min-width: 768px) {
+            .logo-container { order: 0; width: auto; }
+            header { padding: 20px 40px; }
+        }
         .logo-link { text-decoration: none; color: #222; display: inline-block; }
-        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
-        .logo-link:hover h1 { color: var(--accent-color); }
+        h1 { margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 400; color: #222; }
+        @media (min-width: 768px) { h1 { font-size: 26px; letter-spacing: 4px; } }
         
-        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
-        .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+        nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); width: 100%; position: sticky; top: 0; z-index: 1000; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; justify-content: flex-start; min-width: max-content; }
+        @media (min-width: 768px) {
+            .nav-menu { justify-content: center; min-width: auto; flex-wrap: wrap; }
+        }
         .nav-item { position: relative; }
-        .nav-item > a { display: block; padding: 15px 20px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+        .nav-item > a { display: block; padding: 12px 16px; text-decoration: none; color: var(--text-color); font-size: 13px; font-weight: 500; letter-spacing: 0.5px; white-space: nowrap; }
+        @media (min-width: 768px) {
+            .nav-item > a { padding: 15px 20px; font-size: 14px; letter-spacing: 1px; }
+        }
         .nav-item > a:hover { background-color: #f1ede6; color: #000; }
-        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
-        .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 1000; border: 1px solid var(--border-color); }
+        .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; white-space: nowrap; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
         .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
 
-        .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
+        .nav-volver { padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border-color); }
+        @media (min-width: 768px) { .nav-volver { padding: 12px 40px; } }
         .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
-        .section-title { max-width: 1200px; margin: 30px auto 10px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var
+
+        .section-title { max-width: 1200px; margin: 25px auto 10px auto; padding: 0 15px; font-size: 18px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        @media (min-width: 768px) { .section-title { padding: 0 20px; font-size: 22px; margin: 30px auto 10px auto; } }
+
+        .catalog-container { 
+            max-width: 1200px; 
+            margin: 20px auto; 
+            padding: 0 15px 40px 15px; 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 12px; 
+        }
+        @media (min-width: 768px) {
+            .catalog-container { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; padding: 0 20px 50px 20px; }
+        }
+
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 180px; object-fit: cover; background-color: #eee; cursor: pointer; transition: opacity 0.2s; }
+        @media (min-width: 768px) { .card img { height: 260px; } }
+        .card img:hover { opacity: 0.9; }
+
+        .card-body { padding: 10px; display: flex; flex-direction: column; flex-grow: 1; }
+        @media (min-width: 768px) { .card-body { padding: 15px; } }
+
+        .card-title { font-size: 12px; font-weight: 600; margin: 0 0 4px 0; color: #444; }
+        @media (min-width: 768px) { .card-title { font-size: 13px; margin: 0 0 5px 0; } }
+
+        .card-brand { font-size: 10px; font-weight: 700; color: var(--accent-color); margin-bottom: 4px; text-transform: uppercase; }
+        @media (min-width: 768px) { .card-brand { font-size: 11px; margin-bottom: 5px; } }
+
+        .card-desc { font-size: 10px; color: #777; margin: 0 0 10px 0; flex-grow: 1; }
+        @media (min-width: 768px) { .card-desc { font-size: 11px; margin: 0 0 15px 0; } }
+
+        .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: 600; margin-top: auto; }
+        @media (min-width: 768px) { .btn-consultar { padding: 10px; font-size: 12px; } }
+        .btn-consultar:hover { background-color: #1ebe57; }
+
+        #modal-producto {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .modal-contenido {
+            background-color: #fff;
+            border-radius: 10px;
+            max-width: 420px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-cerrar:hover { color: var(--accent-color); }
+        .modal-img-container {
+            width: 100%;
+            height: 280px;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) { .modal-img-container { height: 350px; } }
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .modal-body { padding: 15px; display: flex; flex-direction: column; gap: 6px; }
+        @media (min-width: 768px) { .modal-body { padding: 20px; gap: 8px; } }
+        .modal-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); text-transform: uppercase; }
+        .modal-title { font-size: 15px; font-weight: 600; color: #222; margin: 0; }
+        .modal-desc { font-size: 12px; color: #666; margin-bottom: 8px; }
+        .modal-btn-wsp {
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+        }
+        .modal-btn-wsp:hover { background-color: #1ebe57; }
+
+        #btn-volver-arriba {
+            position: fixed; bottom: 20px; right: 20px; background-color: var(--accent-color); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.15); z-index: 9999;
+        }
+        @media (min-width: 768px) {
+            #btn-volver-arriba { bottom: 25px; right: 25px; width: 42px; height: 42px; font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display:none; width: 100px;" class="desktop-spacer"></div>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <h1>OLYMPO SHOP</h1>
+            </a>
+        </div>
+        <div class="social-top">
+            <a href="https://wa.me/5491168327127" target="_blank" class="btn-wsp">WhatsApp</a>
+            <a href="https://instagram.com/_.olymposhop._" target="_blank" class="btn-ig">Instagram</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="mujeres.html">Mujer ▾</a>
+                <ul class="dropdown">
+                    <li><a href="mujeres.html">Catálogo General</a></li>
+                    <li><a href="packs.html">Packs de Bombachas</a></li>
+                    <li><a href="bodys.html">Bodys</a></li>
+                    <li><a href="bombachas.html">Bombachas Sueltas</a></li>
+                    <li><a href="conjuntos.html">Conjuntos</a></li>
+                    <li><a href="corpinos.html">Corpiños</a></li>
+                    <li><a href="pijamas.html">Pijamas y Camisolines</a></li>
+                    <li><a href="deportivo.html">Deportivo</a></li>
+                    <li><a href="medias.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="boxers.html">Hombre ▾</a>
+                <ul class="dropdown">
+                    <li><a href="boxers.html">Bóxers</a></li>
+                    <li><a href="slips.html">Slips</a></li>
+                    <li><a href="medias-hombre.html">Medias</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="ninos.html">Niños ▾</a>
+                <ul class="dropdown">
+                    <li><a href="ninos.html">Catálogo Niños</a></li>
+                    <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
+                    <li><a href="ninos-boxers.html">Bóxers</a></li>
+                    <li><a href="ninos-deportivo.html">Deportivo</a></li>
+                    <li><a href="ninos-medias.html">Medias</a></li>
+                    <li><a href="ninos-bombachas.html">Bombachas</a></li>
+                    <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="plussize.html">Plus Size</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
+    <div class="section-title">Todas las Bombachas Sueltas</div>
+    
+    <div class="catalog-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ec50d1bb-feeb-4289-a17c-c15ee9c07374-930d0dcb3b3658163717806069869593-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Colaless segunda piel</div><div class="card-desc">AVELLANA - 2 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20segunda%20piel" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/518dfadf-a3e0-4a55-b8be-a010b7623a26-9af0639a85a79e099817806902089656-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">LARA</div><div class="card-title">Boxer de dama algodón y lycra</div><div class="card-desc">AZUL - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20de%20dama" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a919217f-0edd-4c29-9805-fb13e3f04795-9be8d98d2b4b25ccc717579606673943-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha less regulable de algodón y lycra</div><div class="card-desc">BLANCO - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20regulable" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/781bcd6b-57ce-40ea-bdb3-08ec4a1f1277-5ce9829b6d95c7c1d917806056242243-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha vedetina de algodón y lycra</div><div class="card-desc">BLANCO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20vedetina" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/594efbcb-3e4a-4689-8311-9f3d42b2e18f-9b8937970f699757f317579815012053-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha colaless modeladora de algodón</div><div class="card-desc">BLANCO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20colaless%20modeladora" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2e62c751-67f0-4e80-93f7-c76221ef2d44-41373be5c7ae80dae117868085057656-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">EXCLUSIVE</div><div class="card-title">Bombacha less regulable de tul bordado</div><div class="card-desc">AZUL - 100 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20less%20tul%20bordado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/edf5c6b8-a170-46b4-b03f-4fa6adedd6c1-e6656d52437045356517589213763195-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha vedetina de encaje doble tira</div><div class="card-desc">HUESO - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bombacha%20vedetina%20encaje" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/6969c067-45e9-44d7-b842-720f6b421ff2-52aa127041c8ad93a817806069602555-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Vedetina segunda piel</div><div class="card-desc">AVELLANA - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20segunda%20piel" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/2524bb1a-0789-4814-ae3a-44edb11c53f8-4d81708a5c180e8cf417828272057031-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">DENNY</div><div class="card-title">Colaless por docena de algodón</div><div class="card-desc">SURTIDO - UNICO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20por%20docena" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7f214a70-4fd6-4467-8c4f-4dc572d5a0d3-a00526662815facd7217589282131941-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Colaless lisa segunda piel</div><div class="card-desc">BLANCO - 2 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20lisa" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/855fd057-21ba-475d-8e24-5ceb2887d57c-730eab20647f56a50c17614131748157-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Boxer de Algodon y Lycra con Elastico</div><div class="card-desc">FUCSIA - 4 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20natubel" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a755c2cf-0597-4661-9e6d-366130b7eb25-9fece190b937291d2b17607138663896-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Faja sin costura colaless</div><div class="card-desc">BLANCO - S - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Faja%20sin%20costura" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/be98025f-cb50-4d0d-b83b-505434722c97-6be005036bd9dd953217589127479448-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha colaless seamless cintura de tul de microfibra</div><div class="card-desc">BLANCO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20seamless" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4b8d39f3-0880-4594-84c2-69f9a9b3008e-579ceb70c3ea85d6cd17579772698431-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">EXCLUSIVE</div><div class="card-title">Bombacha culoteless de tul bordado</div><div class="card-desc">BLANCO - 85 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Culoteless%20tul" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/69082b5e-3943-4230-a8ba-992f9fec6356-d2ae3c9cc0a8f5aaed17727317317660-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">OLYMPO SHOP</div><div class="card-title">Pack x2 colaless microfibra</div><div class="card-desc">SURTIDO - L/XL - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pack%20x2%20colaless%20microfibra" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cb647fdc-5e8e-4436-9c0a-01fbeb5bc212-a761e3934ba5b8d09917589282093633-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Vedetina lisa segunda piel</div><div class="card-desc">BLANCO - 4 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20lisa" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b06e5103-1e5d-4412-a0cc-23fa158e0dd7-0fe1fc4acfa7d41b5317589282039575-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Culote liso segunda piel</div><div class="card-desc">BLANCO - 2 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Culote%20liso" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/553cfe51-3d99-4f89-b217-7f49c6c0d0d7-2418ee5ae0fcbd65e017588312111931-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha vedetina de microfibra puntilla</div><div class="card-desc">BLANCO - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20puntilla" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/de0e263d-3700-48ea-8768-6ce61948b09e-4a625fe7d587660f6617611501757806-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha vedetina de microfibra puntilla con moño</div><div class="card-desc">BLANCO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20moño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8c01595a-0a00-4cff-98b7-dec78dc0b532-51b4edf80f93b9872817579820064691-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha tiro alto modeladora con refuerzo de lycra</div><div class="card-desc">ALMENDRA - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Tiro%20alto%20modeladora" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d48adc3c-e59b-4ced-b498-8d66c3e8c797-a262e02e7cb1148e7317589213533882-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha colaless de microfibra puntilla con moño</div><div class="card-desc">AVELLANA - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20puntilla%20moño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/61686e9c-6db9-48f5-98d5-6d7773fab6b8-82135748a32fc73f3417589280668904-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Bombacha tiro corto segunda piel</div><div class="card-desc">BLANCO - 2 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Tiro%20corto%20segunda%20piel" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/be0dfd1b-944a-4ca3-814c-ec519c5d2fc1-8c88dc9ede1e15332117579813971405-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha vedetina algodon lycra</div><div class="card-desc">BLANCO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20algodón%20lycra" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/157213ff-5c24-4585-8de7-a39c6dc754a0-2b8197e2d57ef8266a17589213641973-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha culoteless de microfibra puntilla con moño</div><div class="card-desc">AVELLANA - 3 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Culoteless%20puntilla" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/909c5194-c351-4332-8b31-597f0df0f2e8-f821012d701716476117589213706326-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha colaless de encaje doble tira</div><div class="card-desc">HUESO - 4 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Colaless%20doble%20tira" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/23b150cc-a4eb-4235-8e8a-525f8110daee-8a4250ebd55423471017589213417623-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha vedetina de encaje doble tira</div><div class="card-desc">HUESO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20doble%20tira" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/17a6cad4-e83c-4a33-a731-305d47c0c65b-1094284f627fabf6e317805155772757-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha vedetina de microfibra y nylon</div><div class="card-desc">CHOCOLATE - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20nylon" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/36431020-da3e-46d7-9490-07b4ff6ea0d2-583fd4a2226025308f17871718759510-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">GABELA</div><div class="card-title">Bombacha vedetina pack x3 de algodón con lycra</div><div class="card-desc">SURTIDO - UNICO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20gabela" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/3b44451b-8632-43d9-a7c5-5ec1f6396d0d-645e6a806150922d8217847482078521-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha vedetina modeladora alta de algodón y lycra</div><div class="card-desc">ALMENDRA - 6 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Modeladora%20alta" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/01bc7823-fceb-437f-b727-8de7b067a6ed-bcf1e5630aa6a0328117824903603662-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">BELEN</div><div class="card-title">Boxer de algodón y lycra liso con elástico personalizado</div><div class="card-desc">BLANCO - UNICO</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20belen" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a2fcbee3-d32a-4569-8560-75e3ce074c4f-62106049d5288f1f5f17786949025215-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Vedetina tiro alto micro fibra tul y bordado</div><div class="card-desc">BLANCO - 2 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Vedetina%20tiro%20alto" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cfce8f56-8389-40a9-b95b-6b34433ffecf-463a7687aa956642bb17589213232920-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Bombacha culoteless de microfibra puntilla con moño</div><div class="card-desc">AVELLANA - 2 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Culoteless%20moño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/b0a1c750-3a78-4cdf-8ed3-d0fa47f2f633-d158f07f1414331b0517579820373877-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha tiro alto modeladora con refuerzo de lycra</div><div class="card-desc">ALMENDRA - 7 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Modeladora%207" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/49d344f6-d68e-4295-a7d3-025a36ec4807-fd5fdc531225d84ca917579820221098-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Bombacha tiro alto modeladora con refuerzo de lycra</div><div class="card-desc">ALMENDRA - 5 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Modeladora%205" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/6a5904a7-4cee-4d48-83c6-c5a3e92f645b-e4bcfec57ff8b57ed617590025542920-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">ANDRESSA</div><div class="card-title">Bombacha boxer de morley</div><div class="card-desc">NEGRO - 1 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20morley" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+
+    <!-- Ventana Modal con la foto ENTERA y detalles -->
+    <div id="modal-producto" onclick="cerrarModalFuera(event)">
+        <div class="modal-contenido">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <div class="modal-img-container">
+                <img id="modal-img" src="" alt="Producto">
+            </div>
+            <div class="modal-body">
+                <div id="modal-brand" class="modal-brand"></div>
+                <h3 id="modal-title" class="modal-title"></h3>
+                <div id="modal-desc" class="modal-desc"></div>
+                <a id="modal-wsp" href="#" target="_blank" class="modal-btn-wsp">Consultar por WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
+
+    <script>
+        function abrirModal(imgElement) {
+            const card = imgElement.closest('.card');
+            const brand = card.querySelector('.card-brand').innerText;
+            const title = card.querySelector('.card-title').innerText;
+            const desc = card.querySelector('.card-desc').innerText;
+            const wspLink = card.querySelector('.btn-consultar').href;
+
+            document.getElementById('modal-img').src = imgElement.src;
+            document.getElementById('modal-brand').innerText = brand;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-wsp').href = wspLink;
+
+            document.getElementById('modal-producto').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-producto').style.display = 'none';
+        }
+
+        function cerrarModalFuera(event) {
+            if (event.target.id === 'modal-producto') {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+</html>
