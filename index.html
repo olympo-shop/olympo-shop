@@ -16,6 +16,24 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
         
+        /* Banner de Ofertas Animado (se desplaza de un lado al otro) */
+        .ofertas-banner {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .ofertas-banner marquee {
+            display: block;
+            width: 100%;
+        }
+
         header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         
         .social-top { display: flex; gap: 10px; }
@@ -35,7 +53,7 @@
         .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 1000; border: 1px solid var(--border-color); }
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
-        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
+        .nav-item:hover .dropdown { display: block; }
 
         .section-header { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 40px auto 15px auto; padding: 0 20px; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
         .section-title { font-size: 20px; font-weight: 400; margin: 0; color: #333; }
@@ -78,6 +96,13 @@
     </style>
 </head>
 <body>
+    <!-- Banner Desplazable de Ofertas -->
+    <div class="ofertas-banner">
+        <marquee behavior="alternate" scrollamount="5">
+            🔥 ¡OFERTAS DISPONIBLES! Consultar por WhatsApp o Instagram para más info 🔥
+        </marquee>
+    </div>
+
     <header>
         <div style="width: 100px;"></div>
         <div class="logo-container">
@@ -96,6 +121,7 @@
             <li class="nav-item">
                 <a href="mujeres.html">Mujer ▾</a>
                 <ul class="dropdown">
+                    <li><a href="mujeres.html">Catálogo General</a></li>
                     <li><a href="packs.html">Packs de Bombachas</a></li>
                     <li><a href="bodys.html">Bodys</a></li>
                     <li><a href="bombachas.html">Bombachas Sueltas</a></li>
@@ -117,6 +143,7 @@
             <li class="nav-item">
                 <a href="ninos.html">Niños ▾</a>
                 <ul class="dropdown">
+                    <li><a href="ninos.html">Catálogo Niños</a></li>
                     <li><a href="ninos-conjuntos.html">Conjuntos</a></li>
                     <li><a href="ninos-boxers.html">Bóxers</a></li>
                     <li><a href="ninos-deportivo.html">Deportivo</a></li>
@@ -189,3 +216,4 @@
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
 </body>
 </html>
+
