@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olympo Shop - Conjuntos</title>
+    <title>Olympo Shop</title>
     <style>
         :root {
             --bg-color: #f9f8f6;
@@ -13,141 +13,96 @@
             --card-bg: #ffffff;
             --border-color: #e5e0d8;
         }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); }
+        
+        /* Banner de Ofertas Animado más fino y en tipo carrusel (va y viene) */
+        .ofertas-banner {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 6px 0;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .ofertas-banner marquee {
+            display: block;
+            width: 100%;
+        }
+
         header { background-color: var(--header-bg); padding: 20px 40px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
-        .social-top { display: flex; gap: 12px; }
-        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 7px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+        
+        .social-top { display: flex; gap: 10px; }
+        .social-top a { text-decoration: none; font-size: 13px; font-weight: 600; color: #fff; padding: 8px 16px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
         .btn-wsp { background-color: #25d366; }
         .btn-ig { background-color: #e1306c; }
+
         .logo-container { text-align: center; flex-grow: 1; }
         .logo-link { text-decoration: none; color: #222; display: inline-block; }
-        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; transition: color 0.2s; }
-        .logo-link:hover h1 { color: var(--accent-color); }
+        h1 { margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 400; color: #222; }
         
         nav { background-color: #ffffff; border-bottom: 1px solid var(--border-color); display: flex; justify-content: center; width: 100%; position: sticky; top: 0; z-index: 1000; }
         .nav-menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
         .nav-item { position: relative; }
         .nav-item > a { display: block; padding: 15px 20px; text-decoration: none; color: var(--text-color); font-size: 14px; font-weight: 500; letter-spacing: 1px; }
         .nav-item > a:hover { background-color: #f1ede6; color: #000; }
-        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 100; border: 1px solid var(--border-color); }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); list-style: none; min-width: 200px; z-index: 1000; border: 1px solid var(--border-color); }
         .dropdown li a { display: block; padding: 12px 20px; text-decoration: none; color: var(--text-color); font-size: 13px; border-bottom: 1px solid #f4f4f4; }
         .dropdown li a:hover { background-color: #f9f8f6; color: var(--accent-color); }
-        .nav-item:hover .dropdown { display: block; }
+        .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
 
-        .nav-volver { padding: 12px 40px; background: #fff; border-bottom: 1px solid var(--border-color); }
-        .nav-volver a { text-decoration: none; color: var(--accent-color); font-weight: 600; font-size: 13px; }
-        .section-title { max-width: 1200px; margin: 30px auto 10px auto; padding: 0 20px; font-size: 22px; font-weight: 600; color: #333; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
-        .catalog-container { max-width: 1200px; margin: 20px auto; padding: 0 20px 40px 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; cursor: pointer; transition: opacity 0.2s; }
-        .card img:hover { opacity: 0.9; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 40px auto 15px auto; padding: 0 20px; border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; }
+        .section-title { font-size: 20px; font-weight: 400; margin: 0; color: #333; }
+        .ver-mas { text-decoration: none; color: var(--accent-color); font-size: 13px; font-weight: 600; }
+        
+        .horizontal-scroll-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px 15px 20px; 
+            display: flex; 
+            gap: 20px; 
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 20px;
+        }
+        .horizontal-scroll-container::-webkit-scrollbar { height: 8px; }
+        .horizontal-scroll-container::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 4px; }
+        
+        .card { 
+            min-width: 220px; 
+            width: 220px; 
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            flex-shrink: 0; 
+        }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #eee; }
         .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
         .card-title { font-size: 13px; font-weight: 600; margin: 0 0 5px 0; color: #444; }
         .card-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
-        .card-desc { font-size: 11px; color: #777; margin: 0 0 15px 0; flex-grow: 1; }
+        .card-price { font-size: 13px; font-weight: 600; color: #666; margin-bottom: 10px; font-style: italic; }
         .btn-consultar { background-color: #25d366; color: white; text-align: center; padding: 10px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600; margin-top: auto; }
-        .btn-consultar:hover { background-color: #1ebe57; }
-
-        #modal-producto {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        .modal-contenido {
-            background-color: #fff;
-            border-radius: 10px;
-            max-width: 450px;
-            width: 100%;
-            overflow: hidden;
-            box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .modal-cerrar {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 26px;
-            font-weight: bold;
-            color: #333;
-            cursor: pointer;
-            z-index: 10;
-            background: rgba(255,255,255,0.8);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-cerrar:hover { color: var(--accent-color); }
-        .modal-img-container {
-            width: 100%;
-            height: 380px;
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .modal-img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        .modal-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
-        .modal-brand { font-size: 11px; font-weight: 700; color: var(--accent-color); text-transform: uppercase; }
-        .modal-title { font-size: 15px; font-weight: 600; color: #222; margin: 0; }
-        .modal-desc { font-size: 12px; color: #666; margin-bottom: 8px; }
-        .modal-btn-wsp {
-            background-color: #25d366;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            display: block;
-        }
-        .modal-btn-wsp:hover { background-color: #1ebe57; }
 
         #btn-volver-arriba {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--accent-color);
-            color: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-            z-index: 9999;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        #btn-volver-arriba:hover {
-            background-color: #b8972e;
-            transform: translateY(-3px);
+            position: fixed; bottom: 25px; right: 25px; background-color: var(--accent-color); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.15); z-index: 9999;
         }
     </style>
 </head>
 <body>
+    <!-- Banner Desplazable de Ofertas más fino (Carrusel) -->
+    <div class="ofertas-banner">
+        <marquee behavior="alternate" scrollamount="4">
+            🔥 ¡OFERTAS DISPONIBLES! Consultar por WhatsApp o Instagram para más info 🔥
+        </marquee>
+    </div>
+
     <header>
         <div style="width: 100px;"></div>
         <div class="logo-container">
@@ -197,66 +152,67 @@
                     <li><a href="ninos-pijamas.html">Pijamas y Térmicas</a></li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="plussize.html">Plus Size</a>
-            </li>
+            <li class="nav-item"><a href="plussize.html">Plus Size</a></li>
         </ul>
     </nav>
 
-    <div class="nav-volver"><a href="index.html">&larr; Volver al inicio</a></div>
-    <div class="section-title">Todos los Conjuntos</div>
-    
-    <div class="catalog-container">
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0c23733e-e6af-426b-80a5-29683935272a-66bda5a782a20b080517786851108259-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Conjunto corpiño con aro y less de puntilla</div><div class="card-desc">BLANCO - 90 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20corpiño%20con%20aro" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/ae70ab4c-0c15-4424-811c-2938a14918e6-128833917fc9957d5417786851509204-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Conjunto corpiño triángulo soft y less de puntilla</div><div class="card-desc">ROJO - 90 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo%20soft" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/3c4159f8-b39b-4346-ae3e-40afc8a80479-78b1ff534571936c7c17786850849931-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Conjunto corpiño triángulo y less de puntilla</div><div class="card-desc">NEGRO - 85 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20triángulo%20negro" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
-        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/d5fb12b5-5735-43a9-a9a7-0e2417a8c3e8-5a81297dbfa465b0c917786850556272-480-0.webp" onclick="abrirModal(this)"><div class="card-body"><div class="card-brand">KAURY</div><div class="card-title">Conjunto corpiño push up y less de encaje</div><div class="card-desc">BLANCO - 85 - Consultar más talles</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Conjunto%20push%20up" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    <!-- Sección Mujer -->
+    <div class="section-header">
+        <h2 class="section-title">Destacados Sección Mujer</h2>
+        <a href="mujeres.html" class="ver-mas">Ver más &rarr;</a>
+    </div>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0572a79a-d87b-4c45-af26-729948301478-75a9ad8d6e6fc8675b17786974868106-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body escote cruzado de microfibra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20escote%20cruzado" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e4340279-87cd-4a5a-adcd-c30e608f42fb-83c379d965ec6cfa4a17782612074856-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body micromorley manga larga</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20micromorley" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/6575d7c0-4ae8-4d40-81c7-b67a21200be4-2ef8ac942948486a0d17769768928278-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Corset armado con aro de raso</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corset" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/24a66614-7bfa-481c-bd3d-50f5d39195d3-a8214c66acb230004c17579770674342-480-0.webp"><div class="card-body"><div class="card-brand">EXCLUSIVE</div><div class="card-title">Bustier con cierre de raso elastizado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bustier" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f482281-be59-40ef-8157-00ce2f7ffad5-a4afbcda11b8d117ee17786975069924-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body modal gamuzado estampado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20modal" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/cbe1c79e-99a6-461f-bfd8-03420e5d9a01-52556163b5ac1f7aac17773943890593-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Body microfibra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Body%20microfibra" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
-    <!-- Ventana Modal con la foto ENTERA y detalles -->
-    <div id="modal-producto" onclick="cerrarModalFuera(event)">
-        <div class="modal-contenido">
-            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
-            <div class="modal-img-container">
-                <img id="modal-img" src="" alt="Producto">
-            </div>
-            <div class="modal-body">
-                <div id="modal-brand" class="modal-brand"></div>
-                <h3 id="modal-title" class="modal-title"></h3>
-                <div id="modal-desc" class="modal-desc"></div>
-                <a id="modal-wsp" href="#" target="_blank" class="modal-btn-wsp">Consultar por WhatsApp</a>
-            </div>
-        </div>
+    <!-- Sección Hombre -->
+    <div class="section-header">
+        <h2 class="section-title">Destacados Sección Hombre</h2>
+        <a href="boxers.html" class="ver-mas">Ver más &rarr;</a>
+    </div>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/70f3e31d-41b4-4638-a935-26a96a8c3fa7-f51d34b71c04ed08e417589220477879-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Bóxer dufour rayado sin costura</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Bóxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/632303d4-3aab-4b02-8057-318b89e09c81-8d8528c2179b8d879617755866410964-480-0.webp"><div class="card-body"><div class="card-brand">CIUDADELA</div><div class="card-title">Boxer sin costura liso Tom</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/067044cb-a42e-4899-8522-235729107688-0877d97d58e6e437e417849169860524-480-0.webp"><div class="card-body"><div class="card-brand">BAKHOU</div><div class="card-title">Boxer liso de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/362c9214-539d-4b58-ba43-9520fbce3124-9e15f3f77a5b9922f317590022488715-480-0.webp"><div class="card-body"><div class="card-brand">G3</div><div class="card-title">Boxer pierna corta elástico tejido</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0496eb1d-387c-46f0-b7fa-8c9798a57d2e-9a01fd4b73ba79681b17590096829839-480-0.webp"><div class="card-body"><div class="card-brand">ACROBATA</div><div class="card-title">Boxer hombre pack x3 de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8bb9be2b-ec0c-42da-a075-9a17824100dc-c443e7704c56b707dd17615942949251-480-0.webp"><div class="card-body"><div class="card-brand">B&K</div><div class="card-title">Boxer hombre estampado de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+
+    <!-- Sección Niños -->
+    <div class="section-header">
+        <h2 class="section-title">Destacados Sección Niños</h2>
+        <a href="ninos.html" class="ver-mas">Ver más &rarr;</a>
+    </div>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4433b475-4977-4aad-aad1-e0f4ce7084df-e80f45e4204be6bebb17781032327424-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama niña con tul manga larga FROZEN</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama%20Frozen" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/4271cb67-4274-4b3d-8678-f2e5196e9e3e-8f52b1823fc6e56d5517769650047800-480-0.webp"><div class="card-body"><div class="card-brand">KIERO</div><div class="card-title">Camiseta térmica de algodón a rayas</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Camiseta" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/a8f18982-b73d-4b18-b69c-424931b7b679-13488c53504bfda12717781088577599-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Buzo Clasico Mickey</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Buzo%20Mickey" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/8f46276a-fc47-4f6f-8fc7-10c0a5b6ca29-d363da5f2e9b0ed8f717589220789201-480-0.webp"><div class="card-body"><div class="card-brand">DUFOUR</div><div class="card-title">Boxer kids Sin Costura Estampado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Boxer%20kids" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/e206e4d8-aef8-4b6e-93c4-9c6bd8a46899-2354b87af6a68488e617781088337884-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pantalon de Mickey Friends</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pantalon" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/9cba4340-b4a9-4529-ba80-af19c2d820a8-851213e5e79147d17917781032189096-480-0.webp"><div class="card-body"><div class="card-brand">COCOT</div><div class="card-title">Pijama niña con capa manga larga FROZEN</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/0bf924c9-8285-47d7-ae8c-73592b265f07-4a91a7e879cd2753fb17794722086924-480-0.webp"><div class="card-body"><div class="card-brand">ELEMENTO</div><div class="card-title">Pijama de nena KITTY de algodón</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Pijama" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+    </div>
+
+    <!-- Sección Plus Size -->
+    <div class="section-header">
+        <h2 class="section-title">Destacados Plus Size</h2>
+        <a href="plussize.html" class="ver-mas">Ver más &rarr;</a>
+    </div>
+    <div class="horizontal-scroll-container">
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/725877e4-59a6-4553-af79-24682aae0e21-dd1eadf15df13036bc17579802280215-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Corpiño taza doble de algodón y lycra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/04375346-9478-4fec-9cfe-350ce0230565-1d9d0aada4d765a82f17614129516137-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño Reductor de Encaje Reforzado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/bc982ce2-805d-4d2f-b13b-04fc33fdd17b-f9541fe3342d9423bc17786948486153-480-0.webp"><div class="card-body"><div class="card-brand">TRENDA</div><div class="card-title">Corpiño soutien reductor de microfibra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/306f8001-cb61-4869-9e73-5decc9f17f18-96726d59de353ce60d17851692912657-480-0.webp"><div class="card-body"><div class="card-brand">NATUBEL</div><div class="card-title">Corpiño reductor reforzado</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/5e45b20b-0f46-4f6d-b0a4-0dda632c4687-72662467fc0307824517579802945986-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Corpiño sin aro de microfibra</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
+        <div class="card"><img src="https://acdn-us.mitiendanube.com/stores/006/403/839/products/7897fe9d-ea37-46d0-b84f-19550c2f7a2a-a0898cd63c0ab604b117726635519856-480-0.webp"><div class="card-body"><div class="card-brand">TIENTO</div><div class="card-title">Corpiño confort sin aro de algodón</div><div class="card-price">Consultar precio</div><a href="https://wa.me/5491168327127?text=Hola!%20Me%20interesa%20Corpiño" target="_blank" class="btn-consultar">Consultar por WhatsApp</a></div></div>
     </div>
 
     <a href="#" id="btn-volver-arriba" title="Volver arriba">↑</a>
-
-    <script>
-        function abrirModal(imgElement) {
-            const card = imgElement.closest('.card');
-            const brand = card.querySelector('.card-brand').innerText;
-            const title = card.querySelector('.card-title').innerText;
-            const desc = card.querySelector('.card-desc').innerText;
-            const wspLink = card.querySelector('.btn-consultar').href;
-
-            document.getElementById('modal-img').src = imgElement.src;
-            document.getElementById('modal-brand').innerText = brand;
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-desc').innerText = desc;
-            document.getElementById('modal-wsp').href = wspLink;
-
-            document.getElementById('modal-producto').style.display = 'flex';
-        }
-
-        function cerrarModal() {
-            document.getElementById('modal-producto').style.display = 'none';
-        }
-
-        function cerrarModalFuera(event) {
-            if (event.target.id === 'modal-producto') {
-                cerrarModal();
-            }
-        }
-    </script>
 </body>
 </html>
